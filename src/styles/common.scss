@@ -1,13 +1,13 @@
-@import url("//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
-
 * {
   box-sizing: border-box;
-  font-family: "Spoqa Han Sans", "Spoqa Han Sans JP", "Sans-serif";
 }
-
+body {
+  width: 100vw;
+  font-family: “Spoqa Han Sans Neo”, “sans-serif”;
+}
 :root {
   --main-color: #fcdb02;
-  // 블랙: #000 화이트: #fff
   --gray-color: #999999;
   --soldoutbox-color: #f7f7f7;
+  // 블랙: #000 화이트: #fff
 }
