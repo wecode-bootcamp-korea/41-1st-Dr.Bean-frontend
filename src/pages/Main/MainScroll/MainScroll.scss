@@ -14,11 +14,10 @@
     transform: translate(-50%);
     border: 1px solid red;
     color: #fff;
-    font-size: 40px;
     text-align: center;
 
-    .fa-solid.fa-angle-left,
-    .fa-solid.fa-angle-right {
+    .left-btn,
+    .right-btn {
       position: absolute;
       width: 64px;
       height: 64px;
@@ -27,11 +26,11 @@
       cursor: pointer;
     }
 
-    .fa-solid.fa-angle-left {
+    .left-btn {
       left: 0;
     }
 
-    .fa-solid.fa-angle-right {
+    .right-btn {
       right: 0;
     }
   }
