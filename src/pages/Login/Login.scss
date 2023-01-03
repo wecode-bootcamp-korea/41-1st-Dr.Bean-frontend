@@ -8,6 +8,7 @@
   margin-top: 50px;
   margin-right: auto;
   margin-left: auto;
+  font-family: “Spoqa Han Sans Neo”, sans-serif;
 
   .page-description {
     width: 100%;
@@ -16,6 +17,7 @@
 
   .pageback-btn {
     width: fit-content;
+    margin-bottom: 20px;
     border: none;
     background: none;
     cursor: pointer;
@@ -26,13 +28,14 @@
   }
 
   .welcome-title {
-    margin-bottom: 0;
+    margin-bottom: 15px;
     font-size: 230%;
     font-weight: 740;
     text-align: center;
   }
 
   .welcome-subtitle {
+    margin-bottom: 30px;
     color: #666666;
     font-size: 100%;
     font-weight: 630;

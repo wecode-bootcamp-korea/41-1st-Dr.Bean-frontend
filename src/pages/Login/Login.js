@@ -12,7 +12,24 @@ const Login = () => {
   const navigate = useNavigate();
   const [idValue, setIdValue] = useState("");
   const [pwValue, setPwValue] = useState("");
+  const [idlabel, setIdlabel] = useState("아이디");
   const [isClicked, setIsClicked] = useState(false);
+
+  const fetchHandler = () => {
+    fetch("#", {
+      method: "GET",
+      headers: { "Content-Type": "application/json;charset=utf-8" },
+
+      body: JSON.stringify({
+        userid: idValue,
+        password: pwValue,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
+  };
 
   const saveUserId = e => {
     setIdValue(e.target.value);
@@ -45,7 +62,7 @@ const Login = () => {
         </div>
         <form onSubmit={e => e.preventDefault()}>
           <div className="login-form">
-            <label className="id-label">아이디</label>
+            <label className="id-label">{idlabel}</label>
             {/* 빈칸일때 '아이디는 필수입력사항입니다.' */}
             <input
               type="text"
@@ -80,9 +97,12 @@ const Login = () => {
             </div>
             <button
               className="login-btn"
-              onClick={() => {
-                navigate("/main");
-              }}
+              onClick={
+                //   () => {
+                //   navigate("/main");
+                // }
+                fetchHandler
+              }
             >
               로그인
             </button>
