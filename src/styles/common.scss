@@ -1,10 +1,16 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   width: 100vw;
   font-family: “Spoqa Han Sans Neo”, “sans-serif”;
 }
+
+.inner {
+  width: 90%;
+}
+
 :root {
   --main-color: #fcdb02;
   --gray-color: #999999;
