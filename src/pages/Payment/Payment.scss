@@ -1,0 +1,269 @@
+.subHead-title {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.36px;
+  color: #000;
+  padding-top: 37px;
+}
+.settleContainer-row {
+  width: 1140px;
+  height: 1738.8px;
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+}
+.settleContainer-left {
+  width: 680px;
+  height: 1738.8px;
+  display: block;
+}
+.settleProduct-list {
+  height: 62px;
+  display: flex;
+  cursor: pointer;
+  width: 680px;
+  height: 62px;
+  background-color: #111;
+  align-items: center;
+  padding: 0 30px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.settleProduct-list p {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 700;
+}
+.settleProduct-list span {
+  position: relative;
+  width: 13px;
+  height: 13px;
+  line-height: 15px;
+  color: #fff;
+  font-size: 25px;
+  transform: translate(0);
+}
+.settleOrder {
+  width: 100%;
+  height: 281px;
+  position: relative;
+  display: block;
+  margin-top: 78px;
+}
+.user {
+  width: 664px;
+  height: 30px;
+  margin: 0 8px 19px;
+  display: flex;
+}
+.user h2 {
+  display: flex;
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 26px;
+  margin: 0 8px 19px;
+  margin-top: 17px;
+  align-items: center;
+}
+.userName {
+  position: relative;
+  width: fit-content;
+  background-color: white;
+  top: 10px;
+  left: 30px;
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.inputUser {
+  border: 1px solid #666;
+  padding: 20px 24px;
+  font-size: 18px;
+  height: 59px;
+  color: #666;
+  width: 100%;
+  appearance: none;
+}
+
+.usePhone {
+  position: relative;
+  width: fit-content;
+  background-color: white;
+  top: 10px;
+  left: 30px;
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.phone-number {
+  height: 59px;
+  display: flex;
+  justify-content: space-around;
+}
+.inputPhone {
+  border: 1px solid #666;
+  padding: 20px 24px;
+  font-size: 18px;
+  height: 59px;
+  color: #666;
+  width: 100%;
+  appearance: none;
+  margin-right: 10px;
+}
+
+.inputPhone:last-child {
+  margin-right: 0px;
+}
+.inputEmail {
+  border: 1px solid #666;
+  padding: 20px 24px;
+  font-size: 18px;
+  height: 59px;
+  color: #666;
+  width: 100%;
+  appearance: none;
+}
+.userEmail {
+  position: relative;
+  width: fit-content;
+  background-color: white;
+  top: 10px;
+  left: 30px;
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.settle-deliver {
+  width: 680px;
+  height: 465px;
+}
+.deliver-headline {
+  display: flex;
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 26px;
+  margin: 0 8px 19px;
+  align-items: center;
+  margin-top: 100px;
+}
+.deliver-headline h2 {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.address {
+  position: absolute;
+  right: 0;
+  width: 106px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #666;
+  vertical-align: middle;
+  border: 1px solid #666;
+  background-color: #fff;
+  padding-top: 2px;
+}
+.address h4 {
+  margin-left: 5px;
+}
+.text {
+  ine-height: 18px;
+  font-size: 18px;
+  letter-spacing: -0.18px;
+  color: #666;
+  margin-left: 10px;
+}
+.userName {
+  position: relative;
+  width: fit-content;
+  background-color: white;
+  top: 10px;
+  left: 30px;
+  padding-left: 10px;
+  font-weight: 700px;
+}
+
+.inputUser {
+  border: 1px solid #666;
+  padding: 20px 24px;
+  font-size: 18px;
+  height: 59px;
+  color: #666;
+  width: 100%;
+  appearance: none;
+}
+
+.settle-container-right {
+  position: sticky;
+  margin-top: 145px;
+  top: 20px;
+  width: 100%;
+  height: 476px;
+  margin-left: 40px;
+}
+.order-price {
+  width: 436px;
+  height: 311px;
+  border: 1px solid #dddd;
+  margin-top: 82px;
+}
+.article-title h2 {
+  width: 434px;
+  height: 71px;
+  line-height: 71px;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 0 34px 0 34px;
+  border-bottom: 1px solid #dddd;
+  background-color: rgb(247, 242, 242);
+}
+
+.totalPrice {
+  width: 430px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  color: #666;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.firstPrice {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin: 20px 0px 0 0px;
+}
+.firstPrice-bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin: 50px 0px 0 0px;
+  color: black;
+}
+.priceText {
+  width: 414px;
+  height: 48px;
+  font-size: 18.5px;
+  line-height: 24px;
+  color: #666666;
+  display: flex;
+  vertical-align: baseline;
+}
+.priceButton {
+  height: 59px;
+  text-align: center;
+  background-color: #ffe807;
+  color: #111;
+  font-size: 22px;
+  font-weight: 700;
+  width: 100%;
+  margin-bottom: 12px;
+  margin-top: 37px;
+  border: 0;
+  cursor: pointer;
+}
