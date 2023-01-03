@@ -21,8 +21,6 @@ function MainFilter() {
     },
   ];
 
-  const ITEM_DATA = [];
-
   return (
     <>
       <h1 className="icons-title">ICONS</h1>

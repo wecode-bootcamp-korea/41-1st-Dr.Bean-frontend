@@ -23,12 +23,25 @@ function MainFilterItem() {
     },
   ];
   return (
-    <ul className="item-container inner">
-      <li className="item">
-        <img className="item-img" />
-        <p class="fa-solid fa-won-sign">상품이름</p>
-      </li>
-    </ul>
+    <>
+      <ul className="item-container inner">
+        {ITEM_DATA.map(list => {
+          return (
+            <li className="item" key={list.id}>
+              <img className="item-img" src={list.img} />
+              <div className="item-sub-wrap">
+                <p class="fa-solid fa-won-sign">{list.name}</p>
+                <p>{list.price}</p>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+      <div className="btn-wrap inner">
+        <i class="fa-solid fa-angle-left" />
+        <i class="fa-solid fa-angle-right" />
+      </div>
+    </>
   );
 }
 

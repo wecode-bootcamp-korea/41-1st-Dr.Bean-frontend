@@ -1,12 +1,18 @@
+@import "../../../styles/color";
+
 .scroll-container {
+  position: relative;
   height: 560px;
   margin-bottom: 80px;
-  background-color: var(--gray-color);
+  background-color: $boxColor;
 
   .btn-wrap {
     position: absolute;
-    top: 220px;
+    top: 45%;
+    left: 50%;
     height: 64px;
+    transform: translate(-50%);
+    border: 1px solid red;
     color: #fff;
     font-size: 40px;
     text-align: center;
