@@ -25,28 +25,32 @@
   }
 }
 
-.btn-wrap {
-  position: relative;
-  height: 64px;
-  color: #fff;
-  font-size: 40px;
-  text-align: center;
+.btn-container {
+  margin-bottom: 80px;
 
-  .fa-solid.fa-angle-left,
-  .fa-solid.fa-angle-right {
-    position: absolute;
-    width: 64px;
+  .btn-wrap {
+    position: relative;
     height: 64px;
-    padding-top: 12px;
-    background-color: #000;
-    cursor: pointer;
-  }
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
 
-  .fa-solid.fa-angle-left {
-    left: 0;
-  }
+    .fa-solid.fa-angle-left,
+    .fa-solid.fa-angle-right {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      padding-top: 12px;
+      background-color: #000;
+      cursor: pointer;
+    }
 
-  .fa-solid.fa-angle-right {
-    right: 0;
+    .fa-solid.fa-angle-left {
+      left: 0;
+    }
+
+    .fa-solid.fa-angle-right {
+      right: 0;
+    }
   }
 }

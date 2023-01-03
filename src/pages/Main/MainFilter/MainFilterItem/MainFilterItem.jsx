@@ -22,6 +22,7 @@ function MainFilterItem() {
       price: "260,000",
     },
   ];
+
   return (
     <>
       <ul className="item-container inner">
@@ -37,9 +38,11 @@ function MainFilterItem() {
           );
         })}
       </ul>
-      <div className="btn-wrap inner">
-        <i class="fa-solid fa-angle-left" />
-        <i class="fa-solid fa-angle-right" />
+      <div className="btn-container">
+        <div className="btn-wrap inner">
+          <i class="fa-solid fa-angle-left" />
+          <i class="fa-solid fa-angle-right" />
+        </div>
       </div>
     </>
   );

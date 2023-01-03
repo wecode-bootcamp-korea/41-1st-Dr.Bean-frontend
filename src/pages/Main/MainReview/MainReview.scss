@@ -1,0 +1,83 @@
+@import "../../../styles/color";
+
+.review-container {
+  position: relative;
+  background-color: #fafafa;
+
+  .inner {
+    height: 800px;
+    border: 1px solid green;
+
+    .review-wrap {
+      position: absolute;
+      z-index: 1;
+      left: 50%;
+
+      .review-title {
+        font-size: 64px;
+        font-weight: 700;
+      }
+
+      .review-line {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 12px;
+        margin: 80px 0 40px 0;
+
+        .left-line,
+        .right-line {
+          height: 100%;
+          background-color: #000;
+        }
+
+        .left-line {
+          width: 80%;
+        }
+
+        .right-line {
+          width: 15%;
+        }
+      }
+
+      .review-content {
+        width: 500px;
+        margin-bottom: 30px;
+        color: $pointFontColor;
+        font-size: 26px;
+        line-height: 40px;
+      }
+
+      .empty-btn {
+        width: 160px;
+        height: 52px;
+        padding: 0 17px;
+        border: 1px solid #000;
+        background-color: rgba($color: #000000, $alpha: 0);
+        font-size: 18px;
+
+        &:hover {
+          transition: all 350ms ease-in-out;
+          background-color: #000;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.left-img,
+.right-img {
+  position: absolute;
+  width: 400px;
+}
+
+.left-img {
+  top: 230px;
+  left: 150px;
+}
+
+.right-img {
+  top: 0px;
+  right: 150px;
+}
