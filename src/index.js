@@ -5,4 +5,8 @@ import "./styles/reset.scss";
 import "./styles/common.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<div>hello</div>);
+root.render(
+  <div>
+    <Router />
+  </div>
+);

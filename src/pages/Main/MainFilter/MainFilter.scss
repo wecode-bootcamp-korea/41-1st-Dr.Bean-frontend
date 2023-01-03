@@ -1,0 +1,41 @@
+.icons_title {
+  margin-bottom: 30px;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.48px;
+  line-height: 57.6px;
+  text-align: center;
+}
+
+.icons_container {
+  display: flex;
+  height: 250px;
+  margin-bottom: 50px;
+  background-color: #e0e0e2;
+
+  .icon_wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    border: 1px solid red;
+  }
+
+  li {
+    opacity: 0.5;
+    text-align: center;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    img {
+      width: 150px;
+      height: 200px;
+    }
+
+    .icon_name {
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+}

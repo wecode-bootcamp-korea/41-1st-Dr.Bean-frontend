@@ -1,0 +1,36 @@
+.scroll-container {
+  height: 560px;
+  margin-bottom: 80px;
+  border: 1px solid orange;
+  background-color: var(--gray-color);
+
+  .btn-wrap {
+    position: absolute;
+    top: 220px;
+    left: 50%;
+    width: 60%;
+    height: 64px;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+
+    .fa-solid.fa-angle-left,
+    .fa-solid.fa-angle-right {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      padding-top: 12px;
+      background-color: #000;
+      cursor: pointer;
+    }
+
+    .fa-solid.fa-angle-left {
+      left: 0;
+    }
+
+    .fa-solid.fa-angle-right {
+      right: 0;
+    }
+  }
+}

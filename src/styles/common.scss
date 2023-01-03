@@ -7,6 +7,13 @@ body {
   font-family: "Spoqa Han Sans Neo", "sans-serif";
 }
 
+.inner {
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 :root {
   --main-color: #fcdb02;
   --gray-color: #999999;
