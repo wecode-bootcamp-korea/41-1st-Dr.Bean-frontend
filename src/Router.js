@@ -10,13 +10,13 @@ import ProductDetail from "./pages/ProductDetail/ProductDetail";
 export default function Router() {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
-        <Route path="/" element={<Nav />} />
-        <Route path="/Main" element={<Main />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Product" element={<Product />} />
-        <Route path="/ProductList" element={<ProductList />} />
-        <Route path="/ProductDetail" element={<ProductDetail />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/productList" element={<ProductList />} />
+        <Route path="/productDetail" element={<ProductDetail />} />
       </Routes>
     </BrowserRouter>
   );
