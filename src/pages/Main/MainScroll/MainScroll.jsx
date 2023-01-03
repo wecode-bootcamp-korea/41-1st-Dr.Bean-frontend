@@ -4,7 +4,7 @@ import "./MainScroll.scss";
 function MainScroll() {
   return (
     <div className="scroll-container">
-      <div className="btn-wrap">
+      <div className="btn-wrap inner">
         <i class="fa-solid fa-angle-left" />
         <i class="fa-solid fa-angle-right" />
       </div>

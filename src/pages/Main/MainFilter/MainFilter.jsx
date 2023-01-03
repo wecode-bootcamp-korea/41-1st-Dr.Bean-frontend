@@ -1,5 +1,6 @@
 import React from "react";
 import "./MainFilter.scss";
+import MainFilterItem from "./MainFilterItem/MainFilterItem";
 
 function MainFilter() {
   const ICON_DATA = [
@@ -24,27 +25,20 @@ function MainFilter() {
 
   return (
     <>
-      <h1 className="icons_title">ICONS</h1>
-
-      <div className="icons_container">
-        <ul className="icon_wrap inner">
+      <h1 className="icons-title">ICONS</h1>
+      <div className="icons-container">
+        <ul className="icon-wrap inner">
           {ICON_DATA.map(list => {
             return (
               <li key={list.id}>
                 <img src={list.img} />
-                <p className="icon_name">{list.name}</p>
+                <p className="icon-name">{list.name}</p>
               </li>
             );
           })}
         </ul>
-        <ul className="items_container">
-          <li>
-            <img className="item_img" />
-            <span className="item_name" />
-            <span className="item_price" />
-          </li>
-        </ul>
       </div>
+      <MainFilterItem />
     </>
   );
 }

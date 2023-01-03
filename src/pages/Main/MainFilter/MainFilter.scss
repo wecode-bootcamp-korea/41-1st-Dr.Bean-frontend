@@ -1,5 +1,4 @@
-.icons_title {
-  margin-bottom: 30px;
+.icons-title {
   font-size: 48px;
   font-weight: 700;
   letter-spacing: -0.48px;
@@ -7,17 +6,16 @@
   text-align: center;
 }
 
-.icons_container {
+.icons-container {
   display: flex;
   height: 250px;
-  margin-bottom: 50px;
+  margin: 50px 0;
   background-color: #e0e0e2;
 
-  .icon_wrap {
+  .icon-wrap {
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
-    border: 1px solid red;
   }
 
   li {
@@ -33,7 +31,7 @@
       height: 200px;
     }
 
-    .icon_name {
+    .icon-name {
       font-size: 18px;
       font-weight: 700;
     }
