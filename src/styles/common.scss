@@ -9,9 +9,7 @@ body {
 
 .inner {
   width: 80%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: auto;
 }
 
 :root {
