@@ -2,25 +2,25 @@ import React from "react";
 import "./MainFilter.scss";
 import MainFilterItem from "./MainFilterItem/MainFilterItem";
 
-function MainFilter() {
-  const ICON_DATA = [
-    {
-      id: 1,
-      img: "/images/coffee_icon.png",
-      name: "원두이름",
-    },
-    {
-      id: 2,
-      img: "/images/coffee_icon.png",
-      name: "원두이름",
-    },
-    {
-      id: 3,
-      img: "/images/coffee_icon.png",
-      name: "원두이름",
-    },
-  ];
+const ICON_DATA = [
+  {
+    id: 1,
+    img: "/images/coffee_icon.png",
+    name: "원두이름",
+  },
+  {
+    id: 2,
+    img: "/images/coffee_icon.png",
+    name: "원두이름",
+  },
+  {
+    id: 3,
+    img: "/images/coffee_icon.png",
+    name: "원두이름",
+  },
+];
 
+function MainFilter() {
   return (
     <>
       <h1 className="icons-title">ICONS</h1>
