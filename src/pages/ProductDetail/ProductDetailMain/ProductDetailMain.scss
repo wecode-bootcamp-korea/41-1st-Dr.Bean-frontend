@@ -1,0 +1,106 @@
+@import "../../../styles/color";
+
+.product-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid red;
+
+  img {
+    width: 560px;
+    height: 700px;
+  }
+
+  .product-right {
+    width: 520px;
+
+    .right-container {
+      h1 {
+        margin-bottom: 50px;
+        padding-bottom: 50px;
+        border-bottom: 1px solid #e5e5e5;
+        font-size: 26px;
+        font-weight: 700;
+      }
+
+      .select-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        div {
+          width: 100%;
+          color: #999;
+        }
+
+        .select-btn {
+          width: 168px;
+          margin-bottom: 8px;
+          padding: 0 5px 0 15px;
+          border: 1px solid #e5e5e5;
+          font-size: 17px;
+          letter-spacing: -0.18px;
+          line-height: 36px;
+          cursor: pointer;
+        }
+      }
+
+      .total-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+
+        .count-container {
+          display: flex;
+          justify-content: space-between;
+          width: 177px;
+          height: 36px;
+          margin-bottom: 30px;
+          padding: 0 5px 8px 15px;
+          border-bottom: 1px solid #e5e5e5;
+          font-size: 18px;
+          line-height: 36px;
+
+          .count-plus,
+          .count-minus {
+            margin-top: 7px;
+            cursor: pointer;
+          }
+        }
+
+        .product-price {
+          line-height: 30px;
+
+          .won {
+            font-size: 25px;
+          }
+
+          span {
+            font-size: 30px;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .cart-btn,
+    .buy-btn {
+      width: 255px;
+      height: 62px;
+      padding: 0 17px;
+      border: 1px solid #000;
+      font-size: 22px;
+      letter-spacing: -0.18px;
+    }
+
+    .cart-btn {
+      margin-right: 8px;
+      background-color: rgba($color: #000000, $alpha: 0);
+    }
+
+    .buy-btn {
+      background-color: #000;
+      color: #fff;
+    }
+  }
+}
