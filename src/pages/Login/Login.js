@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSquare,
-  faCircleLeft,
-  faSquareCheck,
-} from "@fortawesome/free-regular-svg-icons";
-// import { BsSquare } from "react-icons/bs";
+import { faSquare, faSquareCheck } from "@fortawesome/free-regular-svg-icons";
 import { useNavigate } from "react-router-dom";
 import "./Login.scss";
+import ContentHeader from "../../components/RegisterLogin/ContentHeader";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -63,25 +59,12 @@ const Login = () => {
 
   return (
     <div className="login-section">
-      <div className="page-description">
-        <button
-          className="pageback-btn"
-          onClick={() => {
-            navigate("/main");
-          }}
-        >
-          <FontAwesomeIcon icon={faCircleLeft} className="arrow-left" />
-        </button>
-        <h1>로그인</h1>
-      </div>
-      <div className="welcome">
-        <h2 className="welcome-title">어서오세요</h2>
-        <h3 className="welcome-subtitle">닥터코드에 오신걸 환영합니다</h3>
-      </div>
+      <ContentHeader
+        pageInfo="로그인"
+        title="어서오세요"
+        subtitle="닥터코드에 오신걸 환영합니다"
+      />
       <div>
-        <div>
-          <h3 className="logintext">로그인</h3>
-        </div>
         <form onSubmit={e => e.preventDefault()}>
           <div className="login-form">
             <label className={idalert ? "id-label-invalid" : "id-label"}>

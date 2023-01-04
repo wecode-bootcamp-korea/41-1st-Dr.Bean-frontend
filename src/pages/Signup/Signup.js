@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { useNavigate } from "react-router-dom";
 import "./Signup.scss";
+import ContentHeader from "../../components/RegisterLogin/ContentHeader";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -18,6 +17,15 @@ export default function Signup() {
   const [phoneTwo, setPhoneTwo] = useState("");
   const [phoneThree, setPhoneThree] = useState("");
   const [points, setPoints] = useState("");
+  const [inputIdValid, setInputIdValid] = useState("inputbox");
+  const [inputPwValid, setInputPwValid] = useState("inputbox");
+  const [pwlabel, setPwlabel] = useState("비밀번호");
+  const [pwalert, setPwalert] = useState("input-label");
+  const [userPwConfirmation, setUserPwConfirmation] = useState("");
+  const [pwconfirmationlabel, setPwConfirmationlabel] =
+    useState("비밀번호 확인");
+  const [pwconfirmationalert, setPwConfirmationalert] = useState("input-label");
+  const [pwconfirmationvalid, setPwconfirmationValid] = useState("inputbox");
 
   const saveUserName = e => {
     setUserName(e.target.value);
@@ -29,6 +37,10 @@ export default function Signup() {
 
   const saveUserPw = e => {
     setUserPw(e.target.value);
+  };
+
+  const saveUserPwConfirmation = e => {
+    setUserPwConfirmation(e.target.value);
   };
 
   const domainSelect = e => {
@@ -70,10 +82,36 @@ export default function Signup() {
   const idvalidation = () => {
     if (userId.length < 5) {
       setIdlabel("아이디 제한 글자 수를 맞춰주세요.");
-      setIdalert(true);
+      setIdalert("input-label-invalid");
+      setInputIdValid(false);
     } else {
       setIdlabel("사용할 수 있는 아이디입니다.");
-      setIdalert(false);
+      setIdalert("input-label-valid");
+      setInputIdValid(true);
+    }
+  };
+
+  const pwvalidation = () => {
+    if (userPw.length < 6) {
+      setPwlabel("비밀번호는 최소 6자");
+      setPwalert("input-label-invalid");
+      setInputPwValid(false);
+    } else {
+      setPwlabel("올바른 형식의 비밀번호를 입력했습니다.");
+      setPwalert("input-label-valid");
+      setInputPwValid(true);
+    }
+  };
+
+  const pwconfirmation = () => {
+    if (userPw !== userPwConfirmation) {
+      setPwConfirmationlabel("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+      setPwConfirmationalert("input-label-invalid");
+      setPwconfirmationValid(false);
+    } else {
+      setPwConfirmationlabel("비밀번호와 비밀번호 확인이 일치합니다.");
+      setPwConfirmationalert("input-label-valid");
+      setPwconfirmationValid(true);
     }
   };
 
@@ -100,23 +138,11 @@ export default function Signup() {
 
   return (
     <div className="signup-section">
-      <div className="page-description">
-        <button
-          className="pageback-btn"
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          <FontAwesomeIcon icon={faCircleLeft} className="arrow-left" />
-        </button>
-        <h1>회원가입</h1>
-      </div>
-      <div className="welcome">
-        <h2 className="welcome-title">환영합니다.</h2>
-        <h3 className="welcome-subtitle">
-          지금 바로 다양한 혜택을 만나보세요.
-        </h3>
-      </div>
+      <ContentHeader
+        pageInfo="회원가입"
+        title="환영합니다."
+        subtitle="지금 바로 다양한 혜택을 만나보세요."
+      />
       <form onSubmit={e => e.preventDefault()}>
         <div className="signup-form">
           <label className="input-label">이름</label>
@@ -129,21 +155,29 @@ export default function Signup() {
           <label className={idalert}>{idlabel}</label>
           <input
             type="text"
-            className="inputbox"
+            className={inputIdValid ? "inputbox" : "inputbox-invalid"}
             placeholder="영문 6글자 이상"
             onChange={e => saveUserId(e)}
             value={userId}
+            onKeyDown={idvalidation}
           />
-          <label className="input-label">비밀번호</label>
+          <label className={pwalert}>{pwlabel}</label>
           <input
             type="password"
-            className="inputbox"
+            className={inputPwValid ? "inputbox" : "inputbox-invalid"}
             placeholder="공백 없는 영문, 숫자 포함 6 ~ 10자"
             onChange={e => saveUserPw(e)}
             value={userPw}
+            onKeyDown={pwvalidation}
           />
-          <label className="input-label">비밀번호 확인</label>
-          <input type="password" className="inputbox" />
+          <label className={pwconfirmationalert}>{pwconfirmationlabel}</label>
+          <input
+            type="password"
+            className={pwconfirmationvalid ? "inputbox" : "inputbox-invalid"}
+            onChange={e => saveUserPwConfirmation(e)}
+            value={userPwConfirmation}
+            onKeyDown={pwconfirmation}
+          />
           <label className="input-label-email">이메일</label>
           <div className="email-section">
             <div className="email-section-1">

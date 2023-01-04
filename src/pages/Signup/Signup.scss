@@ -25,6 +25,7 @@
   }
 
   .arrow-left {
+    margin-bottom: 20px;
     font-size: 50px;
   }
 
@@ -40,6 +41,13 @@
     color: #666666;
     font-size: 100%;
     font-weight: 630;
+    text-align: center;
+  }
+
+  .maintext {
+    margin-bottom: 20px;
+    font-size: 150%;
+    text-align: center;
   }
 
   .signup-form {
@@ -60,11 +68,53 @@
     font-weight: 700;
   }
 
+  .input-label-invalid {
+    position: relative;
+    top: 9px;
+    left: 20px;
+    width: fit-content;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: white;
+    color: red;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .input-label-valid {
+    position: relative;
+    top: 9px;
+    left: 20px;
+    width: fit-content;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: white;
+    color: blue;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
   .inputbox {
     height: 60px;
     margin-bottom: 5px;
     padding-left: 15px;
     font-size: 20px;
+  }
+
+  .inputbox:focus {
+    outline: none;
+  }
+
+  .inputbox-invalid {
+    height: 60px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    border: 1.5px solid red;
+    font-size: 20px;
+  }
+
+  .inputbox-invalid:focus {
+    outline: none;
   }
 
   .input-label-email {
@@ -136,6 +186,7 @@
     width: 440px;
     height: 60px;
     margin-top: 15px;
+    margin-bottom: 50px;
     padding-top: 5px;
     padding-bottom: 5px;
     border: none;
