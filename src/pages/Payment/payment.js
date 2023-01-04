@@ -1,10 +1,16 @@
 import React from "react";
 import "./Payment.scss";
-const payment = () => {
+import { HiArrowLeft } from "react-icons/hi";
+import { AiOutlinePlus } from "react-icons/ai";
+import { FiUser } from "react-icons/fi";
+import { CiDeliveryTruck } from "react-icons/ci";
+import { MdEditNote } from "react-icons/md";
+
+const Payment = () => {
   return (
-    <div className="payment">
+    <div className="payment inner">
       <div className="head-icon">
-        <i class="fa-solid fa-arrow-left fa-2x" />
+        <HiArrowLeft />
       </div>
       <div className="head-title">
         <h1 className="subHead-title">주문/결제</h1>
@@ -12,12 +18,12 @@ const payment = () => {
       <div className="settleContainer-row ">
         <div className="settleContainer-left">
           <button className="settleProduct-list">
-            <p>주문 예정 금액 (1item | ₩ 400,000) </p>
-            <span>+</span>
+            <p>주문 예정 금액 (1item | ₩ 400,000)</p>
+            <AiOutlinePlus className="plusbtn" />
           </button>
           <div className="settleOrder">
             <div className="user">
-              <i class="fa-regular fa-user fa-2x" />
+              <FiUser className="user-icon" />
               <h2>주문자 정보</h2>
             </div>
             <div>
@@ -36,15 +42,13 @@ const payment = () => {
             </div>
             <div className="settle-deliver">
               <div className="deliver-headline">
-                <i class="fa-regular fa-clipboard " />
+                <CiDeliveryTruck className="deliver-icon" />
                 <h2>배송지정보</h2>
                 <button className="address">
-                  <i class="fa-regular fa-address-book" />
+                  <MdEditNote className="address-icon" />
                   <h4>주소록</h4>
                 </button>
               </div>
-              <i class="fa-regular fa-square-check" />
-              <span className="text">주문자 정보와 다른 수령인</span>
               <div>
                 <label className="userName">우편번호</label>
 
@@ -102,4 +106,4 @@ const payment = () => {
   );
 };
 
-export default payment;
+export default Payment;

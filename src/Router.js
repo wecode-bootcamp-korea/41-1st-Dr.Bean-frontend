@@ -13,7 +13,7 @@ export default function Router() {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path="/" element={<Payment />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/product" element={<Product />} />
