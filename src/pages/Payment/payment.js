@@ -101,4 +101,5 @@ const payment = () => {
     </div>
   );
 };
+
 export default payment;
