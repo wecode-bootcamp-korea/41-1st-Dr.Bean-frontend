@@ -1,8 +1,8 @@
 import React from "react";
 import "./Payment.scss";
-const Payment = () => {
+const payment = () => {
   return (
-    <>
+    <div className="payment">
       <div className="head-icon">
         <i class="fa-solid fa-arrow-left fa-2x" />
       </div>
@@ -98,8 +98,8 @@ const Payment = () => {
           <button className="priceButton">결제하기</button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default Payment;
+export default payment;
