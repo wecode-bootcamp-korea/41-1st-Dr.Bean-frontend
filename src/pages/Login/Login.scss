@@ -42,6 +42,7 @@
   }
 
   .logintext {
+    margin-bottom: 20px;
     font-size: 150%;
     text-align: center;
   }
@@ -66,11 +67,53 @@
     font-weight: 700;
   }
 
+  .id-label-invalid,
+  .pw-label-invalid {
+    position: relative;
+    top: 9px;
+    left: 20px;
+    width: fit-content;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: white;
+    color: red;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
   .inputbox {
-    height: 45px;
+    height: 60px;
     margin-bottom: 15px;
     padding-left: 15px;
     font-size: 20px;
+  }
+
+  .inputbox-id-invalid {
+    height: 60px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border: 1.5px solid red;
+    font-size: 20px;
+  }
+
+  .inputbox-id-invalid:focus {
+    outline: none;
+  }
+
+  .inputbox-pw-invalid {
+    height: 60px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border: 1.5px solid red;
+    font-size: 20px;
+  }
+
+  .inputbox-pw-invalid:focus {
+    outline: none;
+  }
+
+  .inputbox:focus {
+    outline: none;
   }
 
   .login-option {

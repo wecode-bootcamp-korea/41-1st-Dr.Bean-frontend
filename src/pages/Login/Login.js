@@ -5,6 +5,7 @@ import {
   faCircleLeft,
   faSquareCheck,
 } from "@fortawesome/free-regular-svg-icons";
+// import { BsSquare } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import "./Login.scss";
 
@@ -13,15 +14,17 @@ const Login = () => {
   const [idValue, setIdValue] = useState("");
   const [pwValue, setPwValue] = useState("");
   const [idlabel, setIdlabel] = useState("아이디");
+  const [pwlabel, setPwlabel] = useState("비밀번호");
+  const [idalert, setIdalert] = useState(false);
+  const [pwalert, setPwalert] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
   const fetchHandler = () => {
-    fetch("#", {
-      method: "GET",
+    fetch("http://10.58.52.135:3000/signin", {
+      method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
-
       body: JSON.stringify({
-        userid: idValue,
+        user_id: idValue,
         password: pwValue,
       }),
     })
@@ -38,6 +41,26 @@ const Login = () => {
     setPwValue(e.target.value);
   };
 
+  const idvalidation = () => {
+    if (idValue.length <= 0) {
+      setIdlabel("아이디는 필수 입력사항입니다.");
+      setIdalert(true);
+    } else {
+      setIdlabel("아이디");
+      setIdalert(false);
+    }
+  };
+
+  const pwvalidation = () => {
+    if (pwValue.length <= 0) {
+      setPwlabel("비밀번호는 필수 입력사항입니다.");
+      setPwalert(true);
+    } else {
+      setPwlabel("비밀번호");
+      setPwalert(false);
+    }
+  };
+
   return (
     <div className="login-section">
       <div className="page-description">
@@ -51,7 +74,6 @@ const Login = () => {
         </button>
         <h1>로그인</h1>
       </div>
-      {/* <div className='loginbox'></div> */}
       <div className="welcome">
         <h2 className="welcome-title">어서오세요</h2>
         <h3 className="welcome-subtitle">닥터코드에 오신걸 환영합니다</h3>
@@ -62,21 +84,25 @@ const Login = () => {
         </div>
         <form onSubmit={e => e.preventDefault()}>
           <div className="login-form">
-            <label className="id-label">{idlabel}</label>
-            {/* 빈칸일때 '아이디는 필수입력사항입니다.' */}
+            <label className={idalert ? "id-label-invalid" : "id-label"}>
+              {idlabel}
+            </label>
             <input
               type="text"
-              className="inputbox"
+              className={idalert ? "inputbox-id-invalid" : "inputbox"}
               value={idValue}
               onChange={e => saveUserId(e)}
+              onKeyUp={idvalidation}
             />
-            <label className="pw-label">비밀번호</label>
-            {/* 빈칸일때 '비밀번호는 필수입력사항입니다.' */}
+            <label className={pwalert ? "pw-label-invalid" : "pw-label"}>
+              {pwlabel}
+            </label>
             <input
               type="password"
-              className="inputbox"
+              className={pwalert ? "inputbox-pw-invalid" : "inputbox"}
               value={pwValue}
               onChange={e => saveUserPw(e)}
+              onKeyUp={pwvalidation}
             />
             <div className="login-option">
               <div className="id-autosave">
