@@ -1,13 +1,13 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   width: 100vw;
   font-family: “Spoqa Han Sans Neo”, “sans-serif”;
 }
-:root {
-  --main-color: #fcdb02;
-  --gray-color: #999999;
-  --soldoutbox-color: #f7f7f7;
-  // 블랙: #000 화이트: #fff
+
+.inner {
+  width: 1140px;
+  margin: auto;
 }
