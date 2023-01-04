@@ -2,53 +2,53 @@ import React from "react";
 import "./ProductDetailMain.scss";
 import { BiPlus, BiMinus, BiWon } from "react-icons/bi";
 
+const GRAM_LIST = [
+  {
+    id: 1,
+    content: "200g",
+  },
+  {
+    id: 2,
+    content: "500g",
+  },
+  {
+    id: 3,
+    content: "1kg",
+  },
+];
+
+const GRINDER_LIST = [
+  {
+    id: 1,
+    content: "에스프레소머신",
+  },
+  {
+    id: 2,
+    content: "드립/커피메이커",
+  },
+  {
+    id: 3,
+    content: "모카포트",
+  },
+  {
+    id: 4,
+    content: "더치커피",
+  },
+  {
+    id: 5,
+    content: "프렌치프레스",
+  },
+  {
+    id: 6,
+    content: "에어로프레스",
+  },
+  {
+    id: 7,
+    content: "홀빈 (갈지않은 원두)",
+  },
+];
+
 function ProductDetailMain() {
-  const GRAM_LIST = [
-    {
-      id: 1,
-      content: "200g",
-    },
-    {
-      id: 2,
-      content: "500g",
-    },
-    {
-      id: 3,
-      content: "1kg",
-    },
-  ];
-
-  const GRINDER_LIST = [
-    {
-      id: 1,
-      content: "에스프레소머신",
-    },
-    {
-      id: 2,
-      content: "드립/커피메이커",
-    },
-    {
-      id: 3,
-      content: "모카포트",
-    },
-    {
-      id: 4,
-      content: "더치커피",
-    },
-    {
-      id: 5,
-      content: "프렌치프레스",
-    },
-    {
-      id: 6,
-      content: "에어로프레스",
-    },
-    {
-      id: 7,
-      content: "홀빈 (갈지않은 원두)",
-    },
-  ];
-
   return (
     <div className="product-container inner">
       <img src="/images/coffee_bean.jpg" />
