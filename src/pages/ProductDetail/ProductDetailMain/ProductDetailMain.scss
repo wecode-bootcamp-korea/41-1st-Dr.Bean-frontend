@@ -27,22 +27,6 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-
-        div {
-          width: 100%;
-          color: #999;
-        }
-
-        .select-btn {
-          width: 168px;
-          margin-bottom: 8px;
-          padding: 0 5px 0 15px;
-          border: 1px solid #e5e5e5;
-          font-size: 17px;
-          letter-spacing: -0.18px;
-          line-height: 36px;
-          cursor: pointer;
-        }
       }
 
       .total-container {
@@ -95,7 +79,7 @@
 
     .cart-btn {
       margin-right: 10px;
-      background-color: rgba($color: #000000, $alpha: 0);
+      background-color: rgba(0, 0, 0, 0);
     }
 
     .buy-btn {

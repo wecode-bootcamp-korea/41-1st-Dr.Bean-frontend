@@ -1,6 +1,8 @@
 import React from "react";
+import ProductCount from "./ProductCount/ProductCount";
 import "./ProductDetailMain.scss";
-import { BiPlus, BiMinus, BiWon } from "react-icons/bi";
+
+import ProductSelect from "./ProductSelect/ProductSelect";
 
 const GRAM_LIST = [
   {
@@ -16,31 +18,30 @@ const GRAM_LIST = [
     content: "1kg",
   },
 ];
-
 const GRINDER_LIST = [
   {
     id: 1,
-    content: "에스프레소머신",
+    content: "(분쇄) 에스프레소머신",
   },
   {
     id: 2,
-    content: "드립/커피메이커",
+    content: "(분쇄) 커피메이커",
   },
   {
     id: 3,
-    content: "모카포트",
+    content: "(분쇄) 모카포트",
   },
   {
     id: 4,
-    content: "더치커피",
+    content: "(분쇄) 더치커피",
   },
   {
     id: 5,
-    content: "프렌치프레스",
+    content: "(분쇄) 프렌치프레스",
   },
   {
     id: 6,
-    content: "에어로프레스",
+    content: "(분쇄) 에어로프레스",
   },
   {
     id: 7,
@@ -57,36 +58,15 @@ function ProductDetailMain() {
           <h1>상품이름</h1>
           <ul className="select-container">
             {GRAM_LIST.map(list => {
-              return (
-                <li key={list.id} className="select-btn">
-                  {list.content}
-                </li>
-              );
+              return <ProductSelect key={list.id} content={list.content} />;
             })}
           </ul>
           <ul className="select-container">
-            <div>분쇄</div>
-            {GRINDER_LIST.map(info => {
-              return (
-                <li key={info.id} className="select-btn">
-                  {info.content}
-                </li>
-              );
+            {GRINDER_LIST.map(list => {
+              return <ProductSelect key={list.id} content={list.content} />;
             })}
           </ul>
-
-          <div className="total-container">
-            <div className="count-container">
-              <span className="count">수량</span>
-              <span>1</span>
-              <BiMinus className="count-minus" />
-              <BiPlus className="count-plus" />
-            </div>
-            <div className="product-price">
-              <BiWon className="won" />
-              <span>210,000</span>
-            </div>
-          </div>
+          <ProductCount />
           <button className="cart-btn">장바구니</button>
           <button className="buy-btn">구매하기</button>
         </div>
