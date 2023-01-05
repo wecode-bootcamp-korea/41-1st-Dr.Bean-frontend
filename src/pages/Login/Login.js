@@ -7,58 +7,76 @@ import ContentHeader from "../../components/RegisterLogin/ContentHeader";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [idValue, setIdValue] = useState("");
-  const [pwValue, setPwValue] = useState("");
-  const [idlabel, setIdlabel] = useState("아이디");
-  const [pwlabel, setPwlabel] = useState("비밀번호");
-  const [idalert, setIdalert] = useState(false);
-  const [pwalert, setPwalert] = useState(false);
+  const [inputValues, setInputValues] = useState({
+    idValue: "",
+    pwValue: "",
+    idlabel: "아이디",
+    pwlabel: "비밀번호",
+    idalert: false,
+    pwalert: false,
+  });
+
   const [isClicked, setIsClicked] = useState(false);
 
   const fetchHandler = () => {
-    fetch("http://10.58.52.135:3000/signin", {
+    fetch("http://10.58.52.53:3000/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
-        user_id: idValue,
-        password: pwValue,
+        userId: inputValues.idValue,
+        password: inputValues.pwValue,
       }),
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        localStorage.setItem("token", data.accessToken);
       });
   };
 
   const saveUserId = e => {
-    setIdValue(e.target.value);
+    const { value } = e.target;
+    setInputValues({ ...inputValues, idValue: value });
   };
+
   const saveUserPw = e => {
-    setPwValue(e.target.value);
+    const { value } = e.target;
+    setInputValues({ ...inputValues, pwValue: value });
   };
 
   const idvalidation = () => {
-    if (idValue.length <= 0) {
-      setIdlabel("아이디는 필수 입력사항입니다.");
-      setIdalert(true);
+    if (inputValues.idValue.length <= 0) {
+      setInputValues({
+        ...inputValues,
+        idlabel: "아이디는 필수 입력사항입니다.",
+        idalert: true,
+      });
     } else {
-      setIdlabel("아이디");
-      setIdalert(false);
+      setInputValues({
+        ...inputValues,
+        idlabel: "아이디",
+        idalert: false,
+      });
     }
   };
 
   const pwvalidation = () => {
-    if (pwValue.length <= 0) {
-      setPwlabel("비밀번호는 필수 입력사항입니다.");
-      setPwalert(true);
+    if (inputValues.pwValue.length <= 0) {
+      setInputValues({
+        ...inputValues,
+        pwlabel: "비밀번호는 필수 입력사항입니다.",
+        pwalert: true,
+      });
     } else {
-      setPwlabel("비밀번호");
-      setPwalert(false);
+      setInputValues({
+        ...inputValues,
+        pwlabel: "비밀번호",
+        pwalert: false,
+      });
     }
   };
 
   return (
-    <div className="login-section">
+    <div className="login-section inner">
       <ContentHeader
         pageInfo="로그인"
         title="어서오세요"
@@ -67,23 +85,31 @@ const Login = () => {
       <div>
         <form onSubmit={e => e.preventDefault()}>
           <div className="login-form">
-            <label className={idalert ? "id-label-invalid" : "id-label"}>
-              {idlabel}
+            <label
+              className={inputValues.idalert ? "id-label-invalid" : "id-label"}
+            >
+              {inputValues.idlabel}
             </label>
             <input
               type="text"
-              className={idalert ? "inputbox-id-invalid" : "inputbox"}
-              value={idValue}
-              onChange={e => saveUserId(e)}
+              className={
+                inputValues.idalert ? "inputbox-id-invalid" : "inputbox"
+              }
+              value={inputValues.idValue}
+              onChange={saveUserId}
               onKeyUp={idvalidation}
             />
-            <label className={pwalert ? "pw-label-invalid" : "pw-label"}>
-              {pwlabel}
+            <label
+              className={inputValues.pwalert ? "pw-label-invalid" : "pw-label"}
+            >
+              {inputValues.pwlabel}
             </label>
             <input
               type="password"
-              className={pwalert ? "inputbox-pw-invalid" : "inputbox"}
-              value={pwValue}
+              className={
+                inputValues.pwalert ? "inputbox-pw-invalid" : "inputbox"
+              }
+              value={inputValues.pwValue}
               onChange={e => saveUserPw(e)}
               onKeyUp={pwvalidation}
             />

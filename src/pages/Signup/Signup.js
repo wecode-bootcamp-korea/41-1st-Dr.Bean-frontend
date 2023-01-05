@@ -71,13 +71,8 @@ export default function Signup() {
     setPoints(e.target.value);
   };
 
-  const emailAddress = () => {
-    if (emailDomain !== "") {
-      return `${emailId}@${emailDomain}`;
-    } else {
-      return `${emailId}@${domain}`;
-    }
-  };
+  const emailAddress =
+    emailDomain !== "" ? `${emailId}@${emailDomain}` : `${emailId}@${domain}`;
 
   const idvalidation = () => {
     if (userId.length < 5) {
@@ -92,8 +87,9 @@ export default function Signup() {
   };
 
   const pwvalidation = () => {
-    if (userPw.length < 6) {
-      setPwlabel("비밀번호는 최소 6자");
+    const regex = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
+    if (regex.test(userPw) === false) {
+      setPwlabel("영문, 숫자, 특수문자 포함 8 ~ 20자입니다.");
       setPwalert("input-label-invalid");
       setInputPwValid(false);
     } else {
@@ -118,16 +114,16 @@ export default function Signup() {
   const phoneNumber = `${phoneOne}${phoneTwo}${phoneThree}`;
 
   const fetchHandler = () => {
-    fetch("http://10.58.52.135:3000/signin", {
+    fetch("http://10.58.52.53:3000/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
-        username: userName,
-        userid: userId,
+        userId: userId,
+        name: userName,
         password: userPw,
-        phone: phoneNumber,
         email: emailAddress,
-        points: points,
+        phoneNumber: phoneNumber,
+        point: points,
       }),
     })
       .then(res => res.json())
@@ -137,7 +133,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="signup-section">
+    <div className="signup-section inner">
       <ContentHeader
         pageInfo="회원가입"
         title="환영합니다."
@@ -165,10 +161,10 @@ export default function Signup() {
           <input
             type="password"
             className={inputPwValid ? "inputbox" : "inputbox-invalid"}
-            placeholder="공백 없는 영문, 숫자 포함 6 ~ 10자"
+            placeholder="공백 없는 영문, 숫자, 특수문자 포함 8 ~ 20자"
             onChange={e => saveUserPw(e)}
             value={userPw}
-            onKeyDown={pwvalidation}
+            onKeyUp={pwvalidation}
           />
           <label className={pwconfirmationalert}>{pwconfirmationlabel}</label>
           <input
@@ -176,7 +172,7 @@ export default function Signup() {
             className={pwconfirmationvalid ? "inputbox" : "inputbox-invalid"}
             onChange={e => saveUserPwConfirmation(e)}
             value={userPwConfirmation}
-            onKeyDown={pwconfirmation}
+            onKeyUp={pwconfirmation}
           />
           <label className="input-label-email">이메일</label>
           <div className="email-section">
@@ -252,14 +248,13 @@ export default function Signup() {
               maxLength="4"
             />
           </div>
-          <label
-            className="input-label"
+          <label className="input-label">포인트</label>
+          <input
+            type="text"
+            className="inputbox"
             onChange={e => savePoints(e)}
             value={points}
-          >
-            포인트
-          </label>
-          <input type="text" className="inputbox" />
+          />
           <button
             className="signup-btn"
             onClick={
