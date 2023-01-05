@@ -1,8 +1,8 @@
 @import "../../../styles/color";
+@import "../../../styles/variables";
 
 .product-container {
-  display: flex;
-  align-items: center;
+  @include container;
   justify-content: space-between;
   margin-bottom: 80px;
 

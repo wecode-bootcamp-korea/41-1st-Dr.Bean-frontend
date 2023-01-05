@@ -1,4 +1,4 @@
-@mixin container($display) {
+@mixin container() {
   display: flex;
   align-items: center;
 }
