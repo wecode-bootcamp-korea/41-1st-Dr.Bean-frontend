@@ -53,10 +53,14 @@ function ProductDetailMain() {
   const [info, setInfo] = useState([]);
 
   useEffect(() => {
-    fetch("http://10.58.52.57:3000/items/detail/1")
+    fetch("http://10.58.52.57:3000/items/detail/2")
       .then(res => res.json())
       .then(res => setInfo(res));
   }, []);
+
+  console.log(info);
+
+  if (!info[0]) return null;
 
   return (
     <div className="product-container inner">
@@ -75,7 +79,7 @@ function ProductDetailMain() {
               return <ProductSelect key={info.id} content={info.content} />;
             })}
           </ul>
-          <ProductCount />
+          <ProductCount price={info[0].price} />
           <button className="cart-btn">장바구니</button>
           <button className="buy-btn">구매하기</button>
         </div>

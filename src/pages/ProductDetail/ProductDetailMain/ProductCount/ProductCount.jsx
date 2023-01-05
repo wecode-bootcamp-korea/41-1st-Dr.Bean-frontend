@@ -2,26 +2,33 @@ import React, { useState } from "react";
 import { BiPlus, BiMinus, BiWon } from "react-icons/bi";
 import "./ProductCount.scss";
 
-function ProductCount() {
+function ProductCount({ price }) {
   const [count, setCount] = useState(1);
-  const [price, setPrice] = useState(2100);
-  const [cal, setCal] = useState(2100);
+  const [productPrice, setProductPrice] = useState(price);
+  const cal = price;
 
   const plus = () => {
     if (count < 10) {
       setCount(count + 1);
-      setPrice(count * cal);
+      setProductPrice((count + 1) * price);
     } else {
       setCount(10);
-      alert("최대 10개까지 구매가능합니다.");
+      alert("최대 10개까지 구매 가능합니다.");
     }
   };
 
   const minus = () => {
-    setCount(count - 1);
-    setPrice(count * price);
-    count <= 0 && alert("최소 1개 이상 구매가능합니다.");
-    count <= 0 && setCount(1);
+    if (count > 1) {
+      setCount(count - 1);
+      setProductPrice(productPrice - price);
+    } else {
+      setCount(1);
+      alert("최소 1개 이상 구매 가능합니다.");
+    }
+    // setCount(count - 1);
+    // setProductPrice(count * price);
+    // count <= 0 && alert("최소 1개 이상 구매가능합니다.");
+    // count <= 0 && setCount(1);
   };
 
   return (
@@ -34,7 +41,7 @@ function ProductCount() {
       </div>
       <div className="product-price">
         <BiWon className="won" />
-        <span>{price}</span>
+        <span>{productPrice}</span>
       </div>
     </div>
   );
