@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./MainFilter.scss";
 import MainFilterItem from "./MainFilterItem/MainFilterItem";
-
 const ICON_DATA = [
   {
     id: 1,
@@ -18,9 +17,20 @@ const ICON_DATA = [
     img: "/images/coffee_icon.png",
     name: "원두이름",
   },
+  {
+    id: 3,
+    img: "/images/coffee_icon.png",
+    name: "원두이름",
+  },
 ];
 
 function MainFilter() {
+  useEffect(() => {
+    fetch("http://10.58.52.57:3000/items/1")
+      .then(res => res.json())
+      .then(data => console.log(data));
+  });
+
   return (
     <>
       <h1 className="icons-title">ICONS</h1>
