@@ -5,9 +5,10 @@
   align-items: center;
   width: 1140px;
   height: 620px;
-  margin-top: 50px;
   margin-right: auto;
   margin-left: auto;
+  padding-top: 50px;
+  font-family: “Spoqa Han Sans Neo”, sans-serif;
 
   .page-description {
     width: 100%;
@@ -16,29 +17,34 @@
 
   .pageback-btn {
     width: fit-content;
+    margin-bottom: 20px;
     border: none;
     background: none;
     cursor: pointer;
   }
 
   .arrow-left {
+    margin-bottom: 20px;
     font-size: 50px;
   }
 
   .welcome-title {
-    margin-bottom: 0;
+    margin-bottom: 15px;
     font-size: 230%;
     font-weight: 740;
     text-align: center;
   }
 
   .welcome-subtitle {
+    margin-bottom: 50px;
     color: #666666;
     font-size: 100%;
     font-weight: 630;
+    text-align: center;
   }
 
-  .logintext {
+  .maintext {
+    margin-bottom: 20px;
     font-size: 150%;
     text-align: center;
   }
@@ -63,11 +69,53 @@
     font-weight: 700;
   }
 
+  .id-label-invalid,
+  .pw-label-invalid {
+    position: relative;
+    top: 9px;
+    left: 20px;
+    width: fit-content;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: white;
+    color: red;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
   .inputbox {
-    height: 45px;
+    height: 60px;
     margin-bottom: 15px;
     padding-left: 15px;
     font-size: 20px;
+  }
+
+  .inputbox-id-invalid {
+    height: 60px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border: 1.5px solid red;
+    font-size: 20px;
+  }
+
+  .inputbox-id-invalid:focus {
+    outline: none;
+  }
+
+  .inputbox-pw-invalid {
+    height: 60px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border: 1.5px solid red;
+    font-size: 20px;
+  }
+
+  .inputbox-pw-invalid:focus {
+    outline: none;
+  }
+
+  .inputbox:focus {
+    outline: none;
   }
 
   .login-option {
