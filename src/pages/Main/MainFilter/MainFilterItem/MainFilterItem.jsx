@@ -1,35 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./MainFilterItem.scss";
 
 function MainFilterItem() {
-  const ITEM_DATA = [
-    {
-      id: 1,
-      img: "/images/coffee_bean.jpg",
-      name: "상품이름",
-      price: "260,000",
-    },
-    {
-      id: 2,
-      img: "/images/coffee_bean.jpg",
-      name: "상품이름",
-      price: "260,000",
-    },
-    {
-      id: 3,
-      img: "/images/coffee_bean.jpg",
-      name: "상품이름",
-      price: "260,000",
-    },
-  ];
+  const [item, setItem] = useState([]);
+
+  useEffect(() => {
+    fetch("http://10.58.52.57:3000/items/1")
+      .then(res => res.json())
+      .then(result => setItem(result));
+  }, []);
 
   return (
     <>
       <ul className="item-container inner">
-        {ITEM_DATA.map(list => {
+        {item.map(list => {
           return (
             <li className="item" key={list.id}>
-              <img className="item-img" src={list.img} />
+              <img className="item-img" src={list.item_img} />
               <div className="item-sub-wrap">
                 <p class="fa-solid fa-won-sign">{list.name}</p>
                 <p>{list.price}</p>

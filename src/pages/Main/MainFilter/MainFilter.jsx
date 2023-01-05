@@ -1,36 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./MainFilter.scss";
 import MainFilterItem from "./MainFilterItem/MainFilterItem";
 const ICON_DATA = [
   {
     id: 1,
-    img: "/images/coffee_icon.png",
-    name: "원두이름",
+    img: "/images/north_america.png",
+    name: "North-America",
   },
   {
     id: 2,
-    img: "/images/coffee_icon.png",
-    name: "원두이름",
+    img: "/images/south_america.png",
+    name: "South-America",
   },
   {
     id: 3,
-    img: "/images/coffee_icon.png",
-    name: "원두이름",
+    img: "/images/africa.png",
+    name: "Africa",
   },
   {
     id: 3,
-    img: "/images/coffee_icon.png",
-    name: "원두이름",
+    img: "/images/asia.png",
+    name: "Asia",
   },
 ];
 
 function MainFilter() {
-  useEffect(() => {
-    fetch("http://10.58.52.57:3000/items/1")
-      .then(res => res.json())
-      .then(data => console.log(data));
-  });
-
   return (
     <>
       <h1 className="icons-title">ICONS</h1>
