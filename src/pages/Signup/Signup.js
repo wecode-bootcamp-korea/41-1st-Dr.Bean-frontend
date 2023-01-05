@@ -5,125 +5,158 @@ import ContentHeader from "../../components/RegisterLogin/ContentHeader";
 
 export default function Signup() {
   const navigate = useNavigate();
-  const [userName, setUserName] = useState("");
-  const [userId, setUserId] = useState("");
-  const [idlabel, setIdlabel] = useState("아이디");
-  const [idalert, setIdalert] = useState("input-label");
-  const [userPw, setUserPw] = useState("");
-  const [emailId, setEmailId] = useState("");
-  const [domain, setDomain] = useState("");
-  const [emailDomain, setEmailDomain] = useState("");
-  const [phoneOne, setPhoneOne] = useState("");
-  const [phoneTwo, setPhoneTwo] = useState("");
-  const [phoneThree, setPhoneThree] = useState("");
-  const [points, setPoints] = useState("");
-  const [inputIdValid, setInputIdValid] = useState("inputbox");
-  const [inputPwValid, setInputPwValid] = useState("inputbox");
-  const [pwlabel, setPwlabel] = useState("비밀번호");
-  const [pwalert, setPwalert] = useState("input-label");
-  const [userPwConfirmation, setUserPwConfirmation] = useState("");
-  const [pwconfirmationlabel, setPwConfirmationlabel] =
-    useState("비밀번호 확인");
-  const [pwconfirmationalert, setPwConfirmationalert] = useState("input-label");
-  const [pwconfirmationvalid, setPwconfirmationValid] = useState("inputbox");
+
+  const [inputValues, setInputValues] = useState({
+    userName: "",
+    userId: "",
+    idlabel: "아이디",
+    idalert: "input-label",
+    userPw: "",
+    emailId: "",
+    domain: "",
+    emailDomain: "",
+    phoneOne: "",
+    phoneTwo: "",
+    phoneThree: "",
+    points: "",
+    inputIdValid: "inputbox",
+    inputPwValid: "inputbox",
+    pwlabel: "비밀번호",
+    pwalert: "input-label",
+    userPwConfirmation: "",
+    pwconfirmationlabel: "비밀번호 확인",
+    pwconfirmationalert: "input-label",
+    pwconfirmationvalid: "inputbox",
+  });
 
   const saveUserName = e => {
-    setUserName(e.target.value);
+    const { value } = e.target;
+    setInputValues({ ...inputValues, userName: value });
   };
 
   const saveUserId = e => {
-    setUserId(e.target.value);
+    const { value } = e.target;
+    setInputValues({ ...inputValues, userId: value });
   };
 
   const saveUserPw = e => {
-    setUserPw(e.target.value);
+    const { value } = e.target;
+    setInputValues({ ...inputValues, userPw: value });
   };
 
   const saveUserPwConfirmation = e => {
-    setUserPwConfirmation(e.target.value);
+    const { value } = e.target;
+    setInputValues({ ...inputValues, userPwConfirmation: value });
   };
 
   const domainSelect = e => {
-    setDomain(e.target.value);
+    const { value } = e.target;
+    setInputValues({ ...inputValues, domain: value });
   };
 
   const saveEmailId = e => {
-    setEmailId(e.target.value);
+    const { value } = e.target;
+    setInputValues({ ...inputValues, emailId: value });
   };
 
   const saveEmailDomain = e => {
-    setEmailDomain(e.target.value);
+    const { value } = e.target;
+    setInputValues({ ...inputValues, emailDomain: value });
   };
 
   const savePhoneOne = e => {
-    setPhoneOne(e.target.value);
+    const { value } = e.target;
+    setInputValues({ ...inputValues, phoneOne: value });
   };
 
   const savePhoneTwo = e => {
-    setPhoneTwo(e.target.value);
+    const { value } = e.target;
+    setInputValues({ ...inputValues, phoneTwo: value });
   };
 
   const savePhoneThree = e => {
-    setPhoneThree(e.target.value);
+    const { value } = e.target;
+    setInputValues({ ...inputValues, phoneThree: value });
   };
 
   const savePoints = e => {
-    setPoints(e.target.value);
+    const { value } = e.target;
+    setInputValues({ ...inputValues, points: value });
   };
 
   const emailAddress =
-    emailDomain !== "" ? `${emailId}@${emailDomain}` : `${emailId}@${domain}`;
+    inputValues.emailDomain !== ""
+      ? `${inputValues.emailId}@${inputValues.emailDomain}`
+      : `${inputValues.emailId}@${inputValues.domain}`;
 
   const idvalidation = () => {
-    if (userId.length < 5) {
-      setIdlabel("아이디 제한 글자 수를 맞춰주세요.");
-      setIdalert("input-label-invalid");
-      setInputIdValid(false);
+    if (inputValues.userId.length < 5) {
+      setInputValues({
+        ...inputValues,
+        idlabel: "아이디 제한 글자 수를 맞춰주세요.",
+        idalert: "input-label-invalid",
+        inputIdValid: false,
+      });
     } else {
-      setIdlabel("사용할 수 있는 아이디입니다.");
-      setIdalert("input-label-valid");
-      setInputIdValid(true);
+      setInputValues({
+        ...inputValues,
+        idlabel: "사용할 수 있는 아이디입니다.",
+        idalert: "input-label-valid",
+        inputIdValid: true,
+      });
     }
   };
 
   const pwvalidation = () => {
     const regex = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
-    if (regex.test(userPw) === false) {
-      setPwlabel("영문, 숫자, 특수문자 포함 8 ~ 20자입니다.");
-      setPwalert("input-label-invalid");
-      setInputPwValid(false);
+    if (regex.test(inputValues.userPw) === false) {
+      setInputValues({
+        ...inputValues,
+        pwlabel: "영문, 숫자, 특수문자 포함 8 ~ 20자입니다.",
+        pwalert: "input-label-invalid",
+        inputPwValid: false,
+      });
     } else {
-      setPwlabel("올바른 형식의 비밀번호를 입력했습니다.");
-      setPwalert("input-label-valid");
-      setInputPwValid(true);
+      setInputValues({
+        ...inputValues,
+        pwlabel: "올바른 형식의 비밀번호를 입력했습니다.",
+        pwalert: "input-label-valid",
+        inputPwValid: true,
+      });
     }
   };
 
   const pwconfirmation = () => {
-    if (userPw !== userPwConfirmation) {
-      setPwConfirmationlabel("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-      setPwConfirmationalert("input-label-invalid");
-      setPwconfirmationValid(false);
+    if (inputValues.userPw !== inputValues.userPwConfirmation) {
+      setInputValues({
+        ...inputValues,
+        pwconfirmationlabel: "비밀번호와 비밀번호 확인이 일치하지 않습니다.",
+        pwconfirmationalert: "input-label-invalid",
+        pwconfirmationvalid: false,
+      });
     } else {
-      setPwConfirmationlabel("비밀번호와 비밀번호 확인이 일치합니다.");
-      setPwConfirmationalert("input-label-valid");
-      setPwconfirmationValid(true);
+      setInputValues({
+        ...inputValues,
+        pwconfirmationlabel: "비밀번호와 비밀번호 확인이 일치합니다.",
+        pwconfirmationalert: "input-label-valid",
+        pwconfirmationvalid: true,
+      });
     }
   };
 
-  const phoneNumber = `${phoneOne}${phoneTwo}${phoneThree}`;
+  const phoneNumber = `${inputValues.phoneOne}${inputValues.phoneTwo}${inputValues.phoneThree}`;
 
   const fetchHandler = () => {
     fetch("http://10.58.52.53:3000/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
-        userId: userId,
-        name: userName,
-        password: userPw,
+        userId: inputValues.userId,
+        name: inputValues.userName,
+        password: inputValues.userPw,
         email: emailAddress,
         phoneNumber: phoneNumber,
-        point: points,
+        point: inputValues.points,
       }),
     })
       .then(res => res.json())
@@ -146,32 +179,40 @@ export default function Signup() {
             type="text"
             className="inputbox"
             onChange={e => saveUserName(e)}
-            value={userName}
+            value={inputValues.userName}
           />
-          <label className={idalert}>{idlabel}</label>
+          <label className={inputValues.idalert}>{inputValues.idlabel}</label>
           <input
             type="text"
-            className={inputIdValid ? "inputbox" : "inputbox-invalid"}
+            className={
+              inputValues.inputIdValid ? "inputbox" : "inputbox-invalid"
+            }
             placeholder="영문 6글자 이상"
             onChange={e => saveUserId(e)}
-            value={userId}
+            value={inputValues.userId}
             onKeyDown={idvalidation}
           />
-          <label className={pwalert}>{pwlabel}</label>
+          <label className={inputValues.pwalert}>{inputValues.pwlabel}</label>
           <input
             type="password"
-            className={inputPwValid ? "inputbox" : "inputbox-invalid"}
+            className={
+              inputValues.inputPwValid ? "inputbox" : "inputbox-invalid"
+            }
             placeholder="공백 없는 영문, 숫자, 특수문자 포함 8 ~ 20자"
             onChange={e => saveUserPw(e)}
-            value={userPw}
+            value={inputValues.userPw}
             onKeyUp={pwvalidation}
           />
-          <label className={pwconfirmationalert}>{pwconfirmationlabel}</label>
+          <label className={inputValues.pwconfirmationalert}>
+            {inputValues.pwconfirmationlabel}
+          </label>
           <input
             type="password"
-            className={pwconfirmationvalid ? "inputbox" : "inputbox-invalid"}
+            className={
+              inputValues.pwconfirmationvalid ? "inputbox" : "inputbox-invalid"
+            }
             onChange={e => saveUserPwConfirmation(e)}
-            value={userPwConfirmation}
+            value={inputValues.userPwConfirmation}
             onKeyUp={pwconfirmation}
           />
           <label className="input-label-email">이메일</label>
@@ -181,12 +222,12 @@ export default function Signup() {
                 type="text"
                 className="inputbox-email"
                 onChange={e => saveEmailId(e)}
-                value={emailId}
+                value={inputValues.emailId}
               />
               <span className="at">@</span>
               <select
                 onChange={domainSelect}
-                value={domain}
+                value={inputValues.domain}
                 className="email-provider"
               >
                 <option value="1">직접입력</option>
@@ -199,14 +240,14 @@ export default function Signup() {
               type="text"
               className="email-section-2"
               disabled={
-                domain === "naver.com" ||
-                domain === "gmail.com" ||
-                domain === "hanmail.net"
+                inputValues.domain === "naver.com" ||
+                inputValues.domain === "gmail.com" ||
+                inputValues.domain === "hanmail.net"
                   ? "disabled"
                   : ""
               }
               onChange={e => saveEmailDomain(e)}
-              value={emailDomain}
+              value={inputValues.emailDomain}
             />
           </div>
           <label className="input-label">휴대폰</label>
@@ -214,7 +255,7 @@ export default function Signup() {
             <input
               type="text"
               onChange={e => savePhoneOne(e)}
-              value={phoneOne}
+              value={inputValues.phoneOne}
               className="inputbox-phone"
               onKeyPress={event => {
                 if (!/[0-9]/.test(event.key)) {
@@ -226,7 +267,7 @@ export default function Signup() {
             <input
               type="text"
               onChange={e => savePhoneTwo(e)}
-              value={phoneTwo}
+              value={inputValues.phoneTwo}
               className="inputbox-phone"
               onKeyPress={event => {
                 if (!/[0-9]/.test(event.key)) {
@@ -238,7 +279,7 @@ export default function Signup() {
             <input
               type="text"
               onChange={e => savePhoneThree(e)}
-              value={phoneThree}
+              value={inputValues.phoneThree}
               className="inputbox-phone"
               onKeyPress={event => {
                 if (!/[0-9]/.test(event.key)) {
@@ -253,7 +294,7 @@ export default function Signup() {
             type="text"
             className="inputbox"
             onChange={e => savePoints(e)}
-            value={points}
+            value={inputValues.points}
           />
           <button
             className="signup-btn"
