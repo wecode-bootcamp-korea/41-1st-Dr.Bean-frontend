@@ -29,59 +29,9 @@ export default function Signup() {
     pwconfirmationvalid: "inputbox",
   });
 
-  const saveUserName = e => {
-    const { value } = e.target;
-    setInputValues({ ...inputValues, userName: value });
-  };
-
-  const saveUserId = e => {
-    const { value } = e.target;
-    setInputValues({ ...inputValues, userId: value });
-  };
-
-  const saveUserPw = e => {
-    const { value } = e.target;
-    setInputValues({ ...inputValues, userPw: value });
-  };
-
-  const saveUserPwConfirmation = e => {
-    const { value } = e.target;
-    setInputValues({ ...inputValues, userPwConfirmation: value });
-  };
-
-  const domainSelect = e => {
-    const { value } = e.target;
-    setInputValues({ ...inputValues, domain: value });
-  };
-
-  const saveEmailId = e => {
-    const { value } = e.target;
-    setInputValues({ ...inputValues, emailId: value });
-  };
-
-  const saveEmailDomain = e => {
-    const { value } = e.target;
-    setInputValues({ ...inputValues, emailDomain: value });
-  };
-
-  const savePhoneOne = e => {
-    const { value } = e.target;
-    setInputValues({ ...inputValues, phoneOne: value });
-  };
-
-  const savePhoneTwo = e => {
-    const { value } = e.target;
-    setInputValues({ ...inputValues, phoneTwo: value });
-  };
-
-  const savePhoneThree = e => {
-    const { value } = e.target;
-    setInputValues({ ...inputValues, phoneThree: value });
-  };
-
-  const savePoints = e => {
-    const { value } = e.target;
-    setInputValues({ ...inputValues, points: value });
+  const saveUserInfo = e => {
+    const { name, value } = e.target;
+    setInputValues({ ...inputValues, [name]: value });
   };
 
   const emailAddress =
@@ -146,8 +96,9 @@ export default function Signup() {
 
   const phoneNumber = `${inputValues.phoneOne}${inputValues.phoneTwo}${inputValues.phoneThree}`;
 
-  const fetchHandler = () => {
-    fetch("http://10.58.52.53:3000/signup", {
+  const fetchHandler = e => {
+    e.preventDefault();
+    fetch("http://10.58.52.152:3000/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
@@ -172,34 +123,44 @@ export default function Signup() {
         title="환영합니다."
         subtitle="지금 바로 다양한 혜택을 만나보세요."
       />
-      <form onSubmit={e => e.preventDefault()}>
+      <form
+        onSubmit={
+          fetchHandler
+          //   () => {
+          //   navigate("/main");
+          // }
+        }
+      >
         <div className="signup-form">
           <label className="input-label">이름</label>
           <input
             type="text"
+            name="userName"
             className="inputbox"
-            onChange={e => saveUserName(e)}
+            onChange={e => saveUserInfo(e)}
             value={inputValues.userName}
           />
           <label className={inputValues.idalert}>{inputValues.idlabel}</label>
           <input
             type="text"
+            name="userId"
             className={
               inputValues.inputIdValid ? "inputbox" : "inputbox-invalid"
             }
             placeholder="영문 6글자 이상"
-            onChange={e => saveUserId(e)}
+            onChange={e => saveUserInfo(e)}
             value={inputValues.userId}
             onKeyDown={idvalidation}
           />
           <label className={inputValues.pwalert}>{inputValues.pwlabel}</label>
           <input
             type="password"
+            name="userPw"
             className={
               inputValues.inputPwValid ? "inputbox" : "inputbox-invalid"
             }
             placeholder="공백 없는 영문, 숫자, 특수문자 포함 8 ~ 20자"
-            onChange={e => saveUserPw(e)}
+            onChange={e => saveUserInfo(e)}
             value={inputValues.userPw}
             onKeyUp={pwvalidation}
           />
@@ -208,10 +169,11 @@ export default function Signup() {
           </label>
           <input
             type="password"
+            name="userPwConfirmation"
             className={
               inputValues.pwconfirmationvalid ? "inputbox" : "inputbox-invalid"
             }
-            onChange={e => saveUserPwConfirmation(e)}
+            onChange={e => saveUserInfo(e)}
             value={inputValues.userPwConfirmation}
             onKeyUp={pwconfirmation}
           />
@@ -220,13 +182,15 @@ export default function Signup() {
             <div className="email-section-1">
               <input
                 type="text"
+                name="emailId"
                 className="inputbox-email"
-                onChange={e => saveEmailId(e)}
+                onChange={e => saveUserInfo(e)}
                 value={inputValues.emailId}
               />
               <span className="at">@</span>
               <select
-                onChange={domainSelect}
+                onChange={e => saveUserInfo(e)}
+                name="domain"
                 value={inputValues.domain}
                 className="email-provider"
               >
@@ -238,6 +202,7 @@ export default function Signup() {
             </div>
             <input
               type="text"
+              name="emailDomain"
               className="email-section-2"
               disabled={
                 inputValues.domain === "naver.com" ||
@@ -246,7 +211,7 @@ export default function Signup() {
                   ? "disabled"
                   : ""
               }
-              onChange={e => saveEmailDomain(e)}
+              onChange={e => saveUserInfo(e)}
               value={inputValues.emailDomain}
             />
           </div>
@@ -254,7 +219,8 @@ export default function Signup() {
           <div className="phone-section">
             <input
               type="text"
-              onChange={e => savePhoneOne(e)}
+              name="phoneOne"
+              onChange={e => saveUserInfo(e)}
               value={inputValues.phoneOne}
               className="inputbox-phone"
               onKeyPress={event => {
@@ -266,7 +232,8 @@ export default function Signup() {
             />
             <input
               type="text"
-              onChange={e => savePhoneTwo(e)}
+              name="phoneTwo"
+              onChange={e => saveUserInfo(e)}
               value={inputValues.phoneTwo}
               className="inputbox-phone"
               onKeyPress={event => {
@@ -278,7 +245,8 @@ export default function Signup() {
             />
             <input
               type="text"
-              onChange={e => savePhoneThree(e)}
+              name="phoneThree"
+              onChange={e => saveUserInfo(e)}
               value={inputValues.phoneThree}
               className="inputbox-phone"
               onKeyPress={event => {
@@ -292,21 +260,12 @@ export default function Signup() {
           <label className="input-label">포인트</label>
           <input
             type="text"
+            name="points"
             className="inputbox"
-            onChange={e => savePoints(e)}
+            onChange={e => saveUserInfo(e)}
             value={inputValues.points}
           />
-          <button
-            className="signup-btn"
-            onClick={
-              fetchHandler
-              //   () => {
-              //   navigate("/main");
-              // }
-            }
-          >
-            회원가입
-          </button>
+          <button className="signup-btn">회원가입</button>
         </div>
       </form>
     </div>
