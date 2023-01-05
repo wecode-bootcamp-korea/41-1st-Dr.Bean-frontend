@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
+import Footer from "./components/Footer/Footer";
 import Main from "./pages/Main/Main";
 import Login from "./pages/Login/Login";
 import Product from "./pages/ProductList/Product/Product";
@@ -18,6 +19,7 @@ export default function Router() {
         <Route path="/productList" element={<ProductList />} />
         <Route path="/productDetail" element={<ProductDetail />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
