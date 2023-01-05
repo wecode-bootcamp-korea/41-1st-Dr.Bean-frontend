@@ -1,7 +1,7 @@
 .select-btn {
   width: 168px;
   margin-bottom: 8px;
-  padding: 0 5px 0 10px;
+  padding-right: 5px;
   border: 1px solid #e5e5e5;
   background-color: rgba(0, 0, 0, 0);
   font-size: 17px;
@@ -13,5 +13,9 @@
   &.selected {
     background-color: #000;
     color: #fff;
+  }
+
+  input {
+    opacity: 0;
   }
 }

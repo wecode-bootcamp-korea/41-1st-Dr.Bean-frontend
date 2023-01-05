@@ -16,11 +16,15 @@
 
     .right-container {
       h1 {
-        margin-bottom: 50px;
-        padding-bottom: 50px;
-        border-bottom: 1px solid #e5e5e5;
+        margin-bottom: 10px;
         font-size: 26px;
         font-weight: 700;
+      }
+
+      p {
+        margin-bottom: 50px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #e5e5e5;
       }
 
       .select-container {

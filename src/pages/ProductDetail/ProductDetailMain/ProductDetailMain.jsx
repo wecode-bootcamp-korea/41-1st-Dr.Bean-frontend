@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProductCount from "./ProductCount/ProductCount";
 import "./ProductDetailMain.scss";
 
@@ -21,7 +21,7 @@ const GRAM_LIST = [
 const GRINDER_LIST = [
   {
     id: 1,
-    content: "(분쇄) 에스프레소머신",
+    content: "(분쇄) 에스프레소",
   },
   {
     id: 2,
@@ -50,20 +50,29 @@ const GRINDER_LIST = [
 ];
 
 function ProductDetailMain() {
+  const [info, setInfo] = useState([]);
+
+  useEffect(() => {
+    fetch("http://10.58.52.57:3000/items/detail/1")
+      .then(res => res.json())
+      .then(res => setInfo(res));
+  }, []);
+
   return (
     <div className="product-container inner">
-      <img src="/images/coffee_bean.jpg" />
+      <img src={info[0].item_img} alt="product-img" />
       <div className="product-right">
         <div className="right-container">
-          <h1>상품이름</h1>
+          <h1>{info[0].name}</h1>
+          <p>{info[0].description}</p>
           <ul className="select-container">
             {GRAM_LIST.map(list => {
               return <ProductSelect key={list.id} content={list.content} />;
             })}
           </ul>
           <ul className="select-container">
-            {GRINDER_LIST.map(list => {
-              return <ProductSelect key={list.id} content={list.content} />;
+            {GRINDER_LIST.map(info => {
+              return <ProductSelect key={info.id} content={info.content} />;
             })}
           </ul>
           <ProductCount />
