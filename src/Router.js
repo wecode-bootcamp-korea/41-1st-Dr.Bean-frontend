@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Payment from "./pages/Payment/payment";
 import Nav from "./components/Nav/Nav";
 import Main from "./pages/Main/Main";
 import Signup from "./pages/Signup/Signup";
@@ -13,6 +14,7 @@ export default function Router() {
     <BrowserRouter>
       <Nav />
       <Routes>
+        <Route path="/payment" element={<Payment />} />
         <Route path="/" element={<Main />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
