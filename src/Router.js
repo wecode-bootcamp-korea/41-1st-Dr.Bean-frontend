@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Payment from "./pages/Payment/Payment";
+import Payment from "./pages/Payment/payment";
 import Nav from "./components/Nav/Nav";
 import Main from "./pages/Main/Main";
 import Login from "./pages/Login/Login";
@@ -13,7 +13,7 @@ export default function Router() {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path="/" element={<Payment />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/product" element={<Product />} />

@@ -1,4 +1,8 @@
 .payment {
+  .head-icon {
+    font-size: 35px;
+    margin-top: 30px;
+  }
   .head-title {
     .subHead-title {
       font-size: 36px;
@@ -19,6 +23,7 @@
       width: 680px;
       height: 1738.8px;
       display: block;
+
       .settleProduct-list {
         display: flex;
         cursor: pointer;
@@ -29,19 +34,17 @@
         padding: 0 30px;
         justify-content: space-between;
         margin-top: 20px;
+
         p {
           font-size: 24px;
           color: #fff;
           font-weight: 700;
-          span {
-            position: relative;
-            width: 13px;
-            height: 13px;
-            line-height: 15px;
-            color: #fff;
-            font-size: 25px;
-            transform: translate(0);
-          }
+        }
+
+        .plusbtn {
+          margin-left: 230px;
+          color: #fff;
+          font-size: 20px;
         }
       }
     }
@@ -60,6 +63,11 @@
     height: 30px;
     margin: 0 8px 19px;
     display: flex;
+
+    .user-icon {
+      font-size: 40px;
+      margin-left: -10px;
+    }
 
     h2 {
       display: flex;
@@ -153,6 +161,12 @@
     margin: 0 8px 19px;
     align-items: center;
     margin-top: 100px;
+
+    .deliver-icon {
+      font-size: 50px;
+      margin-left: -10px;
+    }
+
     h2 {
       margin-left: 10px;
       margin-top: 5px;
@@ -175,16 +189,12 @@
   background-color: #fff;
   padding-top: 2px;
 
+  .address-icon {
+    font-size: 20px;
+  }
+
   h4 {
     margin-left: 5px;
-
-    .text {
-      ine-height: 18px;
-      font-size: 18px;
-      letter-spacing: -0.18px;
-      color: #666;
-      margin-left: 30px;
-    }
   }
 }
 
