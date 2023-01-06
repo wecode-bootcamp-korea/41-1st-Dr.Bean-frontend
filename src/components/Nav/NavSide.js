@@ -3,7 +3,10 @@ import "./NavSide.scss";
 const NavSide = () => {
   return (
     <div className="NavSide">
-      <ul className="" />
+      <div className="side-list" />
+      <div className="side-list" />
+      <div className="side-list" />
+      <div className="side-list" />
     </div>
   );
 };
