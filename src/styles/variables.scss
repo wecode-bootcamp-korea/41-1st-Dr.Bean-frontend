@@ -1,4 +1,4 @@
-@mixin container($display) {
+@mixin container() {
   display: flex;
   align-items: center;
 }
@@ -18,4 +18,19 @@
   font-size: $fontSize;
   text-align: center;
   cursor: pointer;
+}
+
+@mixin label {
+  width: fit-content;
+  padding: 0 10px;
+  background-color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+@mixin inputBox {
+  height: 45px;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  font-size: 20px;
 }
