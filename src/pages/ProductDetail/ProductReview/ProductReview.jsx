@@ -1,6 +1,7 @@
 import React from "react";
 import "./ProductReview.scss";
 import { BsPencil } from "react-icons/bs";
+import { IoMdClose } from "react-icons/io";
 
 const REVIEW_LIST = [
   {
@@ -56,7 +57,22 @@ function ProductReview() {
       <button className="more-btn">더 많은 후기 보기</button>
 
       <form className="form-container">
-        <div className="product-container"></div>
+        <div className="title-container">
+          <span className="title">상품후기 작성</span>
+          <IoMdClose />
+        </div>
+        <div className="like input-wrap">
+          <label>별점</label>
+          <input type="text" />
+        </div>
+        <div className="writer input-wrap">
+          <label>작성자</label>
+          <input type="text" />
+        </div>
+        <div className="writer input-wrap">
+          <label>후기 내용</label>
+          <input type="text" />
+        </div>
       </form>
     </div>
   );

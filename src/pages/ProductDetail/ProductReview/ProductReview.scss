@@ -1,3 +1,5 @@
+@import "../../../styles/color";
+
 .review-container {
   padding-top: 150px;
 
@@ -89,5 +91,23 @@
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
+  }
+
+  .form-container {
+    width: 600px;
+    height: 750px;
+    border: 1px solid blue;
+
+    .title-container {
+      height: 70px;
+      padding: 0 32px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 70px;
+    }
+
+    .input-wrap {
+      border: 1px solid green;
+    }
   }
 }
