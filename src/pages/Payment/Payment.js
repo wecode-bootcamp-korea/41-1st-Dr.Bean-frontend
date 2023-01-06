@@ -19,7 +19,7 @@ const Payment = () => {
         <div className="settleContainer-left">
           <button className="settleProduct-list">
             <p>주문 예정 금액 (1item | ₩ )</p>
-            <AiOutlinePlus className="plusbtn" />
+            <AiOutlinePlus className="plus-btn" />
           </button>
           <div className="settleOrder">
             <div className="user">
