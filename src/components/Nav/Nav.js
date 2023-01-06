@@ -1,16 +1,20 @@
 import React from "react";
 import "./Nav.scss";
+import "./NavSide";
+
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FiSearch } from "react-icons/fi";
 import { FiHeart } from "react-icons/fi";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { FiUser } from "react-icons/fi";
+import NavSide from "./NavSide";
 
 export default function Nav() {
   return (
     <div className="header-wrapper inner">
       <div className="side-bar-btn">
         <RxHamburgerMenu className="side-bar-icon" />
+        <NavSide />
         <img className="logo" src="/images/dr.bean-logo.png" alt="" />
       </div>
       <input
