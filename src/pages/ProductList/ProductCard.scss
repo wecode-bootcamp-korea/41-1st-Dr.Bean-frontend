@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 364px;
+  margin-top: 50px;
+}
+
+.product-image {
+  width: 364px;
+  height: 455px;
+  cursor: pointer;
+}
+
+.product-description {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.product-name {
+  border: none;
+  background-color: white;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+}
