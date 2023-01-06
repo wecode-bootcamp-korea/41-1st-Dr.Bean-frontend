@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ProductCount from "./ProductCount/ProductCount";
 import "./ProductDetailMain.scss";
 
@@ -50,25 +51,35 @@ const GRINDER_LIST = [
 ];
 
 function ProductDetailMain() {
-  const [info, setInfo] = useState([]);
+  // const params = useParams();
+  // const productId = params.id;
 
-  useEffect(() => {
-    fetch("http://10.58.52.57:3000/items/detail/2")
-      .then(res => res.json())
-      .then(res => setInfo(res));
-  }, []);
+  // const [info, setInfo] = useState({});
 
-  console.log(info);
+  // useEffect(() => {
+  //   fetch(`http://10.58.52.57:3000/items/detail/${productId}`)
+  //     .then(response => response.json())
+  //     .then(result => setInfo(result.data));
+  // }, [productId]);
 
-  if (!info[0]) return null;
+  // console.log(info);
 
+  // const { item_img, name, grams, price } = info;
   return (
     <div className="product-container inner">
-      <img src={info[0].item_img} alt="product-img" />
+      {/* <img src={item_img} alt="product-img" /> */}
+      <img src="/imgages/coffee_bean.jpg" />
       <div className="product-right">
         <div className="right-container">
-          <h1>{info[0].name}</h1>
-          <p>{info[0].description}</p>
+          {/* <h1>{name}</h1>
+          <p>{grams}</p> */}
+          <h1>상품이름</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
+            molestiae molestias quas doloribus sed sit in voluptas fugiat culpa,
+            laborum mollitia ducimus voluptate iusto cumque provident autem
+            explicabo alias illo!
+          </p>
           <ul className="select-container">
             {GRAM_LIST.map(list => {
               return <ProductSelect key={list.id} content={list.content} />;
@@ -79,7 +90,8 @@ function ProductDetailMain() {
               return <ProductSelect key={info.id} content={info.content} />;
             })}
           </ul>
-          <ProductCount price={info[0].price} />
+          {/* <ProductCount price={price} /> */}
+          <ProductCount />
           <button className="cart-btn">장바구니</button>
           <button className="buy-btn">구매하기</button>
         </div>

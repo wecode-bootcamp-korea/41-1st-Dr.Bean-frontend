@@ -37,11 +37,13 @@ function ProductSelect({ content }) {
   return (
     <ul>
       <li
-        className={"select-btn " + (click ? "selected" : "")}
+        // className={"select-btn " + (click ? "selected" : "")}
         onClick={btnStateHandler}
       >
-        <input type="radio" value={content} name="size" />
-        <label>{content}</label>
+        <label>
+          <input type="radio" value={content} name="size" />
+          {content}
+        </label>
       </li>
     </ul>
   );

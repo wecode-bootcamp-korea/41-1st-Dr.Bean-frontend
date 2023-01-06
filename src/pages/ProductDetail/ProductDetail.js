@@ -1,5 +1,6 @@
 import React from "react";
 import ProductDetailMain from "./ProductDetailMain/ProductDetailMain";
+<<<<<<< Updated upstream
 import ProductReview from "./ProductReview/ProductReview";
 
 export default function ProductDetail() {
@@ -9,4 +10,9 @@ export default function ProductDetail() {
       <ProductReview />
     </>
   );
+=======
+
+function ProductDetail() {
+  return <ProductDetailMain />;
+>>>>>>> Stashed changes
 }
