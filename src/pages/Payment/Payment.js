@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import Modal from "./Modal";
 import "./Payment.scss";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -7,6 +8,13 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import { MdEditNote } from "react-icons/md";
 
 const Payment = () => {
+  const [modal, setModal] = useState(false);
+  const [name, setName] = useState("");
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
   return (
     <div className="payment inner">
       <div className="head-icon">
@@ -17,11 +25,12 @@ const Payment = () => {
       </div>
       <div className="settleContainer-row ">
         <div className="settleContainer-left">
-          <button className="settleProduct-list">
+          <button className="settleProduct-list" onClick={toggleModal}>
             <p>주문 예정 금액 (1item | ₩ )</p>
             <AiOutlinePlus className="plus-btn" />
           </button>
           <div className="settleOrder">
+            <Modal name={name} />
             <div className="user">
               <FiUser className="user-icon" />
               <h2>주문자 정보</h2>
