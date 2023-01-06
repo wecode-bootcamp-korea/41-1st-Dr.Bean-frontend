@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./MainFilter.scss";
 import MainFilterItem from "./MainFilterItem/MainFilterItem";
+
 const ICON_DATA = [
   {
     id: 1,

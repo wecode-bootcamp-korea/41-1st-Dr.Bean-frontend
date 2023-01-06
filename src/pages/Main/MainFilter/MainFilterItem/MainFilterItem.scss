@@ -37,21 +37,21 @@
     font-size: 40px;
     text-align: center;
 
-    .fa-solid.fa-angle-left,
-    .fa-solid.fa-angle-right {
+    .left-btn,
+    .right-btn {
       position: absolute;
       width: 64px;
       height: 64px;
-      padding-top: 12px;
+      padding: 10px;
       background-color: #000;
-      cursor: pointer;
+      font-size: 20px;
     }
 
-    .fa-solid.fa-angle-left {
+    .left-btn {
       left: 0;
     }
 
-    .fa-solid.fa-angle-right {
+    .right-btn {
       right: 0;
     }
   }
