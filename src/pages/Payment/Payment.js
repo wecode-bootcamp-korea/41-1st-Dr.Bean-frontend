@@ -9,7 +9,6 @@ import { MdEditNote } from "react-icons/md";
 
 const Payment = () => {
   const [modal, setModal] = useState(false);
-  const [name, setName] = useState("");
 
   const toggleModal = () => {
     setModal(!modal);
@@ -25,12 +24,11 @@ const Payment = () => {
       </div>
       <div className="settleContainer-row ">
         <div className="settleContainer-left">
-          <button className="settleProduct-list" onClick={toggleModal}>
+          <button onClick={toggleModal} className="settleProduct-list">
             <p>주문 예정 금액 (1item | ₩ )</p>
             <AiOutlinePlus className="plus-btn" />
           </button>
           <div className="settleOrder">
-            <Modal name={name} />
             <div className="user">
               <FiUser className="user-icon" />
               <h2>주문자 정보</h2>

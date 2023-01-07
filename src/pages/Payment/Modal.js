@@ -1,11 +1,8 @@
-import { useState } from "react";
 import "./Modal.scss";
 
 const Modal = () => {
-  const [name, setName] = useState("");
-
   return (
-    <div className={"modal" + name}>
+    <div className="modal">
       <div className="modal-img">
         <div className="item-info">
           <h2>2976 첼시 스무스</h2>
