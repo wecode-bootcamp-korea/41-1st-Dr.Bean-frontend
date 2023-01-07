@@ -2,21 +2,23 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCount from "./ProductCount/ProductCount";
 import "./ProductDetailMain.scss";
-
 import ProductSelect from "./ProductSelect/ProductSelect";
 
 const GRAM_LIST = [
   {
     id: 1,
     content: "200g",
+    name: "size",
   },
   {
     id: 2,
     content: "500g",
+    name: "size",
   },
   {
     id: 3,
     content: "1kg",
+    name: "size",
   },
 ];
 const GRINDER_LIST = [
@@ -46,11 +48,13 @@ const GRINDER_LIST = [
   },
   {
     id: 7,
-    content: "홀빈 (갈지않은 원두)",
+    content: "홀빈 (생원두)",
   },
 ];
 
 function ProductDetailMain() {
+  const [checkRdoId, setCheckRdoId] = useState("");
+
   // const params = useParams();
   // const productId = params.id;
 
@@ -65,6 +69,13 @@ function ProductDetailMain() {
   // console.log(info);
 
   // const { item_img, name, grams, price } = info;
+
+  const onChangeRadio = e => {
+    const isRadioChecked = e.target.checked;
+    isRadioChecked && setCheckRdoId(e.target.id);
+  };
+
+  console.log(checkRdoId);
   return (
     <div className="product-container inner">
       {/* <img src={item_img} alt="product-img" /> */}
@@ -82,15 +93,28 @@ function ProductDetailMain() {
           </p>
           <ul className="select-container">
             {GRAM_LIST.map(list => {
-              return <ProductSelect key={list.id} content={list.content} />;
+              return (
+                <ProductSelect
+                  id={list.id}
+                  content={list.content}
+                  name={list.name}
+                  onChangeRadio={onChangeRadio}
+                />
+              );
             })}
           </ul>
           <ul className="select-container">
             {GRINDER_LIST.map(info => {
-              return <ProductSelect key={info.id} content={info.content} />;
+              return (
+                <ProductSelect
+                  id={info.id}
+                  content={info.content}
+                  onChangeRadio={onChangeRadio}
+                />
+              );
             })}
           </ul>
-          {/* <ProductCount price={price} /> */}
+
           <ProductCount />
           <button className="cart-btn">장바구니</button>
           <button className="buy-btn">구매하기</button>

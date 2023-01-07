@@ -1,79 +1,70 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import "./ProductReview.scss";
 import { BsPencil } from "react-icons/bs";
-import { IoMdClose } from "react-icons/io";
-
-const REVIEW_LIST = [
-  {
-    id: 1,
-    img: "/images/coffee_icon.png",
-    userId: "이진경",
-    comment: "신발이 너무 예뻐용",
-    like: 5,
-  },
-  {
-    id: 2,
-    img: "/images/coffee_icon.png",
-    userId: "이진경",
-    comment: "신발이 너무 예뻐용",
-    like: 5,
-  },
-  {
-    id: 3,
-    img: "/images/coffee_icon.png",
-    userId: "이진경",
-    comment: "신발이 너무 예뻐용",
-    like: 5,
-  },
-];
+import ReviewBox from "./ReviewBox/ReviewBox";
+import ReviewItem from "./ReviewItem/ReviewItem";
 
 function ProductReview() {
+  const [view, setView] = useState(false);
+  const [className, setClassName] = useState("");
+  const [inputValue, setInputValue] = useState({});
+  const [review, setReview] = useState([
+    {
+      user_img: "/images/coffee_icon.png",
+      userId: "이진경",
+      like: 5,
+      review_title: "",
+      review_img: "",
+      review_content: "",
+    },
+  ]);
+  const { review_title, review_img, review_content } = review;
+
+  const changeHandler = e => {
+    const { name, value } = e.target;
+    setReview({
+      ...review,
+      [name]: value,
+    });
+  };
+
+  const clickHandler = () => {
+    let copy = [...review];
+    copy.unshift(inputValue);
+    setReview(copy);
+    setInputValue("");
+  };
+
+  const openBtn = () => {
+    setView(!view);
+    view ? setClassName(" view") : setClassName("");
+  };
+
+  // const addHandler = () => {
+  //   const
+  // };
   return (
     <div className="review-container inner">
       <div className="title-container">
         <span>상품후기</span>
-        <button>
+        <button onClick={openBtn}>
           <BsPencil className="pencil-icon" />
           글쓰기
         </button>
       </div>
       <ul className="review-item-container">
-        {REVIEW_LIST.map(info => {
-          return (
-            <li className="item-box" key={info.id}>
-              <div className="user-info">
-                <img src={info.img} />
-                <div className="user-id">{info.userId}</div>
-              </div>
-              <div className="comment">{info.comment}</div>
-              <div className="like-container">
-                <div className="like">별별별별별</div>
-                <div className="more">펼쳐보기</div>
-              </div>
-            </li>
-          );
+        {review.map(info => {
+          return <ReviewItem info={info} />;
         })}
+        <button className="more-btn">더 많은 후기 보기</button>
       </ul>
-      <button className="more-btn">더 많은 후기 보기</button>
 
-      <form className="form-container">
-        <div className="title-container">
-          <span className="title">상품후기 작성</span>
-          <IoMdClose />
-        </div>
-        <div className="like input-wrap">
-          <label>별점</label>
-          <input type="text" />
-        </div>
-        <div className="writer input-wrap">
-          <label>작성자</label>
-          <input type="text" />
-        </div>
-        <div className="writer input-wrap">
-          <label>후기 내용</label>
-          <input type="text" />
-        </div>
-      </form>
+      <ReviewBox
+        className={className}
+        setClassName={setClassName}
+        changeHandler={changeHandler}
+        createHandler={clickHandler}
+      />
     </div>
   );
 }

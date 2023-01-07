@@ -1,0 +1,152 @@
+@import "../../../../styles/color";
+@import "../../../../styles/variables";
+
+.form-bg {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba($color: $black, $alpha: 0.8);
+
+  &.view {
+    display: block;
+  }
+
+  .form-container {
+    position: fixed;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 750px;
+    overflow-y: scroll;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+
+    .title-container {
+      height: 70px;
+      padding: 0 32px;
+      line-height: 70px;
+
+      .close-btn {
+        position: absolute;
+        right: 30px;
+        margin-top: 10px;
+        border: none;
+      }
+    }
+
+    .order-container {
+      display: flex;
+      width: 536px;
+      margin: 20px auto;
+      padding: 10px 20px;
+      border: 1px solid $borderGray;
+      background-color: $boxBackground;
+      font-size: 24px;
+      font-weight: 700;
+
+      img {
+        width: 128px;
+        height: 160px;
+        margin-right: 20px;
+      }
+
+      .order-info {
+        height: 30px;
+        padding: 30px 0;
+
+        .option {
+          margin: 10px 0 30px 0;
+          color: $pointFontColor;
+          font-size: 16px;
+
+          &.size {
+            margin-right: 30px;
+          }
+        }
+
+        .price {
+          .won {
+            margin: 0 5px 0 0;
+            padding-top: 5px;
+          }
+        }
+      }
+    }
+
+    .input-container {
+      width: 536px;
+      margin: auto;
+
+      .input-wrap {
+        position: relative;
+        margin-bottom: 8px;
+
+        label {
+          @include label;
+          position: absolute;
+          top: -8px;
+          left: 30px;
+          font-size: 18px;
+          font-weight: 700;
+        }
+
+        .input-box {
+          @include inputBox;
+          width: 536px;
+          height: 59px;
+          border: 1px solid $pointFontColor;
+        }
+      }
+
+      .content-container {
+        display: flex;
+        justify-content: space-between;
+        height: 200px;
+
+        .add-photo {
+          width: 200px;
+          height: 190px;
+          padding: 20px;
+          border: 1px solid $pointFontColor;
+        }
+
+        .content {
+          textarea {
+            width: 300px;
+            height: 100%;
+            padding: 10px;
+            border: 1px solid $pointFontColor;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+
+    .btn-container {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      height: 62px;
+    }
+
+    .empty-btn,
+    .full-btn {
+      width: 300px;
+      height: 100%;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .empty-btn {
+      @include emptyBtn(22px);
+    }
+
+    .full-btn {
+      @include fullBtn(22px);
+      color: $white;
+    }
+  }
+}
