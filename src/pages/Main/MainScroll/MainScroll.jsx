@@ -11,7 +11,7 @@ function MainScroll() {
   };
 
   const toNext = () => {
-    slidePx > -3360 && setSlidePx(slidePx - widthPx);
+    slidePx > -(widthPx * 2) && setSlidePx(slidePx - widthPx);
   };
 
   return (

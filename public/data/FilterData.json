@@ -28,5 +28,23 @@
     "img": "/images/coffee_bean.jpg",
     "name": "상품이름",
     "price": 10000
+  },
+  {
+    "id": 6,
+    "img": "/images/coffee_bean.jpg",
+    "name": "상품이름",
+    "price": 10000
+  },
+  {
+    "id": 7,
+    "img": "/images/coffee_bean.jpg",
+    "name": "상품이름",
+    "price": 10000
+  },
+  {
+    "id": 8,
+    "img": "/images/coffee_bean.jpg",
+    "name": "상품이름",
+    "price": 10000
   }
 ]

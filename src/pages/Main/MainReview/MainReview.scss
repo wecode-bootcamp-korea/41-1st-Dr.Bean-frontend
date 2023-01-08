@@ -2,22 +2,19 @@
 
 .review-container {
   position: relative;
-  border: 1px solid red;
   background-attachment: fixed;
   background-color: #fafafa;
   background-image: url(../../../images/painter-g891aad3a2_1280.jpg);
   background-size: cover;
 
   .inner {
-    height: 1000px;
-    border: 1px solid green;
+    height: 1200px;
 
     .review-wrap {
       position: absolute;
       z-index: 1;
-      bottom: 0;
+      bottom: 100px;
       left: 50%;
-      border: 1px solid red;
 
       .review-title {
         color: $white;
@@ -49,7 +46,7 @@
 
       .review-content {
         width: 500px;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
         color: $white;
         font-size: 26px;
         line-height: 40px;
