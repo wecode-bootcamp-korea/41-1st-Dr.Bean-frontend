@@ -1,10 +1,24 @@
 import "./ReviewBox.scss";
 import { IoMdClose } from "react-icons/io";
 import { BiWon } from "react-icons/bi";
+import { useState } from "react";
 
-function ReviewBox({ className, setClassName, changeHandler, clickHandler }) {
+function ReviewBox({ className, setClassName, onCreate }) {
   const closeBtn = () => {
     setClassName("");
+  };
+
+  const [state, setState] = useState({
+    review_title: "",
+    review_img: "",
+    review_content: "",
+  });
+
+  const handleChangeState = e => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
@@ -36,25 +50,31 @@ function ReviewBox({ className, setClassName, changeHandler, clickHandler }) {
           </div>
           <div className="writer input-wrap ">
             <label>제목</label>
-            <input type="text" className="input-box" onChange={changeHandler} />
+            <input
+              type="text"
+              className="input-box"
+              onChange={handleChangeState}
+            />
           </div>
 
           <div className="content-container">
             <div className="add-photo input-wrap">
               <label>사진</label>
-              <input type="file" accept="/image/*" onChange={changeHandler} />
+              <input
+                type="file"
+                accept="/image/*"
+                onChange={handleChangeState}
+              />
             </div>
             <div className="content input-wrap">
               <label>내용</label>
-              <textarea type="text" onChange={changeHandler} />
+              <textarea type="text" onChange={handleChangeState} />
             </div>
           </div>
         </div>
         <div className="btn-container">
           <button className="empty-btn">취소</button>
-          <button className="full-btn" onClick={clickHandler}>
-            등록
-          </button>
+          <button className="full-btn">등록</button>
         </div>
       </form>
     </div>

@@ -8,17 +8,14 @@ const GRAM_LIST = [
   {
     id: 1,
     content: "200g",
-    name: "size",
   },
   {
     id: 2,
     content: "500g",
-    name: "size",
   },
   {
     id: 3,
     content: "1kg",
-    name: "size",
   },
 ];
 const GRINDER_LIST = [
@@ -55,6 +52,7 @@ const GRINDER_LIST = [
 function ProductDetailMain() {
   const [checkRdoId, setCheckRdoId] = useState("");
 
+  //백엔드 통신 로직
   // const params = useParams();
   // const productId = params.id;
 
@@ -75,7 +73,6 @@ function ProductDetailMain() {
     isRadioChecked && setCheckRdoId(e.target.id);
   };
 
-  console.log(checkRdoId);
   return (
     <div className="product-container inner">
       {/* <img src={item_img} alt="product-img" /> */}
