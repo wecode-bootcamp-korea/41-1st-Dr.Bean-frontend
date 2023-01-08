@@ -2,46 +2,41 @@ import React, { useEffect, useState } from "react";
 import "./MainFilter.scss";
 import MainFilterItem from "./MainFilterItem/MainFilterItem";
 
-const ICON_DATA = [
-  {
-    id: 1,
-    img: "/images/north_america.png",
-    name: "North-America",
-  },
-  {
-    id: 2,
-    img: "/images/south_america.png",
-    name: "South-America",
-  },
-  {
-    id: 3,
-    img: "/images/africa.png",
-    name: "Africa",
-  },
-  {
-    id: 3,
-    img: "/images/asia.png",
-    name: "Asia",
-  },
-];
-
 function MainFilter() {
+  const [country, setCountry] = useState([]);
+  const [activeId, setActiveId] = useState(0);
+
+  useEffect(() => {
+    fetch("/data/Country.json")
+      .then(res => res.json())
+      .then(data => setCountry(data));
+  }, []);
+
+  const clickHandler = id => {
+    setActiveId(id);
+  };
+
   return (
     <>
       <h1 className="icons-title">ICONS</h1>
       <div className="icons-container">
         <ul className="icon-wrap inner">
-          {ICON_DATA.map(list => {
+          {country.map((str, idx) => {
             return (
-              <li key={list.id}>
-                <img src={list.img} />
-                <p className="icon-name">{list.name}</p>
+              <li
+                key={str}
+                onClick={() => {
+                  clickHandler(idx);
+                }}
+              >
+                <img src={str.img} />
+                <p className="icon-name">{str.name}</p>
               </li>
             );
           })}
         </ul>
       </div>
-      <MainFilterItem />
+      <MainFilterItem activeId={activeId} setActiveId={setActiveId} />
     </>
   );
 }
