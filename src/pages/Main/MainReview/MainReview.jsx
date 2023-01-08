@@ -5,7 +5,10 @@ function MainReview() {
   return (
     <div className="review-container">
       <div className="inner">
-        <div className="review-wrap">
+        <div
+          className="review-wrap"
+          // style={{ transform: `translateY(${position})px` }}
+        >
           <h1 className="review-title">고객리뷰</h1>
           <div className="review-line">
             <div className="left-line" />
@@ -26,8 +29,6 @@ function MainReview() {
           <button className="empty-btn">자세히 보기</button>
         </div>
       </div>
-      <img src="/images/coffee_icon.png" className="left-img" />
-      <img src="/images/coffee_icon.png" className="right-img" />
     </div>
   );
 }

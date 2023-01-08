@@ -6,10 +6,19 @@ function MainFilterItem(activeId, setActiveId) {
   const [item, setItem] = useState([]);
 
   // useEffect(() => {
-  //   fetch("http://10.58.52.57:3000/items/1")
+  //   fetch(`http://10.58.52.120:3000/items/1`)
   //     .then(res => res.json())
   //     .then(result => setItem(result));
   // }, []);
+
+  console.log(item);
+
+  const obj = {
+    0: 1,
+    1: 2,
+    2: 3,
+    3: 4,
+  };
 
   useEffect(() => {
     fetch("/data/FilterData.json")

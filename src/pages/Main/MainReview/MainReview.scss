@@ -2,18 +2,25 @@
 
 .review-container {
   position: relative;
+  border: 1px solid red;
+  background-attachment: fixed;
   background-color: #fafafa;
+  background-image: url(../../../images/painter-g891aad3a2_1280.jpg);
+  background-size: cover;
 
   .inner {
-    height: 800px;
+    height: 1000px;
     border: 1px solid green;
 
     .review-wrap {
       position: absolute;
       z-index: 1;
+      bottom: 0;
       left: 50%;
+      border: 1px solid red;
 
       .review-title {
+        color: $white;
         font-size: 64px;
         font-weight: 700;
       }
@@ -28,7 +35,7 @@
         .left-line,
         .right-line {
           height: 100%;
-          background-color: #000;
+          background-color: $white;
         }
 
         .left-line {
@@ -43,7 +50,7 @@
       .review-content {
         width: 500px;
         margin-bottom: 30px;
-        color: $pointFontColor;
+        color: $white;
         font-size: 26px;
         line-height: 40px;
       }
@@ -52,14 +59,16 @@
         width: 160px;
         height: 52px;
         padding: 0 17px;
-        border: 1px solid #000;
+        border: 1px solid $white;
         background-color: rgba($color: #000000, $alpha: 0);
+        color: $white;
         font-size: 18px;
 
         &:hover {
           transition: all 350ms ease-in-out;
-          background-color: #000;
-          color: #fff;
+          border: 1px solid $white;
+          background-color: $white;
+          color: $black;
         }
       }
     }

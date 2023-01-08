@@ -7,10 +7,12 @@ function MainFilter() {
   const [activeId, setActiveId] = useState(0);
 
   useEffect(() => {
-    fetch("/data/Country.json")
+    fetch(`/data/Country.json`)
       .then(res => res.json())
       .then(data => setCountry(data));
   }, []);
+
+  console.log(country);
 
   const clickHandler = id => {
     setActiveId(id);
