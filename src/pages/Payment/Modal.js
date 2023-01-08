@@ -1,8 +1,8 @@
 import "./Modal.scss";
 
-const Modal = () => {
+const Modal = props => {
   return (
-    <div className="modal">
+    <div className="modal" hidden={props.hidden}>
       <div className="modal-img">
         <div className="item-info">
           <h2>2976 첼시 스무스</h2>

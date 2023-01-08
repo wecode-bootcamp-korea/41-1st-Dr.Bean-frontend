@@ -8,11 +8,11 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import { MdEditNote } from "react-icons/md";
 
 const Payment = () => {
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(true);
 
-  const toggleModal = () => {
-    setModal(!modal);
-  };
+  // const toggleModal = () => {
+  //   setModal(!modal);
+  // };
 
   return (
     <div className="payment inner">
@@ -24,10 +24,22 @@ const Payment = () => {
       </div>
       <div className="settleContainer-row ">
         <div className="settleContainer-left">
-          <button onClick={toggleModal} className="settleProduct-list">
+          <button
+            onClick={() => setModal(!modal)}
+            className="settleProduct-list"
+          >
             <p>주문 예정 금액 (1item | ₩ )</p>
-            <AiOutlinePlus className="plus-btn" />
+            {modal ? (
+              <AiOutlinePlus className="plus-btn" />
+            ) : (
+              <div className="plus-btn" style={{ color: "#fffff" }}>
+                "마이너스"
+              </div>
+            )}
           </button>
+
+          <Modal hidden={modal} />
+
           <div className="settleOrder">
             <div className="user">
               <FiUser className="user-icon" />
