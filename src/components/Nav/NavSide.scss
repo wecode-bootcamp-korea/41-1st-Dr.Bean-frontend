@@ -7,11 +7,21 @@
 
   .side-list {
     display: flex;
-    position: relative;
+    // position: relative;
     width: 280px;
     height: 30px;
     top: 60px;
     margin-top: 40px;
     border: 1px solid gold;
+  }
+
+  .side-menu {
+    display: flex;
+    flex-direction: column;
+  }
+  .sub-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
 }

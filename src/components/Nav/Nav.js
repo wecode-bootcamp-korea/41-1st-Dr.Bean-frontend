@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Nav.scss";
 import "./NavSide";
 
@@ -10,11 +10,22 @@ import { FiUser } from "react-icons/fi";
 import NavSide from "./NavSide";
 
 export default function Nav() {
+  const [sideState, setSideState] = useState({ show: true });
+
+  const navClose = () => {
+    setSideState({ show: true });
+  };
+
   return (
     <div className="header-wrapper inner">
       <div className="side-bar-btn">
-        <RxHamburgerMenu className="side-bar-icon" />
-        <NavSide />
+        <RxHamburgerMenu
+          className="side-bar-icon"
+          onClick={() => setSideState({ show: !sideState.show })}
+        />
+        <div hidden={sideState.show}>
+          <NavSide onClose={navClose} />
+        </div>
         <img className="logo" src="/images/dr.bean-logo.png" alt="" />
       </div>
       <input
