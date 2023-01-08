@@ -48,7 +48,7 @@ function ReviewBox({ className, setClassName, onCreate }) {
             <label>별점</label>
             <input type="text" className="input-box" />
           </div>
-          <div className="writer input-wrap ">
+          <div className="writer input-wrap">
             <label>제목</label>
             <input
               type="text"

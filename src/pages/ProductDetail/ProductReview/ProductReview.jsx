@@ -20,9 +20,6 @@ function ProductReview() {
       review_content: "",
       id: dataId.current,
     };
-
-    dataId.current += 1;
-    setReview(newItem, ...review);
   };
 
   const openBtn = () => {
