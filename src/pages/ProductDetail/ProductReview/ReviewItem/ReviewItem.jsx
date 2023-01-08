@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ReviewItem.scss";
 
-function ReviewItem({ info }) {
+function ReviewItem({ info, review }) {
   const [view, setView] = useState(false);
   const [name, setName] = useState("");
   const [open, setOpen] = useState("펼쳐보기");
@@ -16,7 +16,7 @@ function ReviewItem({ info }) {
     <li className="item-box" key={info.id}>
       <div className="user-info">
         <img src={info.user_img} />
-        <div className="user-id">{info.userId}</div>
+        <div className="user-id">{info.user_id}</div>
       </div>
       <div className="review-title">{info.review_title}</div>
       <div className="review-wrap">
@@ -25,7 +25,6 @@ function ReviewItem({ info }) {
           alt="review-img"
           className={"review-img" + name}
         />
-        <div className="like">별별별별별</div>
         <div className={"review-content" + name}>{info.review_content}</div>
         <div className="more" onClick={clickHandler}>
           {open}

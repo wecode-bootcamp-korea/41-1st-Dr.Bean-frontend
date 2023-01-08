@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./ProductReview.scss";
 import { BsPencil } from "react-icons/bs";
 import ReviewBox from "./ReviewBox/ReviewBox";
@@ -8,24 +8,19 @@ function ProductReview() {
   const [view, setView] = useState(false);
   const [className, setClassName] = useState("");
   const [review, setReview] = useState([]);
-  const dataId = useState(0);
-
-  const onCreate = () => {
-    const newItem = {
-      user_img: "/images/coffee_icon.png",
-      userId: "이진경",
-      like: 5,
-      review_title: "",
-      review_img: "",
-      review_content: "",
-      id: dataId.current,
-    };
-  };
 
   const openBtn = () => {
     setView(!view);
     view ? setClassName(" view") : setClassName("");
   };
+
+  useEffect(() => {
+    fetch("http://localhost:3000/data/Review.json")
+      .then(res => res.json())
+      .then(data => setReview(data));
+  }, []);
+
+  console.log(review);
 
   return (
     <div className="review-container inner">
@@ -38,16 +33,12 @@ function ProductReview() {
       </div>
       <ul className="review-item-container">
         {review.map(info => {
-          return <ReviewItem info={info} review={review} />;
+          return <ReviewItem info={info} />;
         })}
         <button className="more-btn">더 많은 후기 보기</button>
       </ul>
 
-      <ReviewBox
-        className={className}
-        setClassName={setClassName}
-        onCreate={onCreate}
-      />
+      <ReviewBox className={className} setClassName={setClassName} />
     </div>
   );
 }
