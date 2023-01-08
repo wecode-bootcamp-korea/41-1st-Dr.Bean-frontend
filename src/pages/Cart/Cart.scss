@@ -50,11 +50,6 @@
       font-size: 19px;
     }
 
-    .user-icon {
-      font-size: 40px;
-      margin-left: -10px;
-    }
-
     h2 {
       display: flex;
       font-weight: 700;
@@ -91,6 +86,14 @@
   border: 1px solid #dddd;
 }
 
+.delete-icon {
+  display: flex;
+  float: right;
+  border: 0;
+  background-color: transparent;
+  font-size: 16px;
+}
+
 .cart-item-img {
   width: 128px;
   height: 160px;
@@ -118,6 +121,8 @@
     font-size: 16px;
     color: #666;
     margin-top: 5px;
+    list-style: none;
+
     p {
       position: absolute;
       right: 20px;
