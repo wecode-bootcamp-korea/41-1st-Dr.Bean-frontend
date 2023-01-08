@@ -37,6 +37,12 @@
   cursor: pointer;
 }
 
+.subcategory:hover {
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+}
+
 .category-description {
   margin-top: 25px;
   font-size: 18px;
