@@ -15,11 +15,6 @@ let result = [];
 const NavSide = props => {
   const [subMenu, setSubMenu] = useState({ list: [], title: "" });
 
-  // const addCart = value => {
-  //   window.localStorage.setItem("addItem", value);
-  //   window.dispatchEvent(new Event("storage"));
-  // };
-  //onClick={() => addCart(item.title)}
   const navClick = (value, event) => {
     event.stopPropagation();
 
