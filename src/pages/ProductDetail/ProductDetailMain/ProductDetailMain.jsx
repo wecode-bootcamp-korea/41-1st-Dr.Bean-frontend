@@ -93,8 +93,8 @@ function ProductDetailMain() {
               return (
                 <ProductSelect
                   id={list.id}
+                  name="size"
                   content={list.content}
-                  name={list.name}
                   onChangeRadio={onChangeRadio}
                 />
               );
@@ -105,6 +105,7 @@ function ProductDetailMain() {
               return (
                 <ProductSelect
                   id={info.id}
+                  name="grinder"
                   content={info.content}
                   onChangeRadio={onChangeRadio}
                 />
