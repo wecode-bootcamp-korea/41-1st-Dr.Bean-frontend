@@ -3,24 +3,17 @@ import "./Cart.scss";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import { AiOutlineClose } from "react-icons/ai";
-
-const testArray = [
-  {
-    id: 123,
-    title: "2976 첼시 스무스",
-    color: "블랙",
-    pointYN: 0,
-    price: 260000,
-  },
-  { id: 156, title: "뉴발", color: "브라운", pointYN: 1, price: 30000 },
-  { id: 1238, title: "메종", color: "화이트", pointYN: 0, price: 700000 },
-];
-
 const Cart = () => {
   //예외
   const [cartItem, setCartItem] = useState({ list: [], result: 0, msg: "" });
+  const [list, setList] = useState([]);
 
   useEffect(() => {
+    fetch(" http://10.58.52.196:3000/cart")
+      .then(response => response.json())
+      .then(data => setList(data));
+
+    console.log(list);
     //api요청 -> list 갱신 (state 업데이트)
   }, []);
 
@@ -35,17 +28,19 @@ const Cart = () => {
   // };
 
   const testDeletItem = id => {
-    const resultArray = [...testArray];
-    testArray.forEach(function (item, index) {
+    const resultArray = [...list];
+    list.forEach(function (item, index) {
       if (item.id === id) {
         resultArray.splice(index, 1);
       }
     });
-    testArray = [...resultArray];
+    list = [...resultArray];
   };
 
   const showList = () => {
-    return testArray.map((item, index) => (
+    return;
+
+    list.map((item, index) => (
       <div className="cart-item" key={index}>
         <div className="cart-item-img">
           <div className="item-info">
