@@ -57,10 +57,6 @@ const NavSide = props => {
           </div>
         );
       })}
-      {/* <div className="side-list"/>
-      <div className="side-list"/>
-      <div className="side-list" />
-      <div className="side-list" /> */}
     </div>
   );
 };
