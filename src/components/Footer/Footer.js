@@ -7,9 +7,7 @@ const Footer = () => {
       <div className="footer-wrapper">
         <div className="footer-top">
           <div className="footer-top-left">
-            <span style={{ color: "white", fontSize: 15, fontWeight: 700 }}>
-              닥터빈코리아(주)
-            </span>
+            <span id="title">닥터빈코리아(주)</span>
             <br />
             <br />
             <span>
@@ -22,9 +20,7 @@ const Footer = () => {
               송은우 | 대표이사 : 송은우
             </span>
             <br />
-            <span style={{ color: "white", fontSize: 15, fontWeight: 700 }}>
-              문의전화 : 070-4323-4050
-            </span>
+            <span id="phone">문의전화 : 070-4323-4050</span>
             <span>
               (10AM ~ 5PM 점심시간 12:00~13:00) | 이메일 : hello@drmartens.co.kr
             </span>
