@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import "./ProductSelect.scss";
 
-function ProductSelect({ id, name, content, onChangeRadio }) {
-  // useEffect(() => {
-  //   fetch("http://10.58.52.57:3000/items/1", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json; charset=utf-8",
-  //     },
-  //     body: JSON.stringify({
-  //       itemId: content.id,
-  //       size: { clickValue },
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => setData(res.data));
-  // });
+function ProductSelect({
+  id,
+  name,
+  content,
+  setCheckRdoId,
+  setSize,
+  setGrind,
+}) {
+  const onChangeRadio = e => {
+    const isRadioChecked = e.target.checked;
+    isRadioChecked && setCheckRdoId(e.target.id);
+
+    if (name === "size") {
+      setSize(e.target.id);
+    } else {
+      setGrind(e.target.id);
+    }
+  };
 
   return (
     <li>

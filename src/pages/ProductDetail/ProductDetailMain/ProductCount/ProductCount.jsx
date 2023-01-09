@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BiPlus, BiMinus, BiWon } from "react-icons/bi";
 import "./ProductCount.scss";
 
-function ProductCount() {
+function ProductCount({ price }) {
   const [count, setCount] = useState(1);
   // const cal = price;
 
@@ -34,7 +34,7 @@ function ProductCount() {
       </div>
       <div className="product-price">
         <BiWon className="won" />
-        <span>{17000 * count}</span>
+        <span>{price * count}</span>
       </div>
     </div>
   );
