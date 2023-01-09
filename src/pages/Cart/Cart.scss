@@ -108,6 +108,13 @@
   margin-left: 150px;
   display: block;
 
+  .delete-box {
+    background-color: transparent;
+    border: 0;
+    font-size: 20px;
+    float: right;
+  }
+
   h2 {
     font-size: 24px;
     font-weight: 700;

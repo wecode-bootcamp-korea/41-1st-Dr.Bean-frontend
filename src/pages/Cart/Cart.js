@@ -4,7 +4,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import { AiOutlineClose } from "react-icons/ai";
 
-let testArray = [
+const testArray = [
   {
     id: 123,
     title: "2976 첼시 스무스",
@@ -35,7 +35,7 @@ const Cart = () => {
   // };
 
   const testDeletItem = id => {
-    let resultArray = [...testArray];
+    const resultArray = [...testArray];
     testArray.forEach(function (item, index) {
       if (item.id === id) {
         resultArray.splice(index, 1);
@@ -55,7 +55,7 @@ const Cart = () => {
                 className="delete-box"
                 onClick={() => testDeletItem(item.id)}
               >
-                <TiDeleteOutline className="delete-box-icon" />
+                <TiDeleteOutline />
               </button>
             </h2>
             <ui>
