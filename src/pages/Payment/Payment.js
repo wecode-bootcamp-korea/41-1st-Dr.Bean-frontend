@@ -25,7 +25,7 @@ const Payment = () => {
             onClick={() => setModal(!modal)}
             className="settleProduct-list"
           >
-            <p>주문 예정 금액 (1item | ₩ )</p>
+            <p>주문 예정 금액 (1item | {}₩ )</p>
             {modal ? (
               <AiOutlinePlus className="plus-btn" />
             ) : (
