@@ -20,31 +20,31 @@ const GRAM_LIST = [
 ];
 const GRINDER_LIST = [
   {
-    id: 1,
+    id: 4,
     content: "(분쇄) 에스프레소",
   },
   {
-    id: 2,
+    id: 5,
     content: "(분쇄) 커피메이커",
   },
   {
-    id: 3,
+    id: 6,
     content: "(분쇄) 모카포트",
   },
   {
-    id: 4,
+    id: 7,
     content: "(분쇄) 더치커피",
   },
   {
-    id: 5,
+    id: 8,
     content: "(분쇄) 프렌치프레스",
   },
   {
-    id: 6,
+    id: 9,
     content: "(분쇄) 에어로프레스",
   },
   {
-    id: 7,
+    id: 10,
     content: "홀빈 (생원두)",
   },
 ];
@@ -92,6 +92,8 @@ function ProductDetailMain() {
             {GRAM_LIST.map(list => {
               return (
                 <ProductSelect
+                  key={list.id}
+                  className="border"
                   id={list.id}
                   name="size"
                   content={list.content}
@@ -104,6 +106,8 @@ function ProductDetailMain() {
             {GRINDER_LIST.map(info => {
               return (
                 <ProductSelect
+                  key={info.id}
+                  className="border"
                   id={info.id}
                   name="grinder"
                   content={info.content}

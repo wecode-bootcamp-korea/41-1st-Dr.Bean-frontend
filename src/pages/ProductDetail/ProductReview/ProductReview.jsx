@@ -33,7 +33,7 @@ function ProductReview() {
       </div>
       <ul className="review-item-container">
         {review.map(info => {
-          return <ReviewItem info={info} />;
+          return <ReviewItem key={info.id} info={info} />;
         })}
         <button className="more-btn">더 많은 후기 보기</button>
       </ul>
