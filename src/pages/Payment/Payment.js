@@ -3,16 +3,13 @@ import Modal from "./Modal";
 import "./Payment.scss";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlineMinus } from "react-icons/ai";
 import { FiUser } from "react-icons/fi";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { MdEditNote } from "react-icons/md";
 
 const Payment = () => {
   const [modal, setModal] = useState(true);
-
-  // const toggleModal = () => {
-  //   setModal(!modal);
-  // };
 
   return (
     <div className="payment inner">
@@ -32,8 +29,8 @@ const Payment = () => {
             {modal ? (
               <AiOutlinePlus className="plus-btn" />
             ) : (
-              <div className="plus-btn" style={{ color: "#fffff" }}>
-                "마이너스"
+              <div>
+                <AiOutlineMinus className="minus-btn" />
               </div>
             )}
           </button>
@@ -101,11 +98,11 @@ const Payment = () => {
                 <div>₩233,333</div>
               </div>
               <div className="firstPrice">
-                <div>배송비</div>
+                <div>보유 포인트</div>
                 <div>₩(+)0</div>
               </div>
               <div className="firstPrice">
-                <div>할인 금액</div>
+                <div>결제 포인트</div>
                 <div>₩(+)0</div>
               </div>
               <div className="firstPrice-bottom">
