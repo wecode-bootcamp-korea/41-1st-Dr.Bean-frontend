@@ -12,8 +12,6 @@ function MainFilter() {
       .then(data => setCountry(data));
   }, []);
 
-  console.log(country);
-
   const clickHandler = id => {
     setActiveId(id);
   };
