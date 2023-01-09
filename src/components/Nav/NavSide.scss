@@ -17,15 +17,13 @@
     margin-top: 40px;
     font-size: 18px;
     font-weight: 800;
-
-    .side-menu {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      cursor: pointer;
-    }
   }
-
+  .side-menu {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    cursor: default;
+  }
   .sub-menu {
     display: flex;
     flex-direction: column;
