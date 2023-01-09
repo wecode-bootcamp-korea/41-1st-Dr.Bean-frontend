@@ -107,7 +107,7 @@ const Payment = () => {
               </div>
               <div className="firstPrice-bottom">
                 <div>총 결제 예정 금액</div>
-                <div>₩233,333</div>
+                <div>{}₩</div>
               </div>
             </div>
           </article>
@@ -115,7 +115,12 @@ const Payment = () => {
             반품 시 결제금액에서 반품 왕복 배송비를 차감한 금액이 환불되는 것에
             동의합니다.
           </span>
-          <button className="priceButton">결제하기</button>
+          <button
+            className="priceButton"
+            onClick={() => alert("결제가 완료되었습니다")}
+          >
+            결제하기
+          </button>
         </div>
       </div>
     </div>
