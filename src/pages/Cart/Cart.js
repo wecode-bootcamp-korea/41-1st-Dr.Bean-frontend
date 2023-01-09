@@ -69,11 +69,6 @@ const Cart = () => {
 
   return (
     <div className="payment inner">
-      {/* 
-    {cartItem.result === 1 ? <>cartItem.msg</> : 
-    {cartItem.list.map((item)=> {<></>})}}
- */}
-
       <div className="head-icon">
         <AiOutlineArrowLeft className="arrow-icon" />
       </div>
