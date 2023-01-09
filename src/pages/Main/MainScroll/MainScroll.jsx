@@ -4,7 +4,7 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 function MainScroll() {
   const [slidePx, setSlidePx] = useState(0);
-  const widthPx = 1680;
+  const widthPx = 1920;
 
   const toPrev = () => {
     slidePx < 0 && setSlidePx(slidePx + widthPx);
