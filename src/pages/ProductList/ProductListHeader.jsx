@@ -26,7 +26,11 @@ export default function ProductListHeader({ category, country }) {
         {continentCat.map(content => {
           return (
             <button
-              className="subcategory"
+              className={
+                country.country === content.countryName
+                  ? "subcategory-activated"
+                  : "subcategory"
+              }
               key={content.id}
               onClick={e => {
                 navigate(
