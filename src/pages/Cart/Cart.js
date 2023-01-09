@@ -9,7 +9,7 @@ const Cart = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    fetch(" http://10.58.52.196:3000/cart")
+    fetch("http://10.58.52.196:3000/cart/18")
       .then(response => response.json())
       .then(data => setList(data));
 
@@ -38,11 +38,9 @@ const Cart = () => {
   };
 
   const showList = () => {
-    return;
-
-    list.map((item, index) => (
+    return list.map((item, index) => (
       <div className="cart-item" key={index}>
-        <div className="cart-item-img">
+        <img className="cart-item-img" src={item.item_img}>
           <div className="item-info">
             <h2>
               {item.title}
@@ -54,9 +52,10 @@ const Cart = () => {
               </button>
             </h2>
             <ui>
-              <li>컬러 : {item.color}</li>
-              <li>{}</li>
-              <li>{}</li>
+              <li>{item.id}</li>
+              <li>{item.quantity}</li>
+              <li>{item.name}</li>
+
               <li>
                 <p>
                   {item.pointYN === 1 ? "포인트사용가능" : "포인트사용불가"}
@@ -68,7 +67,7 @@ const Cart = () => {
             </div>
             <p className="option">옵션/수량변경</p>
           </div>
-        </div>
+        </img>
       </div>
     ));
   };
