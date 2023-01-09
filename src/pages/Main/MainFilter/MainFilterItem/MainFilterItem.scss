@@ -12,7 +12,6 @@
     .item {
       width: 364px;
       margin-right: 20px;
-      border: 1px solid blue;
 
       &:nth-child(3),
       &:nth-child(6) {
@@ -27,18 +26,15 @@
       .item-sub-wrap {
         display: flex;
         justify-content: space-between;
-        border: 1px solid red;
 
         p {
           height: 38px;
-          border: 1px solid orange;
           font-size: 18px;
           font-weight: 700;
           cursor: pointer;
         }
 
         .product-price {
-          background-color: yellow;
           line-height: 38px;
         }
       }

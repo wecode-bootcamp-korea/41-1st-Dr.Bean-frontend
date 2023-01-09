@@ -9,30 +9,34 @@ function MainReview() {
           className="review-wrap"
           // style={{ transform: `translateY(${position})px` }}
         >
-          <h1 className="review-title">Dr.Bean</h1>
+          <h1 className="review-title">커피와 지속가능성</h1>
           <div className="review-line">
             <div className="left-line" />
             <div className="right-line" />
           </div>
           <p className="review-content">
-            왜 닥터빈인가? <br />
-            주문하면 로스팅을 시작하는 원두가 무엇인지 경험하실 수 있습니다.
+            생두를 수확하는 일부터 소비자에게 건네지는 일까지 모든 구성원의
+            지속적인 환경적, 경제적, 사회적 건강은 커피산업이 생존하는데
+            필수적입니다.
             <br />
-            생두의 특성에 맞게 각각 다른, 로스팅 포인트로 최상의 풍미를
-            선사합니다.
-            <br />
-            프리미엄, 스페셜티, 마이크로랏에 이르는 아라비카(뉴크롭)생두만을
-            고집합니다.
+            커피 업계에서도 최근 10년 사이 지속가능성은 뜨거운 주제였습니다.
             <br />
           </p>
           <p className="review-content">
-            닥터빈의 친환경 활동 <br />
-            커피 원산지부터 매장까지 환경 발자국 줄이기위해 노력하고 있습니다.
+            커피 재배 농가의 삶의 질을 개선하고 수질과 토양, 생물 다양성을
+            보호하며 장기적인 관점에서 안정적으로 커피를 생산하는 시스템을
+            말합니다.
             <br />
-            닥터빈은 자체 친환경 원두 구매 가이드라인인 C.A.F.E Practice를 통해
-            커피 원산지의 환경을 보호하며 사회, 경제적 여건을 향상시켜 최상질의
-            원두 커피를 안정적으로 공급받을 수 있도록 전 세계 커피 농가와 지난
-            30여 년간 장기적인 상상 협력 관계를 구축해오고 있습니다.
+            지속가능성은 미래의 사람들의 요구를 위태롭게 하지 않으면서 오늘날
+            사람들의 요구를 충족시키는 것이 중요합니다.
+            <br />
+          </p>
+          <p className="review-content">
+            커피와 관련하여 우리는 지구, 사람 그리고 긍정적인 이익을 포함하는
+            결론을 고려해야 합니다.
+            <br />
+            자연을 보존하고 그것을 재배하고 가공하는 사람들에게 더 나은 생계를
+            제공하는 방식으로 재배되는 커피가 우선되어야 할 것입니다.
           </p>
           <button className="empty-btn">자세히 보기</button>
         </div>

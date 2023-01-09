@@ -4,31 +4,28 @@ import MainFilterItem from "./MainFilterItem/MainFilterItem";
 
 function MainFilter() {
   const [country, setCountry] = useState([]);
-  const [activeId, setActiveId] = useState(0);
+  const [id, setId] = useState(1);
+  const [name, setName] = useState("");
+
+  const changeId = id => {
+    setId(id);
+  };
+
+  console.log(id);
 
   useEffect(() => {
     fetch(`/data/Country.json`)
       .then(res => res.json())
       .then(data => setCountry(data));
   }, []);
-
-  const clickHandler = id => {
-    setActiveId(id);
-  };
-
   return (
     <>
       <h1 className="icons-title">ICONS</h1>
       <div className="icons-container">
         <ul className="icon-wrap inner">
-          {country.map((str, idx) => {
+          {country.map(str => {
             return (
-              <li
-                key={str}
-                onClick={() => {
-                  clickHandler(idx);
-                }}
-              >
+              <li key={str.id} onClick={() => changeId(str.id)}>
                 <img src={str.img} />
                 <p className="icon-name">{str.name}</p>
               </li>
@@ -36,7 +33,7 @@ function MainFilter() {
           })}
         </ul>
       </div>
-      <MainFilterItem activeId={activeId} setActiveId={setActiveId} />
+      <MainFilterItem id={id} setId={setId} />
     </>
   );
 }

@@ -2,24 +2,22 @@ import React, { useEffect, useState } from "react";
 import "./MainFilterItem.scss";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-function MainFilterItem() {
+function MainFilterItem({ id, setId }) {
   const [item, setItem] = useState([]);
   const [slidePx, setSlidePx] = useState(0);
   const widthPx = 1140;
 
-  // useEffect(() => {
-  //   fetch("http://10.58.52.150:3000/items/1")
-  //     .then(res => res.json())
-  //     .then(result => setItem(result));
-  // }, []);
-
-  // console.log(item);
-
   useEffect(() => {
-    fetch("/data/FilterData.json")
+    fetch(`http://10.58.52.150:3000/items/${id}`)
       .then(res => res.json())
-      .then(data => setItem(data));
-  }, []);
+      .then(result => setItem(result));
+  }, [id]);
+
+  // useEffect(() => {
+  //   fetch("/data/FilterData.json")
+  //     .then(res => res.json())
+  //     .then(data => setItem(data));
+  // }, []);
 
   const toPrev = () => {
     slidePx < 0 && setSlidePx(slidePx + widthPx);
