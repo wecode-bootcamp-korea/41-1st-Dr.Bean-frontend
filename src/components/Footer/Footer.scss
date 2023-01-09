@@ -18,7 +18,7 @@
   color: rgb(255, 255, 255);
 }
 
-.footer-top a {
+.footer-top span {
   line-height: 23px;
   color: #999999;
   font-size: 15px;
@@ -29,7 +29,8 @@
   min-height: auto;
   min-width: auto;
 }
-.footer-top-left a {
+
+.footer-top-left span {
   line-height: 23px;
   color: #999999;
   font-size: 15px;
@@ -46,6 +47,6 @@
   font-weight: 700;
   line-height: 15px;
 }
-.footer-bottom a {
+.footer-bottom span {
   padding-top: 15px;
 }
