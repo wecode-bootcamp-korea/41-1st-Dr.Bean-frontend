@@ -4,8 +4,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import { AiOutlineClose } from "react-icons/ai";
 const Cart = () => {
-  //예외
-  const [cartItem, setCartItem] = useState({ list: [], result: 0, msg: "" });
+  const [cartItem, setCartItem] = useState({ list: [] });
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -56,11 +55,7 @@ const Cart = () => {
               <li>{item.quantity}</li>
               <li>{item.name}</li>
 
-              <li>
-                <p>
-                  {item.pointYN === 1 ? "포인트사용가능" : "포인트사용불가"}
-                </p>
-              </li>
+              <li />
             </ui>
             <div className="info-price">
               <p className="price">₩{item.price}</p>
