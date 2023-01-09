@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import "./NavSide.scss";
 
 const sideArray = [
-  { title: "아프리카", area: ["케냐", "남아공", "수단"] },
-  { title: "남 아메리카", area: ["콜롬비아", "멕시코", "브라질"] },
-  { title: "아시아", area: ["대한민국", "일본", "중국"] },
-  { title: "북 중앙 아메리카", area: ["미국", "캐나다"] },
+  { title: "아프리카", area: ["케냐", "에티오피아", "르완다", "카메룬"] },
+  { title: "남 아메리카", area: ["브라질", "콜롬비아", "페루", "에콰도르"] },
+  {
+    title: "북 중앙 아메리카",
+    area: ["파나마", "코스타리카", "온두라스", "과테말라"],
+  },
+  { title: "아시아", area: ["인도네시아", "예맨", "베트남"] },
 ];
 
 let result = [];
