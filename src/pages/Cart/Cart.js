@@ -15,17 +15,6 @@ const Cart = () => {
     console.log(list);
     //api요청 -> list 갱신 (state 업데이트)
   }, []);
-
-  // const deleteItem = () => {
-  //   //api요청
-  //   let ret = "";
-  //   setCartItem({
-  //     list: ret.data.list,
-  //     result: ret.data.result,
-  //     msg: ret.data.msg,
-  //   });
-  // };
-
   const testDeletItem = id => {
     const resultArray = [...list];
     list.forEach(function (item, index) {
@@ -54,7 +43,6 @@ const Cart = () => {
               <li>{item.id}</li>
               <li>{item.quantity}</li>
               <li>{item.name}</li>
-
               <li />
             </ui>
             <div className="info-price">
