@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-wrapper">
         <div className="footer-top">
           <div className="footer-top-left">
-            <span id="title">닥터빈코리아(주)</span>
+            <p className="title">닥터빈코리아(주)</p>
             <br />
             <br />
             <span>
@@ -17,16 +17,16 @@ const Footer = () => {
             <br />
             <span>
               통신판매업 신고 : 제 2022-서울강남-06094 | 개인정보관리책임자 :
-              송은우 | 대표이사 : 송은우
+              이진경 | 대표이사 : 김승기
             </span>
             <br />
-            <span id="phone">문의전화 : 070-4323-4050</span>
+            <p className="phone">문의전화 : 070-4323-4050</p>
             <span>
               (10AM ~ 5PM 점심시간 12:00~13:00) | 이메일 : hello@drmartens.co.kr
             </span>
             <br />
             <span>
-              팩스 : 02-431-7651 | 호스팅 제공 : 주식회사 그레이스풀레인
+              팩스 : 02-431-7651 | 호스팅 제공 : 주식회사 닥터빈코리아
             </span>
             <br />
             <span>

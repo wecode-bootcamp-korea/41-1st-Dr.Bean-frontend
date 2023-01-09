@@ -11,7 +11,7 @@
 .footer-top {
   display: flex;
   width: 100%;
-  height: 200px;
+  height: 210px;
   padding: 30px;
   line-height: 15px;
   background-color: rgb(25, 25, 25);
@@ -38,8 +38,8 @@
 .footer-bottom {
   display: flex;
   width: 1140px;
-  height: 100px;
-  padding: 30px;
+  height: 80px;
+  padding: 20px;
   background-color: rgb(25, 25, 25);
   color: rgb(255, 255, 255);
   border-top: 1px solid #333333;
@@ -50,8 +50,8 @@
 .footer-bottom span {
   padding-top: 15px;
 }
-#title,
-#phone {
+.title,
+.phone {
   color: white;
   font-size: 15px;
   font-weight: 700;
