@@ -15,7 +15,7 @@ const Cart = () => {
     console.log(list);
     //api요청 -> list 갱신 (state 업데이트)
   }, []);
-  const testDeletItem = id => {
+  const deletItem = id => {
     const resultArray = [...list];
     list.forEach(function (item, index) {
       if (item.id === id) {
@@ -32,10 +32,7 @@ const Cart = () => {
           <div className="item-info">
             <h2>
               {item.title}
-              <button
-                className="delete-box"
-                onClick={() => testDeletItem(item.id)}
-              >
+              <button className="delete-box" onClick={() => deletItem(item.id)}>
                 <TiDeleteOutline />
               </button>
             </h2>
