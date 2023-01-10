@@ -1,0 +1,73 @@
+@import "../../../../styles/color";
+@import "../../../../styles/variables";
+
+.item-box {
+  position: relative;
+  margin-bottom: 10px;
+  padding: 20px 30px;
+  border: 1px solid $borderGray;
+  background-color: $boxBackground;
+
+  .user-info {
+    display: flex;
+    font-size: 18px;
+    font-weight: 700;
+
+    img {
+      width: 40px;
+      height: 40px;
+      margin-right: 15px;
+      border-radius: 50%;
+    }
+
+    .user-id {
+      line-height: 40px;
+    }
+  }
+
+  .review-title {
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .review-wrap {
+    font-size: 18px;
+
+    & > div {
+      margin-top: 20px;
+    }
+
+    .review-img {
+      display: none;
+
+      &.view {
+        display: block;
+        height: 162px;
+      }
+    }
+
+    .like {
+      font-weight: 700;
+    }
+
+    .review-content {
+      display: none;
+      color: $pointFontColor;
+
+      &.view {
+        display: block;
+      }
+    }
+
+    .more {
+      position: absolute;
+      right: 30px;
+      bottom: 20px;
+      border-bottom: 1px solid $black;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+}
