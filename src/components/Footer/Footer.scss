@@ -48,6 +48,7 @@
   line-height: 15px;
 }
 .footer-bottom span {
+  margin-left: 10px;
   padding-top: 15px;
 }
 .title,
@@ -56,11 +57,20 @@
   font-size: 15px;
   font-weight: 700;
 }
+.brand {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
 .logo {
+  position: relative;
   img {
-    width: 270px;
-    height: 200px;
-    margin-top: -20px;
+    width: 350px;
+    height: 210px;
+    margin-top: -35px;
     margin-right: -25px;
+    opacity: 0.5;
   }
 }

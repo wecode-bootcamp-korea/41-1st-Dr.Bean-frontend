@@ -35,6 +35,7 @@ const Footer = () => {
             </span>
           </div>
           <div className="logo">
+            <div className="brand">Brand Story / Contact</div>
             <img src="/images/footerlog.jpg" alt="" />
           </div>
         </div>
