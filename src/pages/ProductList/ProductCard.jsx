@@ -3,29 +3,26 @@ import { useNavigate } from "react-router-dom";
 import "./ProductCard.scss";
 import { BiWon } from "react-icons/bi";
 
-export default function ProductCard({ country }) {
+export default function ProductCard({ countryData }) {
   const navigate = useNavigate();
 
   return (
     <>
-      {country.map(content => {
+      {countryData.map(content => {
+        const detailpageHandler = e => {
+          navigate(`/productDetail/${content.id}`);
+        };
+
         return (
           <div className="container" key={content.id}>
             <img
               src={content.img}
               alt="pics"
               className="product-image"
-              onClick={e => {
-                navigate(`/productlist/${content.countryName}`);
-              }}
+              onClick={detailpageHandler}
             />
             <div className="product-description">
-              <button
-                className="product-name"
-                onClick={e => {
-                  navigate(`/productlist/${content.countryName}`);
-                }}
-              >
+              <button className="product-name" onClick={detailpageHandler}>
                 {content.name}
               </button>
               <div className="product-price">
