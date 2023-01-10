@@ -34,7 +34,9 @@ const Footer = () => {
               Korea Ltd. All Rights Reserved.
             </span>
           </div>
-          <div className="logo" src=""></div>
+          <div className="logo">
+            <img src="/images/dr.bean-logo.png" alt="" />
+          </div>
         </div>
         <div className="footer-bottom">
           <span>이용약관&nbsp;&nbsp;&nbsp;</span>
