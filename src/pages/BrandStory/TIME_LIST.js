@@ -1,27 +1,27 @@
 const TIME_LIST = [
   {
     id: 1,
-    time: "8시",
+    time: "오전 8시",
   },
   {
     id: 2,
-    time: "10시",
+    time: "오전 10시",
   },
   {
     id: 3,
-    time: "12시",
+    time: "오전 12시",
   },
   {
     id: 4,
-    time: "14시",
+    time: "오후 2시",
   },
   {
     id: 5,
-    time: "16시",
+    time: "오후 4시",
   },
   {
     id: 6,
-    time: "18시",
+    time: "오후 6시",
   },
 ];
 
