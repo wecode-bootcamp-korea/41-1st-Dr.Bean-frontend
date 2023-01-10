@@ -33,8 +33,8 @@ const Footer = () => {
               All Images and Contents Copyright (c) 2019 Dr. Martens-Airwair
               Korea Ltd. All Rights Reserved.
             </span>
-            <div className="" />
           </div>
+          <div className="logo" src=""></div>
         </div>
         <div className="footer-bottom">
           <span>이용약관&nbsp;&nbsp;&nbsp;</span>
