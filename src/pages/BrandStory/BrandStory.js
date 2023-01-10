@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "../BrandStory/BrandStory.scss";
 import TIME_LIST from "./TIME_LIST.js";
+import "../BrandStory/BrandStory.scss";
 
 function BrandStory() {
   const [inputValue, setInputValue] = useState();
@@ -65,19 +65,23 @@ function BrandStory() {
               <img src="/images/brandStory_1.jpg" />
             </div>
             <div className="brandstory-content third">
-              <h1>농장과 연락하기</h1>
+              <h1>예약하기</h1>
               <div className="select-form">
+                <input type="date" className="date" />
                 {TIME_LIST.map(list => {
                   return (
-                    <label className="select-btn">
+                    <span>
                       <input
-                        className="input"
+                        className="input-radio"
                         type="radio"
                         key={list.id}
                         name="time"
+                        id={list.id}
                       />
-                      {list.time}
-                    </label>
+                      <label htmlFor={list.id} className="select-btn">
+                        {list.time}
+                      </label>
+                    </span>
                   );
                 })}
                 <label className="label">문의내용</label>

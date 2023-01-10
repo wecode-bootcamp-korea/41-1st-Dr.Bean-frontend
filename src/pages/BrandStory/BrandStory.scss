@@ -40,13 +40,14 @@
 
         &.third {
           width: 550px;
-          padding: 10px;
-          border: 1px solid red;
+          padding: 30px 10px;
+          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
           text-align: center;
 
           h1 {
             margin-bottom: 50px;
             font-size: 36px;
+            font-weight: 700;
           }
 
           .select-form {
@@ -55,14 +56,33 @@
             flex-wrap: wrap;
             justify-content: space-around;
             margin: auto;
-            border: 1px solid $black;
+
+            .date {
+              width: 450px;
+              height: 50px;
+              margin-bottom: 30px;
+              border: 1px solid $pointFontColor;
+              color: $pointFontColor;
+              font-size: 18px;
+              text-align: center;
+            }
+
+            .input-radio {
+              width: 1px;
+              opacity: 0;
+
+              &:checked + .select-btn {
+                background-color: $black;
+                color: $white;
+              }
+            }
 
             .select-btn {
               display: inline-block;
               width: 180px;
               height: 40px;
-              margin-bottom: 50px;
-              border: 1px solid red;
+              margin-bottom: 30px;
+              border: 1px solid $pointFontColor;
               font-size: 18px;
               line-height: 36px;
               cursor: pointer;
@@ -71,7 +91,7 @@
             .label {
               @include label;
               position: absolute;
-              top: 250px;
+              top: 300px;
               left: 30px;
             }
 
@@ -79,6 +99,8 @@
               @include inputBox;
               width: 450px;
               height: 100px;
+              margin-top: 30px;
+              border: 1px solid $pointFontColor;
             }
           }
 
