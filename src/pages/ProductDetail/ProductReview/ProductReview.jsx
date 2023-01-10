@@ -3,6 +3,7 @@ import "./ProductReview.scss";
 import { BsPencil } from "react-icons/bs";
 import ReviewBox from "./ReviewBox/ReviewBox";
 import ReviewItem from "./ReviewItem/ReviewItem";
+import { useLocation } from "react-router-dom";
 
 function ProductReview() {
   const [view, setView] = useState(false);
@@ -14,13 +15,21 @@ function ProductReview() {
     view ? setClassName(" view") : setClassName("");
   };
 
+  const updataOffset = () => {
+    const limit = 3;
+    const offset = limit * 2;
+  };
+
   useEffect(() => {
-    fetch("http://localhost:3000/data/Review.json")
+    const limit = 3;
+    const offset = limit + 3;
+
+    fetch(
+      `http://10.58.52.102:3000/items/detail/3?limit=${limit} & offset=${offset}`
+    )
       .then(res => res.json())
       .then(data => setReview(data));
   }, []);
-
-  console.log(review);
 
   return (
     <div className="review-container inner">
@@ -35,7 +44,9 @@ function ProductReview() {
         {review.map(info => {
           return <ReviewItem key={info.id} info={info} />;
         })}
-        <button className="more-btn">더 많은 후기 보기</button>
+        <button className="more-btn" onClick={updataOffset}>
+          더 많은 후기 보기
+        </button>
       </ul>
 
       <ReviewBox className={className} setClassName={setClassName} />
