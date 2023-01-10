@@ -27,6 +27,7 @@ function ProductSelect({
         name={name}
         value={content}
         id={id}
+        className="radio-input"
         onChange={onChangeRadio}
       />
       <label for={id} className="select-btn">

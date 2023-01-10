@@ -9,6 +9,7 @@ function ProductReview() {
   const [view, setView] = useState(false);
   const [className, setClassName] = useState("");
   const [review, setReview] = useState([]);
+  const [limit, setLimit] = useState(3);
 
   const openBtn = () => {
     setView(!view);
@@ -16,20 +17,14 @@ function ProductReview() {
   };
 
   const updataOffset = () => {
-    const limit = 3;
-    const offset = limit * 2;
+    setLimit(limit + 3);
   };
 
   useEffect(() => {
-    const limit = 3;
-    const offset = limit + 3;
-
-    fetch(
-      `http://10.58.52.102:3000/items/detail/3?limit=${limit} & offset=${offset}`
-    )
+    fetch(`http://10.58.52.102:3000/items/reviews/3?limit=${limit}`)
       .then(res => res.json())
       .then(data => setReview(data));
-  }, []);
+  }, [limit]);
 
   return (
     <div className="review-container inner">
