@@ -1,7 +1,4 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Signup.scss";
-import ContentHeader from "../../components/RegisterLogin/ContentHeader";
+import React from "react";
 
 export default function Signup() {
   const navigate = useNavigate();

@@ -1,8 +1,14 @@
 import React from "react";
-import MainScroll from "../Main/MainScroll/MainScroll";
+import ProductDetailMain from "./ProductDetailMain/ProductDetailMain";
+import ProductReview from "./ProductReview/ProductReview";
 
-function ProductDetail() {
-  return <div />;
+export default function ProductDetail() {
+  return (
+    <>
+      <ProductDetailMain />
+      <ProductReview />
+    </>
+  );
 }
 
 export default ProductDetail;

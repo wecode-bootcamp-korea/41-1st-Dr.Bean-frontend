@@ -3,14 +3,8 @@ import MainFilter from "./MainFilter/MainFilter";
 import MainReview from "./MainReview/MainReview";
 import MainScroll from "./MainScroll/MainScroll";
 
-function Main() {
-  return (
-    <>
-      <MainScroll />
-      <MainFilter />
-      <MainReview />
-    </>
-  );
+export default function Main() {
+  return <h1>Hello World</h1>;
 }
 
 export default Main;
