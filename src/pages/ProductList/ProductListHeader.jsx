@@ -19,8 +19,8 @@ export default function ProductListHeader({ category, country }) {
   useEffect(() => {
     fetch(`http://10.58.52.234:3000/items/country/${findurl.id}`)
       .then(response => response.json())
-      .then(result => setData(result));
-  }, [findurl]);
+      .then(result => setData(result[0]));
+  }, [category]);
 
   console.log(data);
 
@@ -52,7 +52,7 @@ export default function ProductListHeader({ category, country }) {
           );
         })}
       </div>
-      <div className="category-description">{data && data[0].content}</div>
+      <div className="category-description">{data && data.content}</div>
       <button className="filter-btn">
         <BsFilterSquare />
         <span className="filter-txt">필터</span>
@@ -61,7 +61,7 @@ export default function ProductListHeader({ category, country }) {
       </button>
       <div className="borderline" />
       <div className="list-container">
-        <ProductCard countryData={data && data[0].items} />
+        {/* <ProductCard countryData={data && data.items} /> */}
       </div>
     </div>
   );
