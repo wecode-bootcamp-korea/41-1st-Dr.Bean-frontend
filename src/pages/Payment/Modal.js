@@ -1,9 +1,9 @@
 import "./Modal.scss";
 
 const Modal = props => {
-  // const [paymentList, setPaymentList] = [];
+  const [paymentList, setPaymentList] = [];
 
-  return (
+  return paymentList.map((item, index) => (
     <div className="modal" hidden={props.hidden}>
       <div className="modal-img">
         <div className="item-info">
@@ -19,7 +19,7 @@ const Modal = props => {
         </div>
       </div>
     </div>
-  );
+  ));
 };
 
 export default Modal;
