@@ -70,11 +70,10 @@ function BrandStory() {
                 <input type="date" className="date" />
                 {TIME_LIST.map(list => {
                   return (
-                    <span>
+                    <span key={list.id}>
                       <input
                         className="input-radio"
                         type="radio"
-                        key={list.id}
                         name="time"
                         id={list.id}
                       />
