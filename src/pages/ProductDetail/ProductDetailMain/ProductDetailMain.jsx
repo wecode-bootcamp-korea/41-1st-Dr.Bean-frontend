@@ -10,6 +10,7 @@ function ProductDetailMain() {
   const [productDetail, setProductDetail] = useState({});
   const [size, setSize] = useState();
   const [grind, setGrind] = useState();
+
   //백엔드 통신 로직
   // const params = useParams();
   // const productId = params.id;
@@ -79,7 +80,9 @@ function ProductDetailMain() {
           </ul>
 
           <ProductCount price={price} />
-          <button className="cart-btn">장바구니</button>
+          <button className="cart-btn" onClick={toServer}>
+            장바구니
+          </button>
           <button className="buy-btn" onClick={toServer}>
             구매하기
           </button>
