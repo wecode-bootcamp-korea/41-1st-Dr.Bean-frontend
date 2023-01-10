@@ -7,7 +7,7 @@ import Login from "./pages/Login/Login";
 import Product from "./pages/ProductList/Product/Product";
 import ProductList from "./pages/ProductList/ProductList";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
-
+import Payment from "./pages/Payment/Payment";
 export default function Router() {
   return (
     <BrowserRouter>
