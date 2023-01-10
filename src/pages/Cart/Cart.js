@@ -12,7 +12,7 @@ const Cart = () => {
       .then(response => response.json())
       .then(data => setList(data));
 
-    console.log(list);
+    // console.log(list);
     //api요청 -> list 갱신 (state 업데이트)
   }, []);
   const deletItem = id => {
