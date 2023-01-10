@@ -61,7 +61,7 @@ export default function ProductListHeader({ category, country }) {
       </button>
       <div className="borderline" />
       <div className="list-container">
-        {/* <ProductCard countryData={data && data.items} /> */}
+        <ProductCard countryData={data} />
       </div>
     </div>
   );
