@@ -35,7 +35,7 @@ const Footer = () => {
             </span>
           </div>
           <div className="logo">
-            <img src="/images/dr.bean-logo.png" alt="" />
+            <img src="/images/footerlog.jpg" alt="" />
           </div>
         </div>
         <div className="footer-bottom">
