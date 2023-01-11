@@ -1,0 +1,36 @@
+@mixin container() {
+  display: flex;
+  align-items: center;
+}
+
+@mixin emptBtn($fontSize) {
+  padding: 0 17px;
+  border: 1px solid #000;
+  background-color: rgba($color: #000000, $alpha: 0);
+  font-size: $fontSize;
+  text-align: center;
+  cursor: pointer;
+}
+
+@mixin fullBtn($fontSize) {
+  padding: 0 17px;
+  background-color: rgba($color: #000);
+  font-size: $fontSize;
+  text-align: center;
+  cursor: pointer;
+}
+
+@mixin label {
+  width: fit-content;
+  padding: 0 10px;
+  background-color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+@mixin inputBox {
+  height: 45px;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  font-size: 20px;
+}

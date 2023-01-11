@@ -1,0 +1,23 @@
+@import "../../../../styles/color";
+
+.select-btn {
+  display: block;
+  width: 168px;
+  padding-left: 15px;
+  border: 1px solid #e5e5e5;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 17px;
+  line-height: 36px;
+  cursor: pointer;
+}
+
+input:checked + .select-btn {
+  background-color: $black;
+  color: $white;
+}
+
+input {
+  width: 5px;
+  height: 5px;
+  opacity: 0;
+}
