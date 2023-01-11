@@ -85,7 +85,7 @@ const Login = () => {
       <ContentHeader
         pageInfo="로그인"
         title="어서오세요"
-        subtitle="닥터코드에 오신걸 환영합니다"
+        subtitle="닥터빈에 오신걸 환영합니다"
       />
       <div>
         <form onSubmit={e => e.preventDefault()}>
@@ -135,15 +135,7 @@ const Login = () => {
                 <span>아이디/비밀번호 찾기</span>
               </div>
             </div>
-            <button
-              className="login-btn"
-              onClick={
-                //   () => {
-                //   navigate("/main");
-                // }
-                fetchHandler
-              }
-            >
+            <button className="login-btn" onClick={fetchHandler}>
               로그인
             </button>
             <div className="signup-box">
