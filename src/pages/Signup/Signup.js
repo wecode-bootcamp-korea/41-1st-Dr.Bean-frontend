@@ -114,7 +114,7 @@ export default function Signup() {
   const phoneNumber = `${phoneOne}${phoneTwo}${phoneThree}`;
 
   const fetchHandler = () => {
-    fetch("http://10.58.52.53:3000/signup", {
+    fetch("http://10.58.52.102:3000/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({

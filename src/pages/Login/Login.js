@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquare, faSquareCheck } from "@fortawesome/free-regular-svg-icons";
 import { useNavigate } from "react-router-dom";
@@ -19,8 +19,8 @@ const Login = () => {
   const [isClicked, setIsClicked] = useState(false);
 
   const fetchHandler = () => {
-    fetch("http://10.58.52.53:3000/signin", {
-      method: "POST",
+    fetch("http://10.58.52.125:3000/carts", {
+      method: "GET",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
         userId: inputValues.idValue,
@@ -29,10 +29,9 @@ const Login = () => {
     })
       .then(res => res.json())
       .then(data => {
-        localStorage.setItem("token", data.accessToken);
+        localStorage.setItem(`accessToken`, `${data.accessToken}`);
       });
   };
-
   const saveUserId = e => {
     const { value } = e.target;
     setInputValues({ ...inputValues, idValue: value });

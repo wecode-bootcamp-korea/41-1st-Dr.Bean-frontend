@@ -8,13 +8,25 @@ const Cart = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    fetch("http://10.58.52.196:3000/cart/18")
-      .then(response => response.json())
-      .then(data => setList(data));
+    fetch("http://10.58.52.115:3000/carts", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: localStorage.getItem("accessToken"),
+      },
+    })
+      .then(response => {
+        console.log(response);
 
-    console.log(list);
-    //api요청 -> list 갱신 (state 업데이트)
+        if (response.ok) return response.json();
+        alert("이상함");
+      })
+
+      .then(data => {
+        console.log(data);
+      });
   }, []);
+
   const deletItem = id => {
     const resultArray = [...list];
     list.forEach(function (item, index) {
@@ -22,35 +34,16 @@ const Cart = () => {
         resultArray.splice(index, 1);
       }
     });
-    list = [...resultArray];
+    setList = [...resultArray];
   };
 
-  const showList = () => {
-    return list.map((item, index) => (
-      <div className="cart-item" key={index}>
-        <img className="cart-item-img" src={item.item_img}>
-          <div className="item-info">
-            <h2>
-              {item.title}
-              <button className="delete-box" onClick={() => deletItem(item.id)}>
-                <TiDeleteOutline />
-              </button>
-            </h2>
-            <ui>
-              <li>{item.id}</li>
-              <li>{item.quantity}</li>
-              <li>{item.name}</li>
-              <li />
-            </ui>
-            <div className="info-price">
-              <p className="price">₩{item.price}</p>
-            </div>
-            <p className="option">옵션/수량변경</p>
-          </div>
-        </img>
-      </div>
-    ));
-  };
+  // const showList = () => {
+  //   return (
+
+  //   );
+  // };
+
+  console.log(list);
 
   return (
     <div className="payment inner">
@@ -65,11 +58,45 @@ const Cart = () => {
           <div className="settle-cart">
             <div className="cart-control">
               <label>
-                <input type="checkbox" class="item-checkbox" value="{}" />
+                <input type="checkbox" class="item-checkbox" />
                 <a>전체선택</a>
               </label>
             </div>
-            {showList()}
+            {/* // showList */}
+            <div>
+              {list.length > 0 ? (
+                list.map((item, index) => (
+                  <div className="cart-item" key={index}>
+                    <img className="cart-item-img" src={item.item_img}>
+                      <div className="item-info">
+                        <h2>
+                          {item.title}
+                          <button
+                            className="delete-box"
+                            onClick={() => deletItem(item.id)}
+                          >
+                            <TiDeleteOutline />
+                          </button>
+                        </h2>
+                        <ui>
+                          <li>{item.id}</li>
+                          <li>{item.quantity}</li>
+                          <li>{item.name}</li>
+                          <li />
+                        </ui>
+                        <div className="info-price">
+                          <p className="price">₩{item.price}</p>
+                        </div>
+                        <p className="option">옵션/수량변경</p>
+                      </div>
+                    </img>
+                  </div>
+                ))
+              ) : (
+                <p>상품이 존재하지 않습니다.</p>
+              )}
+            </div>
+            {/* // showList END */}
           </div>
         </div>
         <div className="settle-container-right">
