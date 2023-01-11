@@ -1,7 +1,8 @@
 import React from "react";
 import "./Footer.scss";
-
+import { useNavigate } from "react-router-dom";
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <div className="footer">
       <div className="footer-wrapper ">
@@ -36,7 +37,13 @@ const Footer = () => {
           </div>
           <div className="logo">
             <div className="brand">Brand Story / Contact</div>
-            <img src="/images/footerlog.jpg" alt="" />
+            <img
+              src="/images/footerlog.jpg"
+              alt=""
+              onClick={e => {
+                navigate("/brandStroy");
+              }}
+            />
           </div>
         </div>
         <div className="footer-bottom">
@@ -50,5 +57,4 @@ const Footer = () => {
     </div>
   );
 };
-
 export default Footer;
