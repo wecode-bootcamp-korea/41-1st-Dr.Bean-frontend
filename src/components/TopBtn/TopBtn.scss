@@ -1,0 +1,24 @@
+@import "../../styles/color";
+
+.topbtn-container {
+  position: fixed;
+  z-index: 1;
+  right: 20px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  transition-duration: 0.3s, 0.5s, 0.5s;
+  border-radius: 10px;
+  background-color: $white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+
+  .topbtn-arrow {
+    font-size: 26px;
+  }
+}

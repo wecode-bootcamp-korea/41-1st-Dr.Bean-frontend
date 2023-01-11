@@ -16,7 +16,7 @@ const Login = () => {
   });
   const [isClicked, setIsClicked] = useState(false);
   const fetchHandler = () => {
-    fetch("http://10.58.52.53:3000/signin", {
+    fetch("http://10.58.52.52:3000/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
@@ -26,7 +26,12 @@ const Login = () => {
     })
       .then(res => res.json())
       .then(data => {
-        localStorage.setItem("token", data.accessToken);
+        if (data.accessToken !== undefined) {
+          localStorage.setItem("token", data.accessToken);
+          navigate("/");
+        } else {
+          alert("존재하지 않는 회원입니다.");
+        }
       });
   };
   const saveUserId = e => {
@@ -72,7 +77,7 @@ const Login = () => {
       <ContentHeader
         pageInfo="로그인"
         title="어서오세요"
-        subtitle="닥터코드에 오신걸 환영합니다"
+        subtitle="닥터빈에 오신걸 환영합니다"
       />
       <div>
         <form onSubmit={e => e.preventDefault()}>
@@ -107,7 +112,7 @@ const Login = () => {
             />
             <div className="login-option">
               <div className="id-autosave">
-                <button
+                <div
                   className="id-autosave-btn"
                   onClick={() => setIsClicked(prevTrue => !prevTrue)}
                 >
@@ -115,22 +120,14 @@ const Login = () => {
                     icon={isClicked === false ? faSquare : faSquareCheck}
                     className="id-autosave-checkbox"
                   />
-                </button>
+                </div>
                 <span>아이디 자동저장</span>
               </div>
               <div className="find-idpw">
                 <span>아이디/비밀번호 찾기</span>
               </div>
             </div>
-            <button
-              className="login-btn"
-              onClick={
-                //   () => {
-                //   navigate("/main");
-                // }
-                fetchHandler
-              }
-            >
+            <button className="login-btn" onClick={fetchHandler}>
               로그인
             </button>
             <div className="signup-box">

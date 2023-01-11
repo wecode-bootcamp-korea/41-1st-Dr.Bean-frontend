@@ -1,26 +1,33 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./ProductReview.scss";
 import { BsPencil } from "react-icons/bs";
-import ReviewBox from "./ReviewBox/ReviewBox";
 import ReviewItem from "./ReviewItem/ReviewItem";
+// import ReviewBox from "./ReviewBox/ReviewBox";
 
 function ProductReview() {
   const [view, setView] = useState(false);
   const [className, setClassName] = useState("");
   const [review, setReview] = useState([]);
+  const [limit, setLimit] = useState(3);
+  const [offset, setOffset] = useState(0);
 
   const openBtn = () => {
     setView(!view);
     view ? setClassName(" view") : setClassName("");
   };
 
-  useEffect(() => {
-    fetch("http://localhost:3000/data/Review.json")
-      .then(res => res.json())
-      .then(data => setReview(data));
-  }, []);
+  const updataOffset = () => {
+    setLimit(limit);
+    setOffset(limit + offset);
+  };
 
-  console.log(review);
+  useEffect(() => {
+    fetch(
+      `http://10.58.52.125:3000/items/reviews/3?limit=${limit}&offset=${offset}`
+    )
+      .then(res => res.json())
+      .then(data => setReview(prev => [...prev, ...data]));
+  }, [limit, offset]);
 
   return (
     <div className="review-container inner">
@@ -33,12 +40,14 @@ function ProductReview() {
       </div>
       <ul className="review-item-container">
         {review.map(info => {
-          return <ReviewItem info={info} />;
+          return <ReviewItem key={info.id} info={info} />;
         })}
-        <button className="more-btn">더 많은 후기 보기</button>
+        <button className="more-btn" onClick={updataOffset}>
+          더 많은 후기 보기
+        </button>
       </ul>
 
-      <ReviewBox className={className} setClassName={setClassName} />
+      {/* <ReviewBox className={className} setClassName={setClassName} /> */}
     </div>
   );
 }
