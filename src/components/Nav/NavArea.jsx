@@ -1,4 +1,4 @@
-export const sideA = [
+export const sideArray = [
   {
     title: "아프리카",
     area: [

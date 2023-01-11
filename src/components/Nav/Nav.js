@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./Nav.scss";
 import "./NavSide";
-
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FiSearch } from "react-icons/fi";
-import { FiHeart } from "react-icons/fi";
+import { BsPersonPlus } from "react-icons/bs";
 import { MdOutlineShoppingBag } from "react-icons/md";
-import { FiUser } from "react-icons/fi";
+import { HiOutlineUserCircle } from "react-icons/hi";
 import NavSide from "./NavSide";
+import { useNavigate } from "react-router-dom";
 
 export default function Nav() {
   const [sideState, setSideState] = useState({ show: true });
@@ -15,6 +15,8 @@ export default function Nav() {
   const navClose = () => {
     setSideState({ show: true });
   };
+
+  const navigate = useNavigate();
 
   return (
     <div className="header-wrapper inner">
@@ -26,7 +28,14 @@ export default function Nav() {
         <div hidden={sideState.show}>
           <NavSide onClose={navClose} />
         </div>
-        <img className="logo" src="/images/dr.bean-logo.png" alt="" />
+        <img
+          className="logo"
+          src="/images/dr.bean-logo.png"
+          alt=""
+          onClick={e => {
+            navigate("/");
+          }}
+        />
       </div>
       <input
         type="text"
@@ -37,14 +46,24 @@ export default function Nav() {
         <div className="search-glass">
           <FiSearch />
         </div>
-        <div className="heart">
-          <FiHeart />
-        </div>
         <div className="basket">
           <MdOutlineShoppingBag />
         </div>
-        <div className="user">
-          <FiUser />
+        <div
+          className="sign"
+          onClick={e => {
+            navigate("/login");
+          }}
+        >
+          <BsPersonPlus />
+        </div>
+        <div
+          className="user"
+          onClick={e => {
+            navigate("/signup");
+          }}
+        >
+          <HiOutlineUserCircle />
         </div>
       </div>
     </div>
