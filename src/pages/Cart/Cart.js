@@ -37,10 +37,8 @@ const Cart = () => {
     setList = [...resultArray];
   };
 
-  console.log(list);
-
   return (
-    <div className="payment inner">
+    <div className="cart inner">
       <div className="head-icon">
         <AiOutlineArrowLeft className="arrow-icon" />
       </div>
