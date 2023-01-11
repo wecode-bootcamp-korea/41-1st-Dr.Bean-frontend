@@ -1,0 +1,53 @@
+@import "../../../styles/color";
+@import "../../../styles/variables";
+
+.review-container {
+  padding-top: 150px;
+
+  .title-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e5e5;
+
+    span {
+      padding-bottom: 20px;
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    button {
+      width: 108px;
+      height: 37px;
+      padding: 1px 6px;
+      border: 1px solid $black;
+      background-color: rgba($color: #000000, $alpha: 0);
+      font-size: 16px;
+      letter-spacing: -0.16px;
+      cursor: pointer;
+
+      .pencil-icon {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .review-item-container {
+    position: relative;
+    margin: 50px 0 100px 0;
+    border: 1px solid red;
+
+    .more-btn {
+      position: absolute;
+      bottom: -100px;
+      left: 50%;
+      width: 387px;
+      height: 52px;
+      transform: translateX(-50%);
+      background-color: #000;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+}
