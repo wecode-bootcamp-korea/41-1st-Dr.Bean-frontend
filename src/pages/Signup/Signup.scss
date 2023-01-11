@@ -4,7 +4,6 @@
   flex-direction: column;
   align-items: center;
   width: 1140px;
-  height: 100vh;
   margin-right: auto;
   margin-bottom: 100px;
   margin-left: auto;
@@ -98,6 +97,7 @@
     height: 60px;
     margin-bottom: 5px;
     padding-left: 15px;
+    border: 1px solid black;
     font-size: 20px;
   }
 
@@ -141,6 +141,7 @@
         height: 60px;
         margin-bottom: 5px;
         padding-left: 15px;
+        border: 1px solid black;
         font-size: 20px;
       }
 
@@ -153,6 +154,7 @@
         width: 150px;
         height: 60px;
         margin-bottom: 5px;
+        border: 1px solid black;
         font-size: 20px;
         text-align: center;
       }
@@ -164,6 +166,7 @@
       margin-top: 10px;
       margin-bottom: 5px;
       padding-left: 15px;
+      border: 1px solid black;
       font-size: 20px;
     }
   }
@@ -177,6 +180,7 @@
     .inputbox-phone {
       width: 130px;
       height: 51px;
+      border: 1px solid black;
       font-size: 20px;
       text-align: center;
     }
