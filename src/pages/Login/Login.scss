@@ -1,0 +1,153 @@
+.login-section {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  width: 1140px;
+  height: 620px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 50px;
+  font-family: “Spoqa Han Sans Neo”, sans-serif;
+
+  .page-description {
+    width: 100%;
+    font-size: 140%;
+  }
+  .pageback-btn {
+    width: fit-content;
+    margin-bottom: 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  .arrow-left {
+    margin-bottom: 20px;
+    font-size: 50px;
+  }
+  .welcome-title {
+    margin-bottom: 15px;
+    font-size: 230%;
+    font-weight: 740;
+    text-align: center;
+  }
+  .welcome-subtitle {
+    margin-bottom: 50px;
+    color: #666666;
+    font-size: 100%;
+    font-weight: 630;
+    text-align: center;
+  }
+  .maintext {
+    margin-bottom: 20px;
+    font-size: 150%;
+    text-align: center;
+  }
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    width: 440px;
+    height: 480px;
+  }
+  .id-label,
+  .pw-label {
+    position: relative;
+    top: 9px;
+    left: 20px;
+    width: fit-content;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: white;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .id-label-invalid,
+  .pw-label-invalid {
+    position: relative;
+    top: 9px;
+    left: 20px;
+    width: fit-content;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: white;
+    color: red;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .inputbox {
+    height: 60px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    font-size: 20px;
+  }
+  .inputbox-id-invalid {
+    height: 60px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border: 1.5px solid red;
+    font-size: 20px;
+  }
+  .inputbox-id-invalid:focus {
+    outline: none;
+  }
+  .inputbox-pw-invalid {
+    height: 60px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border: 1.5px solid red;
+    font-size: 20px;
+  }
+  .inputbox-pw-invalid:focus {
+    outline: none;
+  }
+  .inputbox:focus {
+    outline: none;
+  }
+  .login-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .id-autosave {
+    display: flex;
+    align-items: center;
+  }
+  .find-idpw {
+    padding-bottom: 5px;
+    border-bottom: 2px solid black;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .id-autosave-btn {
+    width: fit-content;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  .id-autosave-checkbox {
+    font-size: 25px;
+  }
+  .login-btn {
+    margin-top: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: none;
+    background-color: #111111;
+    color: white;
+    font-size: 25px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .signup-box {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+  }
+  .signup-text {
+    width: fit-content;
+    margin-top: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid black;
+    font-weight: 700;
+  }
+}
