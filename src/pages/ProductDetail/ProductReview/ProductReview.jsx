@@ -3,13 +3,13 @@ import "./ProductReview.scss";
 import { BsPencil } from "react-icons/bs";
 import ReviewBox from "./ReviewBox/ReviewBox";
 import ReviewItem from "./ReviewItem/ReviewItem";
-import { useLocation } from "react-router-dom";
 
 function ProductReview() {
   const [view, setView] = useState(false);
   const [className, setClassName] = useState("");
   const [review, setReview] = useState([]);
   const [limit, setLimit] = useState(3);
+  const [offset, setOffset] = useState(0);
 
   const openBtn = () => {
     setView(!view);
@@ -18,6 +18,7 @@ function ProductReview() {
 
   const updataOffset = () => {
     setLimit(limit + 3);
+    setOffset(offset + 3);
   };
 
   useEffect(() => {

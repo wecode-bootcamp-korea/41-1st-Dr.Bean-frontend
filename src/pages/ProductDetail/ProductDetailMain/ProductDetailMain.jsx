@@ -39,8 +39,6 @@ function ProductDetailMain() {
       .then(data => console.log(data));
   };
 
-  console.log(size, grind);
-
   return (
     <div className="product-container inner">
       <img src={item_img} alt="product-img" />
