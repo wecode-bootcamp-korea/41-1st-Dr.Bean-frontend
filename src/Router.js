@@ -1,12 +1,14 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
+import Footer from "./components/Footer/Footer";
 import Main from "./pages/Main/Main";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import Product from "./pages/ProductList/Product/Product";
 import ProductList from "./pages/ProductList/ProductList";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
+import BrandStory from "./pages/BrandStory/BrandStory";
 import Payment from "./pages/Payment/Payment";
 export default function Router() {
   return (
@@ -20,7 +22,9 @@ export default function Router() {
         <Route path="/product" element={<Product />} />
         <Route path="/productList" element={<ProductList />} />
         <Route path="/productDetail" element={<ProductDetail />} />
+        <Route path="/brandStory" element={<BrandStory />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

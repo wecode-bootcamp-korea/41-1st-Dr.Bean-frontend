@@ -1,0 +1,62 @@
+@import "../../../styles/color";
+
+.window {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  margin: auto;
+  margin-bottom: 80px;
+  overflow: hidden;
+
+  .flexbox {
+    display: flex;
+    width: 5760px;
+    height: 100%;
+
+    div {
+      width: 1920px;
+      height: 100%;
+      background-position: 50% 50%;
+      background-size: cover;
+    }
+
+    .img1 {
+      background-image: url(../../../../src/images/main1.avif);
+    }
+    .img2 {
+      background-image: url(../../../../src/images/main2.jpg);
+    }
+    .img3 {
+      background-image: url(../../../../src/images/main3.jpg);
+    }
+  }
+
+  .btn-wrap {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    height: 64px;
+    transform: translate(-50%);
+    border: 1px solid red;
+    color: #fff;
+    text-align: center;
+
+    .left-btn,
+    .right-btn {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      padding: 10px;
+      background-color: #000;
+      cursor: pointer;
+    }
+
+    .left-btn {
+      left: 0;
+    }
+
+    .right-btn {
+      right: 0;
+    }
+  }
+}
