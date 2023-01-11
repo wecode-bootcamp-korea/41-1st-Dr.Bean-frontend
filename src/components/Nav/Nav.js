@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Nav.scss";
 import "./NavSide";
 import { RxHamburgerMenu } from "react-icons/rx";
