@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Cart.scss";
+import "./cart.scss";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import { AiOutlineClose } from "react-icons/ai";
