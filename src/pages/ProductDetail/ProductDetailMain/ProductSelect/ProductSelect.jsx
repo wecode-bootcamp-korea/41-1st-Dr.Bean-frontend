@@ -2,12 +2,11 @@ import React from "react";
 import "./ProductSelect.scss";
 import { GRAM_LIST, GRIND_LIST } from "./SELECT_LIST";
 
-function ProductSelect({ name, setCheckRdoId, setSize, setGrind }) {
+function ProductSelect({ setCheckRdoId, setSize, setGrind, size, grind }) {
   const onChangeRadio = e => {
     const isRadioChecked = e.target.checked;
     isRadioChecked && setCheckRdoId(e.target.id);
-
-    name === "size" ? setSize(e.target.id) : setGrind(e.target.id);
+    e.target.name === "size" ? setSize(e.target.id) : setGrind(e.target.id);
   };
 
   return (
