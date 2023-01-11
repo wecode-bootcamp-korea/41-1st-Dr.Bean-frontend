@@ -11,7 +11,7 @@ export default function ContentHeader({ pageInfo, title, subtitle }) {
       <button
         className="pageback-btn"
         onClick={() => {
-          navigate("/main");
+          navigate("/");
         }}
       >
         <FontAwesomeIcon icon={faCircleLeft} className="arrow-left" />
