@@ -4,7 +4,7 @@ import "./Footer.scss";
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="footer-wrapper inner">
+      <div className="footer-wrapper ">
         <div className="footer-top">
           <div className="footer-top-left">
             <p className="title">닥터빈코리아(주)</p>
