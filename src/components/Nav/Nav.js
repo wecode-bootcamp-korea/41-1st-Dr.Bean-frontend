@@ -8,6 +8,7 @@ import { MdOutlineShoppingBag } from "react-icons/md";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import NavSide from "./NavSide";
 import { useNavigate } from "react-router-dom";
+
 export default function Nav() {
   const [sideState, setSideState] = useState({ show: true });
   const navClose = () => {
@@ -56,7 +57,7 @@ export default function Nav() {
             navigate("/login");
           }}
         >
-          <HiOutlineUserAdd />
+          <HiOutlineUserCircle />
         </div>
         <div
           className="user"
@@ -64,7 +65,7 @@ export default function Nav() {
             navigate("/signup");
           }}
         >
-          <HiOutlineUserCircle />
+          <HiOutlineUserAdd />
         </div>
       </div>
     </div>

@@ -3,10 +3,13 @@ import "./cart.scss";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import { AiOutlineClose } from "react-icons/ai";
+import { Navigate, useNavigate } from "react-router-dom";
+
 const Cart = () => {
   const [cartItem, setCartItem] = useState({ list: [] });
   const [list, setList] = useState([]);
   const [test, setTest] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://10.58.52.52:3000/carts", {
@@ -81,7 +84,7 @@ const Cart = () => {
                     <ui className="option-list">
                       <li>{item.grind}</li>
                       <li>수량: {item.quantity}개 </li>
-                      {/* <li>{item.name}</li> */}
+                      <li>{item.grams}</li>
                       <li />
                     </ui>
                     <div className="info-price">
@@ -114,7 +117,14 @@ const Cart = () => {
               </div>
             </div>
           </article>
-          <button className="buy-button">구매하기</button>
+          <button
+            className="buy-button"
+            onClick={e => {
+              navigate("/Payment");
+            }}
+          >
+            구매하기
+          </button>
         </div>
       </div>
     </div>

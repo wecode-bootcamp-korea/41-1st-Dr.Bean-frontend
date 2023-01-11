@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import Modal from "./Modal";
 import "./Payment.scss";
 import { AiOutlineArrowLeft } from "react-icons/ai";
@@ -11,6 +10,42 @@ import { MdEditNote } from "react-icons/md";
 
 const Payment = () => {
   const [modal, setModal] = useState(true);
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    fetch("http://10.58.52.52:3000/carts", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: localStorage.getItem("token"),
+      },
+    })
+      .then(response => response.json())
+
+      .then(data => {
+        setList(data);
+      });
+  }, []);
+
+  // useEffect(() => {
+  //   fetch("http://10.58.52.52:3000/order", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json; charset=utf-8",
+  //       Authorization: localStorage.getItem("token"),
+  //     },
+  //   })
+  //     .then(response => {
+  //       // console.log(response);
+
+  //       if (response.ok) return response.json();
+  //       alert("이상함");
+  //     })
+
+  //     .then(data => {
+  //       setList(data);
+  //     });
+  // }, []);
 
   return (
     <div className="payment inner">
@@ -26,7 +61,9 @@ const Payment = () => {
             onClick={() => setModal(!modal)}
             className="settleProduct-list"
           >
-            <p>주문 예정 금액 (1item | {}₩ )</p>
+            <p>
+              주문 예정 금액 ({}item | {}₩ )
+            </p>
             {modal ? (
               <AiOutlinePlus className="plus-btn" />
             ) : (
@@ -36,7 +73,7 @@ const Payment = () => {
             )}
           </button>
 
-          <Modal hidden={modal} />
+          <Modal hidden={modal} test={list} />
 
           <div className="settleOrder">
             <div className="user">
@@ -107,7 +144,7 @@ const Payment = () => {
                 <div>₩(+)0</div>
               </div>
               <div className="firstPrice-bottom">
-                <div>총 결제 예정 금액</div>
+                <div className="total-price">총 결제 예정 금액</div>
                 <div>{}₩</div>
               </div>
             </div>
