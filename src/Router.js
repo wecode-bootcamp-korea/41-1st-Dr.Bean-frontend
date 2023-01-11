@@ -9,10 +9,14 @@ import Product from "./pages/ProductList/Product/Product";
 import ProductList from "./pages/ProductList/ProductList";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import BrandStory from "./pages/BrandStory/BrandStory";
+import TopBtn from "./components/TopBtn/TopBtn";
 import Payment from "./pages/Payment/Payment";
+
 export default function Router() {
   return (
     <BrowserRouter>
+      <TopBtn />
+
       <Nav />
       <Routes>
         <Route path="/payment" element={<Payment />} />
@@ -20,8 +24,11 @@ export default function Router() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/product" element={<Product />} />
-        <Route path="/productList" element={<ProductList />} />
-        <Route path="/productDetail" element={<ProductDetail />} />
+        <Route path="/productList" element={<ProductList />}>
+          <Route path=":category" element={<ProductList />} />
+          <Route path=":category/:country" element={<ProductList />} />
+        </Route>
+        <Route path="/productDetail/" element={<ProductDetail />} />
         <Route path="/brandStory" element={<BrandStory />} />
       </Routes>
       <Footer />

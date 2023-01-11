@@ -40,7 +40,7 @@ export default function Nav() {
         <div className="heart">
           <FiHeart />
         </div>
-        <div className="bracket">
+        <div className="basket">
           <MdOutlineShoppingBag />
         </div>
         <div className="user">
