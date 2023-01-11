@@ -37,12 +37,6 @@ const Cart = () => {
     setList = [...resultArray];
   };
 
-  // const showList = () => {
-  //   return (
-
-  //   );
-  // };
-
   console.log(list);
 
   return (
