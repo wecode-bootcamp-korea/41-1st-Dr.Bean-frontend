@@ -6,24 +6,35 @@ import { AiOutlineClose } from "react-icons/ai";
 const Cart = () => {
   const [cartItem, setCartItem] = useState({ list: [] });
   const [list, setList] = useState([]);
+  const [test, setTest] = useState("");
 
   useEffect(() => {
     fetch("http://10.58.52.52:3000/carts", {
       method: "GET",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        Authorization: localStorage.getItem("accessToken"),
+        Authorization: localStorage.getItem("token"),
       },
     })
-      .then(response => {
-        console.log(response);
-
-        if (response.ok) return response.json();
-        alert("이상함");
-      })
+      .then(response => response.json())
 
       .then(data => {
-        console.log(data);
+        setList(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("http://10.58.52.52:3000/carts", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: localStorage.getItem("token"),
+      },
+    })
+      .then(response => response.json())
+
+      .then(data => {
+        setList(data);
       });
   }, []);
 
@@ -34,7 +45,7 @@ const Cart = () => {
         resultArray.splice(index, 1);
       }
     });
-    setList = [...resultArray];
+    setList([...resultArray]);
   };
 
   return (
@@ -56,37 +67,33 @@ const Cart = () => {
             </div>
             {/* // showList */}
             <div>
-              {list.length > 0 ? (
-                list.map((item, index) => (
-                  <div className="cart-item" key={index}>
-                    <img className="cart-item-img" src={item.item_img}>
-                      <div className="item-info">
-                        <h2>
-                          {item.title}
-                          <button
-                            className="delete-box"
-                            onClick={() => deletItem(item.id)}
-                          >
-                            <TiDeleteOutline />
-                          </button>
-                        </h2>
-                        <ui>
-                          <li>{item.id}</li>
-                          <li>{item.quantity}</li>
-                          <li>{item.name}</li>
-                          <li />
-                        </ui>
-                        <div className="info-price">
-                          <p className="price">₩{item.price}</p>
-                        </div>
-                        <p className="option">옵션/수량변경</p>
-                      </div>
-                    </img>
+              {list.map((item, index) => (
+                <div className="cart-item" key={index}>
+                  <img className="cart-item-img" src={item.item_img} />
+                  <div className="item-info">
+                    <h2>
+                      {item.name}
+                      <button
+                        className="delete-box"
+                        onClick={() => deletItem(item.id)}
+                      >
+                        <TiDeleteOutline />
+                      </button>
+                    </h2>
+                    <ui>
+                      <li>{item.id}</li>
+                      <li>{item.quantity}</li>
+                      <li>{item.name}</li>
+                      <li />
+                    </ui>
+                    <div className="info-price">
+                      <p className="price">₩{item.price}</p>
+                    </div>
+                    <p className="option">옵션/수량변경</p>
                   </div>
-                ))
-              ) : (
-                <p>상품이 존재하지 않습니다.</p>
-              )}
+                  {/* </img> */}
+                </div>
+              ))}
             </div>
             {/* // showList END */}
           </div>

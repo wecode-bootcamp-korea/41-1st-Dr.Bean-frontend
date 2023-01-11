@@ -20,15 +20,15 @@ function ProductDetailMain() {
   }, []);
   const { item_img, name, description, price } = productDetail;
   const toBuyServer = () => {
-    fetch(`http://10.58.52.52:3000/items/${productId}`, {
+    fetch(`http://10.58.52.52:3000/carts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify({
-        size: size,
-        grind: grind,
+        quantity: 1,
+        itemOptionId: 106,
         itemId: productId,
       }),
     })
@@ -68,10 +68,12 @@ function ProductDetailMain() {
             />
           </ul>
           <ProductCount count={count} setCount={setCount} price={price} />
-          <button className="cart-btn">장바구니</button>
-          <button className="buy-btn" onClick={toBuyServer}>
-            구매하기
+          <button className="cart-btn" onClick={toBuyServer}>
+            장바구니
           </button>
+          {/* <button className="buy-btn" onClick={toBuyServer}>
+            구매하기
+          </button> */}
         </div>
       </div>
     </div>
