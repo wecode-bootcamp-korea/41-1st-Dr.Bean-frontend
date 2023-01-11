@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 import "./Payment.scss";
 import { AiOutlineArrowLeft } from "react-icons/ai";
@@ -10,6 +10,37 @@ import { MdEditNote } from "react-icons/md";
 
 const Payment = () => {
   const [modal, setModal] = useState(true);
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    fetch("http://10.58.52.52:3000/carts", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: localStorage.getItem("token"),
+      },
+    })
+      .then(response => response.json())
+
+      .then(data => {
+        setList(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("http://10.58.52.52:3000/order", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: localStorage.getItem("token"),
+      },
+    })
+      .then(response => response.json())
+
+      .then(data => {
+        setList(data);
+      });
+  }, []);
 
   return (
     <div className="payment inner">
@@ -35,7 +66,7 @@ const Payment = () => {
             )}
           </button>
 
-          <Modal hidden={modal} />
+          <Modal hidden={modal} test={list} />
 
           <div className="settleOrder">
             <div className="user">
