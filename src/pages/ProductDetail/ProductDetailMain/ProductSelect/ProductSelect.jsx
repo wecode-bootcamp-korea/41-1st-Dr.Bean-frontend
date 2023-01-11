@@ -1,39 +1,52 @@
 import React from "react";
 import "./ProductSelect.scss";
+import { GRAM_LIST, GRIND_LIST } from "./SELECT_LIST";
 
-function ProductSelect({
-  id,
-  name,
-  content,
-  setCheckRdoId,
-  setSize,
-  setGrind,
-}) {
+function ProductSelect({ name, setCheckRdoId, setSize, setGrind }) {
   const onChangeRadio = e => {
     const isRadioChecked = e.target.checked;
     isRadioChecked && setCheckRdoId(e.target.id);
 
-    if (name === "size") {
-      setSize(e.target.id);
-    } else {
-      setGrind(e.target.id);
-    }
+    name === "size" ? setSize(e.target.id) : setGrind(e.target.id);
   };
 
   return (
-    <li>
-      <input
-        type="radio"
-        name={name}
-        value={content}
-        id={id}
-        className="radio-input"
-        onChange={onChangeRadio}
-      />
-      <label for={id} className="select-btn">
-        {content}
-      </label>
-    </li>
+    <>
+      {GRAM_LIST.map(list => {
+        return (
+          <li key={list.id}>
+            <input
+              type="radio"
+              name="size"
+              value={list.content}
+              id={list.id}
+              className="radio-input"
+              onChange={onChangeRadio}
+            />
+            <label for={list.id} className="select-btn">
+              {list.content}
+            </label>
+          </li>
+        );
+      })}
+      {GRIND_LIST.map(info => {
+        return (
+          <li key={info.id}>
+            <input
+              type="radio"
+              name="grind"
+              value={info.content}
+              id={info.id}
+              className="radio-input"
+              onChange={onChangeRadio}
+            />
+            <label for={info.id} className="select-btn">
+              {info.content}
+            </label>
+          </li>
+        );
+      })}
+    </>
   );
 }
 

@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import ProductCount from "./ProductCount/ProductCount";
 import "./ProductDetailMain.scss";
 import ProductSelect from "./ProductSelect/ProductSelect";
-import { GRAM_LIST, GRIND_LIST } from "./SELECT_LIST";
 
 function ProductDetailMain() {
   const [checkRdoId, setCheckRdoId] = useState("");
   const [productDetail, setProductDetail] = useState({});
+  const [count, setCount] = useState(1);
   const [size, setSize] = useState();
   const [grind, setGrind] = useState();
 
@@ -47,37 +47,14 @@ function ProductDetailMain() {
           <h1>{name}</h1>
           <p>{description}</p>
           <ul className="select-container">
-            {GRAM_LIST.map(list => {
-              return (
-                <ProductSelect
-                  key={list.id}
-                  id={list.id}
-                  className="border"
-                  name="size"
-                  content={list.content}
-                  setSize={setSize}
-                  setCheckRdoId={setCheckRdoId}
-                />
-              );
-            })}
-          </ul>
-          <ul className="select-container">
-            {GRIND_LIST.map(info => {
-              return (
-                <ProductSelect
-                  key={info.id}
-                  id={info.id}
-                  className="border"
-                  name="grinder"
-                  content={info.content}
-                  setGrind={setGrind}
-                  setCheckRdoId={setCheckRdoId}
-                />
-              );
-            })}
+            <ProductSelect
+              name="size"
+              setSize={setSize}
+              setCheckRdoId={setCheckRdoId}
+            />
           </ul>
 
-          <ProductCount price={price} />
+          <ProductCount count={count} setCount={setCount} price={price} />
           <button className="cart-btn" onClick={toServer}>
             장바구니
           </button>
