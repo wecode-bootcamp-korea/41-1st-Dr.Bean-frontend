@@ -97,7 +97,7 @@ export default function Signup() {
 
   const fetchHandler = e => {
     e.preventDefault();
-    fetch("http://10.58.52.152:3000/signup", {
+    fetch("http://10.58.52.52:3000/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
@@ -111,7 +111,12 @@ export default function Signup() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        if (data.message === "SIGNUP_SUCCESS") {
+          alert("회원가입을 축하드립니다.");
+          navigate("/login");
+        } else {
+          alert("아이디 또는 비밀번호 양식을 확인해주세요.");
+        }
       });
   };
 
@@ -122,14 +127,7 @@ export default function Signup() {
         title="환영합니다."
         subtitle="지금 바로 다양한 혜택을 만나보세요."
       />
-      <form
-        onSubmit={
-          fetchHandler
-          //   () => {
-          //   navigate("/main");
-          // }
-        }
-      >
+      <form onSubmit={fetchHandler}>
         <div className="signup-form">
           <label className="input-label">이름</label>
           <input

@@ -1,0 +1,164 @@
+@import "../../styles/color";
+@import "../../styles/variables";
+
+.brand-container {
+  padding: 50px 0;
+  background-color: $white;
+
+  &.second {
+    background-color: $black;
+  }
+
+  .brand-wrap {
+    .flexbox {
+      display: flex;
+      align-items: center;
+
+      &.second {
+        flex-direction: row-reverse;
+      }
+
+      .brandstory-img1,
+      .brandstory-img2 {
+        width: 340px;
+        height: 492px;
+        margin: 0 50px;
+        filter: grayscale(100%);
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .brandstory-content {
+        padding-top: 30px;
+
+        &.second {
+          color: $white;
+        }
+
+        &.third {
+          width: 550px;
+          padding: 30px 10px;
+          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+          text-align: center;
+
+          h1 {
+            margin-bottom: 50px;
+            font-size: 36px;
+            font-weight: 700;
+          }
+
+          .select-form {
+            display: flex;
+            position: relative;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: auto;
+
+            .date {
+              width: 450px;
+              height: 50px;
+              margin-bottom: 30px;
+              border: 1px solid $pointFontColor;
+              color: $pointFontColor;
+              font-size: 18px;
+              text-align: center;
+            }
+
+            .input-radio {
+              width: 1px;
+              opacity: 0;
+
+              &:checked + .select-btn {
+                background-color: $black;
+                color: $white;
+              }
+            }
+
+            .select-btn {
+              display: inline-block;
+              width: 210px;
+              height: 40px;
+              margin-bottom: 30px;
+              border: 1px solid $pointFontColor;
+              font-size: 18px;
+              line-height: 36px;
+              cursor: pointer;
+            }
+
+            .label {
+              @include label;
+              position: absolute;
+              top: 300px;
+              left: 30px;
+            }
+
+            .text {
+              @include inputBox;
+              width: 450px;
+              height: 100px;
+              margin-top: 30px;
+              border: 1px solid $pointFontColor;
+            }
+          }
+
+          .submit {
+            width: 250px;
+            height: 50px;
+            margin-top: 20px;
+            padding: 0 17px;
+            background-color: $white;
+            color: $black;
+            text-align: center;
+            cursor: pointer;
+
+            &:hover {
+              background-color: $black;
+              color: $white;
+            }
+          }
+        }
+
+        .content-top {
+          margin-bottom: 30px;
+          font-size: 36px;
+          font-weight: 700;
+          line-height: 48px;
+        }
+
+        .content-bottom {
+          font-size: 20px;
+          line-height: 32px;
+        }
+      }
+    }
+
+    .contact-title {
+      margin-bottom: 50px;
+      border: 1px solid $white;
+      font-size: 38px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .contact-form {
+      display: flex;
+      position: relative;
+      flex-wrap: wrap;
+
+      .input-wrap {
+        position: relative;
+        width: 550px;
+        height: 100px;
+        margin: 10px 0;
+
+        &:last-child {
+          width: 1100px;
+          height: 160px;
+        }
+      }
+    }
+  }
+}

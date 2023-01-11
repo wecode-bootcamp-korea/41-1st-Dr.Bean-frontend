@@ -8,7 +8,7 @@ import Login from "./pages/Login/Login";
 import Product from "./pages/ProductList/Product/Product";
 import ProductList from "./pages/ProductList/ProductList";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
-import Payment from "./pages/Payment/Payment";
+import BrandStory from "./pages/BrandStory/BrandStory";
 
 export default function Router() {
   return (
@@ -25,6 +25,7 @@ export default function Router() {
           <Route path=":category/:country" element={<ProductList />} />
         </Route>
         <Route path="/productDetail/" element={<ProductDetail />} />
+        <Route path="/brandStory" element={<BrandStory />} />
       </Routes>
       <Footer />
     </BrowserRouter>
