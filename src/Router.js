@@ -9,13 +9,16 @@ import Product from "./pages/ProductList/Product/Product";
 import ProductList from "./pages/ProductList/ProductList";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import BrandStory from "./pages/BrandStory/BrandStory";
+import TopBtn from "./components/TopBtn/TopBtn";
 
 export default function Router() {
   return (
     <BrowserRouter>
+      <TopBtn />
+
       <Nav />
       <Routes>
-        <Route path="/payment" element={<Payment />} />
+        {/* <Route path="/payment" element={<Payment />} /> */}
         <Route path="/" element={<Main />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
