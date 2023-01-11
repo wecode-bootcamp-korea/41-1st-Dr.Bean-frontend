@@ -13,12 +13,14 @@
     height: 45px;
     margin-top: 26px;
     padding: 10px;
+    cursor: pointer;
 
     .logo {
       width: 150px;
       position: absolute;
       top: -15px;
       left: 80px;
+      z-index: 1;
     }
   }
 }
