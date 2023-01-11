@@ -28,7 +28,14 @@ export default function Nav() {
         <div hidden={sideState.show}>
           <NavSide onClose={navClose} />
         </div>
-        <img className="logo" src="/images/dr.bean-logo.png" alt="" />
+        <img
+          className="logo"
+          src="/images/dr.bean-logo.png"
+          alt=""
+          onClick={e => {
+            navigate("/");
+          }}
+        />
       </div>
       <input
         type="text"
