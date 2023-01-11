@@ -51,11 +51,11 @@
 
     h2 {
       display: flex;
-      margin: 0 8px 19px;
-      margin-top: 17px;
+
+      // margin: 0 8px 19px;
+
       font-size: 27px;
       font-weight: 700;
-      line-height: 26px;
 
       .delete-box {
         position: absolute;
@@ -78,6 +78,7 @@
 }
 
 .cart-item {
+  display: flex;
   position: relative;
   width: 678px;
   height: 193px;
@@ -85,9 +86,11 @@
   border: 1px solid #dddd;
 }
 
-.delete-icon {
+.delete-box {
   display: flex;
-  float: right;
+  position: absolute;
+  top: 5px;
+  right: 0;
   border: 0;
   background-color: transparent;
   font-size: 16px;
@@ -97,15 +100,14 @@
   display: block;
   width: 128px;
   height: 160px;
-  border: 1px solid blue;
   opacity: 1;
 }
 .item-info {
   display: block;
   right: 93px;
-  width: 418px;
+  width: calc(678px - 128px);
   height: 74px;
-  margin-left: 150px;
+  margin-left: 60px;
 
   .delete-box {
     float: right;
@@ -115,11 +117,10 @@
   }
 
   h2 {
+    display: flex;
     color: rgb(0, 0, 0);
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 700;
-    letter-spacing: -0.01em;
-    line-height: 1.125;
   }
 
   li {
@@ -144,20 +145,15 @@
 }
 .price {
   display: block;
-  margin-top: 20px;
-  font-size: 30px;
+  margin-top: 10px;
+  font-size: 26px;
   font-weight: 700;
 }
 
-.option {
-  position: absolute;
-  right: 33px;
-  bottom: 20px;
-  border-bottom-width: 2px;
-  border-bottom-color: #666;
-  color: #666;
-  font-weight: 700;
-  letter-spacing: -0.4px;
+.option-list li {
+  display: flex;
+  margin-top: 20px;
+  font-size: 18px;
 }
 
 .settle-container-right {

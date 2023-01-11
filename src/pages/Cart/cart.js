@@ -71,27 +71,23 @@ const Cart = () => {
                 <div className="cart-item" key={index}>
                   <img className="cart-item-img" src={item.item_img} />
                   <div className="item-info">
-                    <h2>
-                      {item.name}
-                      <button
-                        className="delete-box"
-                        onClick={() => deletItem(item.id)}
-                      >
-                        <TiDeleteOutline />
-                      </button>
-                    </h2>
-                    <ui>
-                      <li>{item.id}</li>
-                      <li>{item.quantity}</li>
-                      <li>{item.name}</li>
+                    <h2>{item.name}</h2>
+                    <button
+                      className="delete-box"
+                      onClick={() => deletItem(item.id)}
+                    >
+                      <TiDeleteOutline />
+                    </button>
+                    <ui className="option-list">
+                      <li>{item.grind}</li>
+                      <li>수량: {item.quantity}개 </li>
+                      {/* <li>{item.name}</li> */}
                       <li />
                     </ui>
                     <div className="info-price">
                       <p className="price">₩{item.price}</p>
                     </div>
-                    <p className="option">옵션/수량변경</p>
                   </div>
-                  {/* </img> */}
                 </div>
               ))}
             </div>
