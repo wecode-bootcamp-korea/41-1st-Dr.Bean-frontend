@@ -13,6 +13,7 @@ function ProductDetailMain() {
 
   //백엔드 통신 로직
   // const params = useParams();
+
   // const productId = params.id;
 
   useEffect(() => {
