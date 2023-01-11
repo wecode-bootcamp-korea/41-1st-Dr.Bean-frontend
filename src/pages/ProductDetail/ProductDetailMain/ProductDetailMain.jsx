@@ -23,7 +23,23 @@ function ProductDetailMain() {
 
   const { item_img, name, description, price } = productDetail;
 
-  const toServer = () => {
+  const toBuyServer = () => {
+    fetch("http://10.58.52.150:3000/items/1", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      body: JSON.stringify({
+        size: size,
+        grind: grind,
+        itemId: 1,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => console.log(data));
+  };
+
+  const toCartServer = () => {
     fetch("http://10.58.52.150:3000/items/1", {
       method: "POST",
       headers: {
@@ -55,10 +71,10 @@ function ProductDetailMain() {
           </ul>
 
           <ProductCount count={count} setCount={setCount} price={price} />
-          <button className="cart-btn" onClick={toServer}>
+          <button className="cart-btn" onClick={toCartServer}>
             장바구니
           </button>
-          <button className="buy-btn" onClick={toServer}>
+          <button className="buy-btn" onClick={toBuyServer}>
             구매하기
           </button>
         </div>

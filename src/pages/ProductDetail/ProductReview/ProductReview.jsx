@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./ProductReview.scss";
 import { BsPencil } from "react-icons/bs";
-import ReviewBox from "./ReviewBox/ReviewBox";
 import ReviewItem from "./ReviewItem/ReviewItem";
+// import ReviewBox from "./ReviewBox/ReviewBox";
 
 function ProductReview() {
   const [view, setView] = useState(false);
@@ -17,7 +17,7 @@ function ProductReview() {
   };
 
   const updataOffset = () => {
-    setLimit(limit + 3);
+    setLimit(limit);
     setOffset(limit + offset);
   };
 

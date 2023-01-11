@@ -9,6 +9,7 @@ import Product from "./pages/ProductList/Product/Product";
 import ProductList from "./pages/ProductList/ProductList";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import BrandStory from "./pages/BrandStory/BrandStory";
+import Payment from "./pages/Payment/Payment";
 
 export default function Router() {
   return (
