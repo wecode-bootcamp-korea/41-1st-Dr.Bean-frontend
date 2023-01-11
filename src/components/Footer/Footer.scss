@@ -1,53 +1,52 @@
 .footer {
-  background-color: #000;
   position: absolute;
   width: 100%;
+  background-color: #000;
 }
 .footer-wrapper {
   display: block;
   width: 100%;
   height: 290px;
-  font-family: Dotum;
 }
 
 .footer-top {
   display: flex;
-  width: 100%;
   justify-content: space-between;
+  width: 100%;
   height: 210px;
   padding: 30px;
-  line-height: 15px;
   background-color: rgb(25, 25, 25);
   color: rgb(255, 255, 255);
+  line-height: 15px;
 }
 
 .footer-top span {
-  line-height: 23px;
   color: #999999;
   font-size: 15px;
+  line-height: 23px;
 }
 .footer-top-left {
-  width: 866px;
-  height: 186px;
   justify-content: flex-start;
-  min-height: auto;
+  width: 866px;
   min-width: auto;
+  height: 186px;
+  min-height: auto;
 }
 
 .footer-top-left span {
-  line-height: 23px;
   color: #999999;
   font-size: 15px;
+  line-height: 23px;
 }
 .footer-bottom {
   display: flex;
-  margin-left: 4px;
   width: 100%;
   height: 80px;
+  margin-left: 4px;
   padding: 20px;
+  border-top: 1px solid #333333;
   background-color: rgb(25, 25, 25);
   color: rgb(255, 255, 255);
-  border-top: 1px solid #333333;
   font-size: 16px;
   font-weight: 700;
   line-height: 15px;

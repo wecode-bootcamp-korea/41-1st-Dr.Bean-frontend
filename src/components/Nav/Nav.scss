@@ -3,10 +3,10 @@
   position: relative;
   justify-content: center;
   width: 1140px;
-  height: 95px;
+  height: 147px;
   margin: 0 160px 0 160px;
+  line-height: 90px;
   text-align: center;
-
   .side-bar-btn {
     align-items: center;
     width: 47px;
@@ -14,17 +14,15 @@
     margin-top: 26px;
     padding: 10px;
     cursor: pointer;
-
     .logo {
-      width: 150px;
       position: absolute;
+      z-index: 1;
       top: -15px;
       left: 80px;
-      z-index: 1;
+      width: 150px;
     }
   }
 }
-
 .side-bar-icon {
   font-size: 35px;
 }
@@ -40,14 +38,13 @@
   word-spacing: 0px;
   cursor: text;
 }
-
 .header-icons {
   display: flex;
   width: 28px;
   height: 33px;
-  font-size: 40px;
   margin-top: 35px;
   margin-right: 280px;
+  font-size: 40px;
   cursor: pointer;
   gap: 40px;
 }
