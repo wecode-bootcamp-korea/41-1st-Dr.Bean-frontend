@@ -12,40 +12,40 @@ const Payment = () => {
   const [modal, setModal] = useState(true);
   const [list, setList] = useState([]);
 
-  useEffect(() => {
-    fetch("http://10.58.52.52:3000/carts", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        Authorization: localStorage.getItem("token"),
-      },
-    })
-      .then(response => response.json())
-
-      .then(data => {
-        setList(data);
-      });
-  }, []);
-
   // useEffect(() => {
-  //   fetch("http://10.58.52.52:3000/order", {
+  //   fetch("http://10.58.52.52:3000/carts", {
   //     method: "GET",
   //     headers: {
   //       "Content-Type": "application/json; charset=utf-8",
   //       Authorization: localStorage.getItem("token"),
   //     },
   //   })
-  //     .then(response => {
-  //       // console.log(response);
-
-  //       if (response.ok) return response.json();
-  //       alert("이상함");
-  //     })
+  //     .then(response => response.json())
 
   //     .then(data => {
   //       setList(data);
   //     });
   // }, []);
+
+  useEffect(() => {
+    fetch("http://10.58.52.52:3000/order", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: localStorage.getItem("token"),
+      },
+    })
+      .then(response => {
+        // console.log(response);
+
+        if (response.ok) return response.json();
+        alert("이상함");
+      })
+
+      .then(data => {
+        setList(data);
+      });
+  }, []);
 
   return (
     <div className="payment inner">
@@ -119,7 +119,7 @@ const Payment = () => {
                 <input className="inputUser" />
               </div>
               <div>
-                <label className="userName">배송메세지 선택(선택)</label>
+                <label className="userName">배송메세지</label>
                 <input className="inputUser" />
               </div>
             </div>

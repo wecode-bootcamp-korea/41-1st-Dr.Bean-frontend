@@ -41,7 +41,7 @@ const Footer = () => {
               src="/images/footerlog.jpg"
               alt=""
               onClick={e => {
-                navigate("/brandStroy");
+                navigate("/BrandStroy");
               }}
             />
           </div>
