@@ -22,8 +22,6 @@ export default function ProductListHeader({ category, country }) {
       .then(result => setData(result[0]));
   }, [findurl.id]);
 
-  console.log(data);
-
   return (
     <div className="page-description">
       <AiOutlineArrowLeft className="arrow" />
