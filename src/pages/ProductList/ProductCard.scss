@@ -20,15 +20,18 @@
 }
 
 .product-name {
+  display: flex;
+  flex-wrap: wrap;
   border: none;
   background-color: white;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 700;
+  text-align: left;
   cursor: pointer;
 }
 
 .product-price {
   display: flex;
   align-items: center;
-  font-size: 17px;
+  font-size: 15px;
 }

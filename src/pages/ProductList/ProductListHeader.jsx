@@ -17,10 +17,12 @@ export default function ProductListHeader({ category, country }) {
   const findurl = COUNTRY_CODE.find(e => e.name === country.country);
 
   useEffect(() => {
-    fetch(`http://10.58.52.234:3000/items/country/${findurl.id}`)
+    fetch(`http://10.58.52.52:3000/items/country/${findurl.id}`)
       .then(response => response.json())
       .then(result => setData(result[0]));
-  }, [category]);
+  }, [findurl.id]);
+
+  console.log(data);
 
   return (
     <div className="page-description">
