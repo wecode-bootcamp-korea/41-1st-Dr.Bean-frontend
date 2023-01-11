@@ -3,7 +3,7 @@ import "./MainReview.scss";
 
 function MainReview() {
   return (
-    <div className="review-container">
+    <div className="reviewbox-container">
       <div className="inner">
         <div
           className="review-wrap"

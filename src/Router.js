@@ -10,6 +10,7 @@ import ProductList from "./pages/ProductList/ProductList";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import BrandStory from "./pages/BrandStory/BrandStory";
 import TopBtn from "./components/TopBtn/TopBtn";
+import Payment from "./pages/Payment/Payment";
 
 export default function Router() {
   return (
@@ -18,13 +19,16 @@ export default function Router() {
 
       <Nav />
       <Routes>
-        {/* <Route path="/payment" element={<Payment />} /> */}
+        <Route path="/payment" element={<Payment />} />
         <Route path="/" element={<Main />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/product" element={<Product />} />
-        <Route path="/productList" element={<ProductList />} />
-        <Route path="/productDetail" element={<ProductDetail />} />
+        <Route path="/productList" element={<ProductList />}>
+          <Route path=":category" element={<ProductList />} />
+          <Route path=":category/:country" element={<ProductList />} />
+        </Route>
+        <Route path="/productDetail/" element={<ProductDetail />} />
         <Route path="/brandStory" element={<BrandStory />} />
       </Routes>
       <Footer />
