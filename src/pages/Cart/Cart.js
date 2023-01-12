@@ -38,7 +38,7 @@ const Cart = () => {
       });
   }, []);
 
-  const deletItem = id => {
+  const deleteItem = id => {
     const resultArray = [...list];
     list.forEach(function (item, index) {
       if (item.id === id) {
@@ -47,6 +47,11 @@ const Cart = () => {
     });
     setList([...resultArray]);
   };
+
+  // const finalPrice = list.reduce((prev, cur) => {
+  //   prev += cur.price;
+  //   return prev;
+  // });
 
   return (
     <div className="cart inner">
@@ -75,7 +80,7 @@ const Cart = () => {
                       {item.name}
                       <button
                         className="delete-box"
-                        onClick={() => deletItem(item.id)}
+                        onClick={() => deleteItem(item.id)}
                       >
                         <TiDeleteOutline />
                       </button>
