@@ -18,14 +18,14 @@ const Modal = props => {
     <div className="modal" hidden={props.hidden} key={index}>
       <div className="modal-img">
         <div className="item-info">
-          <h2>{item.name}</h2>
-          <div className="option">
-            <div className="size">{item.grams}</div>
-            <div className="grind">{item.grind}</div>
+          <h2>{}</h2>
+          <div className="{option}">
+            <div className="{size}" />
+            <div className="{grind}" />
           </div>
 
           <div className="info-price">
-            <p className="price">₩{item.price}</p>
+            <p className="price">{}</p>
           </div>
         </div>
       </div>

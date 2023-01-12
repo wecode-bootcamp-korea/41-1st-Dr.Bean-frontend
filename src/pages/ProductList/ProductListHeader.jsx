@@ -22,11 +22,9 @@ export default function ProductListHeader({ category, country }) {
       .then(result => setData(result[0]));
   }, [findurl.id]);
 
-  console.log(data);
-
   return (
     <div className="page-description">
-      <AiOutlineArrowLeft className="arrow" />
+      <AiOutlineArrowLeft className="arrow" onClick={() => navigate(-1)} />
       <span className="category">{findurl.nameKor}</span>
       <span className="category-productnumbers">
         닥터빈의 {findurl.nameKor} 원두 상품을 확인해보세요!
