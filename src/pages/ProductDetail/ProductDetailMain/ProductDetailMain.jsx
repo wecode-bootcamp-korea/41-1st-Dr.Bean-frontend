@@ -65,8 +65,6 @@ function ProductDetailMain() {
       });
   };
 
-  console.log(size, grind, productId);
-
   return (
     <div className="product-container inner">
       <img src={item_img} alt="product-img" />
