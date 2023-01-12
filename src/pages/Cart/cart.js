@@ -22,30 +22,24 @@ const Cart = () => {
       .then(response => response.json())
       .then(data => {
         setList(data);
-        console.log(data);
       });
   }, []);
-
   const deletItem = id => {
     const resultArray = [...list];
     list.forEach(function (item, index) {
-      if (item.id === id) {
+      if (item.cart_id === id) {
         resultArray.splice(index, 1);
       }
     });
     setList([...resultArray]);
 
-    fetch("http://10.58.52.52:3000/carts", {
+    fetch(`http://10.58.52.229:3000/carts/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Authorization: localStorage.getItem("token"),
       },
-    })
-      .then(response => response.json())
-      .then(data => {
-        setList(data);
-      });
+    });
   };
 
   const finalPrice = list.reduce((prev, cur) => {
@@ -79,7 +73,7 @@ const Cart = () => {
                     <h2>{item.name}</h2>
                     <button
                       className="delete-box"
-                      onClick={() => deletItem(item.id)}
+                      onClick={() => deletItem(item.cart_id)}
                     >
                       <TiDeleteOutline />
                     </button>
