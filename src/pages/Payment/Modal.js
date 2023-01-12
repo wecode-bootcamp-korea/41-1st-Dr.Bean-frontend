@@ -11,7 +11,7 @@ const Modal = props => {
     { title: "아시아", area: ["인도네시아", "예맨", "베트남"] },
   ];
 
-  return props.producList.map((item, index) => (
+  return props.productList.map((item, index) => (
     <div className="modal" hidden={props.hidden} key={index}>
       <img src={item.item_img} className="modal-img" />
       <div className="item-info-modal">

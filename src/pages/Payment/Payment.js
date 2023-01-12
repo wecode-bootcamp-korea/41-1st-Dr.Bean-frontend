@@ -72,7 +72,7 @@ const Payment = () => {
             )}
           </button>
 
-          <Modal hidden={modal} />
+          <Modal hidden={modal} productList={list} />
 
           <div className="settleOrder">
             <div className="user">
