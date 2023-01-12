@@ -28,7 +28,9 @@ export default function ProductCard({ countryData }) {
                 </button>
                 <div className="product-price">
                   <BiWon />
-                  {content.price}
+                  {content.price
+                    .toString()
+                    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}
                 </div>
               </div>
             </div>

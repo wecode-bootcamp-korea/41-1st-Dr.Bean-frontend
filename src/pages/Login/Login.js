@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquare, faSquareCheck } from "@fortawesome/free-regular-svg-icons";
 import { useNavigate } from "react-router-dom";
@@ -26,14 +26,10 @@ const Login = () => {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.accessToken !== undefined) {
-          localStorage.setItem("token", data.accessToken);
-          navigate("/");
-        } else {
-          alert("존재하지 않는 회원입니다.");
-        }
+        localStorage.setItem("token", data.accessToken);
       });
   };
+
   const saveUserId = e => {
     const { value } = e.target;
     setInputValues({ ...inputValues, idValue: value });
@@ -77,7 +73,7 @@ const Login = () => {
       <ContentHeader
         pageInfo="로그인"
         title="어서오세요"
-        subtitle="닥터코드에 오신걸 환영합니다"
+        subtitle="닥터빈에 오신걸 환영합니다"
       />
       <div>
         <form onSubmit={e => e.preventDefault()}>
@@ -127,15 +123,7 @@ const Login = () => {
                 <span>아이디/비밀번호 찾기</span>
               </div>
             </div>
-            <button
-              className="login-btn"
-              onClick={
-                //   () => {
-                //   navigate("/main");
-                // }
-                fetchHandler
-              }
-            >
+            <button className="login-btn" onClick={fetchHandler}>
               로그인
             </button>
             <div className="signup-box">

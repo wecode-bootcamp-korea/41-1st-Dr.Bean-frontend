@@ -1,35 +1,51 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./ProductSelect.scss";
+import { GRAM_LIST, GRIND_LIST } from "./SELECT_LIST";
 
-function ProductSelect({ id, name, content, onChangeRadio }) {
-  // useEffect(() => {
-  //   fetch("http://10.58.52.57:3000/items/1", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json; charset=utf-8",
-  //     },
-  //     body: JSON.stringify({
-  //       itemId: content.id,
-  //       size: { clickValue },
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => setData(res.data));
-  // });
+function ProductSelect({ setCheckRdoId, setSize, setGrind, size, grind }) {
+  const onChangeRadio = e => {
+    const isRadioChecked = e.target.checked;
+    isRadioChecked && setCheckRdoId(e.target.id);
+    e.target.name === "size" ? setSize(e.target.id) : setGrind(e.target.id);
+  };
 
   return (
-    <li>
-      <input
-        type="radio"
-        name={name}
-        value={content}
-        id={id}
-        onChange={onChangeRadio}
-      />
-      <label for={id} className="select-btn">
-        {content}
-      </label>
-    </li>
+    <>
+      {GRAM_LIST.map(list => {
+        return (
+          <li key={list.id}>
+            <input
+              type="radio"
+              name="size"
+              value={list.content}
+              id={list.id}
+              className="radio-input"
+              onChange={onChangeRadio}
+            />
+            <label for={list.id} className="select-btn">
+              {list.content}
+            </label>
+          </li>
+        );
+      })}
+      {GRIND_LIST.map(info => {
+        return (
+          <li key={info.id}>
+            <input
+              type="radio"
+              name="grind"
+              value={info.content}
+              id={info.id}
+              className="radio-input"
+              onChange={onChangeRadio}
+            />
+            <label for={info.id} className="select-btn">
+              {info.content}
+            </label>
+          </li>
+        );
+      })}
+    </>
   );
 }
 
