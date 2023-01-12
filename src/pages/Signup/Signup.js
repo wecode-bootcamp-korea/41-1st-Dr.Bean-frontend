@@ -94,7 +94,8 @@ export default function Signup() {
     }
   };
 
-  const phoneNumber = `${inputValues.phoneOne}${inputValues.phoneTwo}${inputValues.phoneThree}`;
+  const phoneNumber =
+    `${inputValues.phoneOne}${inputValues.phoneTwo}${inputValues.phoneThree}`.toString();
 
   const fetchHandler = e => {
     e.preventDefault();
