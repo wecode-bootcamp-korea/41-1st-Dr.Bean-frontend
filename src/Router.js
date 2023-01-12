@@ -11,6 +11,7 @@ import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import BrandStory from "./pages/BrandStory/BrandStory";
 import TopBtn from "./components/TopBtn/TopBtn";
 import Payment from "./pages/Payment/Payment";
+import Cart from "./pages/Cart/Cart";
 
 export default function Router() {
   return (
@@ -30,6 +31,7 @@ export default function Router() {
         </Route>
         <Route path="/productDetail/:id" element={<ProductDetail />} />
         <Route path="/brandStory" element={<BrandStory />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </BrowserRouter>

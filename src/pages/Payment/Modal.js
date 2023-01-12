@@ -11,18 +11,21 @@ const Modal = props => {
     },
     { title: "아시아", area: ["인도네시아", "예맨", "베트남"] },
   ];
-  return paymentList.map((item, index) => (
+
+  console.log(props.modalPrice);
+
+  return props.test.map((item, index) => (
     <div className="modal" hidden={props.hidden} key={index}>
       <div className="modal-img">
         <div className="item-info">
-          <h2>{item.title}</h2>
-          <div className="option">
-            <div className="size" />
-            <div className="grind" />
+          <h2>{}</h2>
+          <div className="{option}">
+            <div className="{size}" />
+            <div className="{grind}" />
           </div>
 
           <div className="info-price">
-            <p className="price">₩</p>
+            <p className="price">{}</p>
           </div>
         </div>
       </div>
