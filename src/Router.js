@@ -28,7 +28,7 @@ export default function Router() {
           <Route path=":category" element={<ProductList />} />
           <Route path=":category/:country" element={<ProductList />} />
         </Route>
-        <Route path="/productDetail/" element={<ProductDetail />} />
+        <Route path="/productDetail/:id" element={<ProductDetail />} />
         <Route path="/brandStory" element={<BrandStory />} />
       </Routes>
       <Footer />

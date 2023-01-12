@@ -21,13 +21,13 @@ function ProductReview() {
     setOffset(limit + offset);
   };
 
-  useEffect(() => {
-    fetch(
-      `http://10.58.52.125:3000/items/reviews/3?limit=${limit}&offset=${offset}`
-    )
-      .then(res => res.json())
-      .then(data => setReview(prev => [...prev, ...data]));
-  }, [limit, offset]);
+  // useEffect(() => {
+  //   fetch(
+  //     `http://10.58.52.125:3000/items/reviews/3?limit=${limit}&offset=${offset}`
+  //   )
+  //     .then(res => res.json())
+  //     .then(data => setReview(prev => [...prev, ...data]));
+  // }, [limit, offset]);
 
   return (
     <div className="review-container inner">
