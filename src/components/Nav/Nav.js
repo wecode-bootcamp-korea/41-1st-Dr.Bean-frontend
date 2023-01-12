@@ -1,32 +1,33 @@
 import React, { useState } from "react";
 import "./Nav.scss";
 import "./NavSide";
-
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FiSearch } from "react-icons/fi";
-import { FiHeart } from "react-icons/fi";
+import { HiOutlineUserAdd } from "react-icons/hi";
 import { MdOutlineShoppingBag } from "react-icons/md";
-import { FiUser } from "react-icons/fi";
+import { HiOutlineUserCircle } from "react-icons/hi";
 import NavSide from "./NavSide";
+import { useNavigate } from "react-router-dom";
 
 export default function Nav() {
-  const [sideState, setSideState] = useState({ show: true });
+  const [isOpen, setIsOpen] = useState(false);
+  const handleNav = () => setIsOpen(prev => !prev);
 
-  const navClose = () => {
-    setSideState({ show: true });
-  };
+  const navigate = useNavigate();
 
   return (
     <div className="header-wrapper inner">
       <div className="side-bar-btn">
-        <RxHamburgerMenu
-          className="side-bar-icon"
-          onClick={() => setSideState({ show: !sideState.show })}
+        <RxHamburgerMenu className="side-bar-icon" onClick={handleNav} />
+        {isOpen && <NavSide onClickMenu={() => setIsOpen(false)} />}
+        <img
+          className="logo"
+          src="/images/dr.bean-logo.png"
+          alt=""
+          onClick={e => {
+            navigate("/");
+          }}
         />
-        <div hidden={sideState.show}>
-          <NavSide onClose={navClose} />
-        </div>
-        <img className="logo" src="/images/dr.bean-logo.png" alt="" />
       </div>
       <input
         type="text"
@@ -37,14 +38,29 @@ export default function Nav() {
         <div className="search-glass">
           <FiSearch />
         </div>
-        <div className="heart">
-          <FiHeart />
-        </div>
-        <div className="basket">
+        <div
+          className="basket"
+          onClick={e => {
+            navigate("/cart");
+          }}
+        >
           <MdOutlineShoppingBag />
         </div>
-        <div className="user">
-          <FiUser />
+        <div
+          className="sign"
+          onClick={e => {
+            navigate("/login");
+          }}
+        >
+          <HiOutlineUserAdd />
+        </div>
+        <div
+          className="user"
+          onClick={e => {
+            navigate("/signup");
+          }}
+        >
+          <HiOutlineUserCircle />
         </div>
       </div>
     </div>
