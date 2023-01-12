@@ -29,7 +29,11 @@ function ProductCount({ count, setCount, price }) {
       </div>
       <div className="product-price">
         <BiWon className="won" />
-        <span>{price * count}</span>
+        <span>
+          {(price * count)
+            .toString()
+            .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}
+        </span>
       </div>
     </div>
   );
