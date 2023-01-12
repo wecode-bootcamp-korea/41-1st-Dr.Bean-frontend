@@ -11,23 +11,16 @@ import { useNavigate } from "react-router-dom";
 
 export default function Nav() {
   const [sideState, setSideState] = useState({ show: true });
-
-  const navClose = () => {
-    setSideState({ show: true });
-  };
+  const [isOpen, setIsOpen] = useState(false);
+  const handleNav = () => setIsOpen(prev => !prev);
 
   const navigate = useNavigate();
 
   return (
     <div className="header-wrapper inner">
       <div className="side-bar-btn">
-        <RxHamburgerMenu
-          className="side-bar-icon"
-          onClick={() => setSideState({ show: !sideState.show })}
-        />
-        <div hidden={sideState.show}>
-          <NavSide onClose={navClose} />
-        </div>
+        <RxHamburgerMenu className="side-bar-icon" onClick={handleNav} />
+        {isOpen && <NavSide onClickMenu={() => setIsOpen(false)} />}
         <img
           className="logo"
           src="/images/dr.bean-logo.png"

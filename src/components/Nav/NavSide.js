@@ -1,68 +1,39 @@
 import React, { useState } from "react";
 import "./NavSide.scss";
 import { sideArray } from "./NavArea";
-import { Navigate, useNavigate } from "react-router-dom";
-import { BsChevronDown } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
-let result = [];
-const NavSide = props => {
-  const [subMenu, setSubMenu] = useState({ list: [], title: "" });
-  const [view, setView] = useState(false);
-
-  const navClick = (value, event) => {
-    event.stopPropagation();
-    setView(!view);
-    result = [];
-    sideArray.forEach(function (item) {
-      if (item.title === value) {
-        result = [...item.area];
-        return;
-      }
-    });
-
-    setSubMenu({ list: result, title: value });
-  };
-
+export default function NavSide({ onClickMenu }) {
+  const [currentId, setCurrentId] = useState(0);
   const navigate = useNavigate();
 
-  return (
-    <div className="NavSide" onClick={() => props.onClose()}>
-      {sideArray.map((item, index) => {
-        return (
-          <div
-            key={index}
-            className="side-menu"
-            onClick={event => navClick(item.title, event)}
-          >
-            {item.title}
-            <BsChevronDown className="down-arrow" />
+  const onClickDeps = id => e => {
+    setCurrentId(id);
+  };
 
-            {view && (
-              <div className="sub-menu">
-                {item.title === subMenu.title ? (
-                  subMenu.list.map((item, index) => {
-                    return (
-                      <div
-                        key={index}
-                        onClick={e => {
-                          navigate(item.url);
-                        }}
-                        className="country-items"
-                      >
-                        {item.name}
-                      </div>
-                    );
-                  })
-                ) : (
-                  <div />
-                )}
-              </div>
-            )}
-          </div>
-        );
-      })}
+  return (
+    <div className="NavSide">
+      <ul>
+        {sideArray.map(({ id, title, area }) => (
+          <li key={id} onClick={onClickDeps(id)} className="side-menu">
+            {title}
+            <ul className="sub-menu">
+              {currentId === id &&
+                area.map(({ name, url }) => (
+                  <li
+                    className="country-items"
+                    onClick={e => {
+                      onClickMenu();
+                      navigate(url);
+                    }}
+                  >
+                    {name}
+                  </li>
+                ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-};
-
-export default NavSide;
+}

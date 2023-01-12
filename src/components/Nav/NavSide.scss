@@ -6,7 +6,6 @@
   z-index: 100;
   top: 147px;
   width: 350px;
-  // height: 650px;
   overflow: scroll;
   animation-name: smoothSlide;
   animation-duration: 0.5s;
@@ -18,7 +17,7 @@
     justify-content: space-between;
     width: 100%;
     padding: 0 10px;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 700;
     text-align: left;
     cursor: default;
@@ -31,14 +30,14 @@
   }
 
   .sub-menu {
-    animation-name: smoothSlide;
-    animation-duration: 0.5s;
     font-size: 15px;
     cursor: default;
 
     .country-items {
+      animation-name: smoothSlide;
+      animation-duration: 0.5s;
       color: $pointFontColor;
-      font-size: 26px;
+      font-size: 24px;
       font-weight: normal;
     }
   }
