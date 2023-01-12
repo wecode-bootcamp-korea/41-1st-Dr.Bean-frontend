@@ -31,6 +31,7 @@ export default function Router() {
         </Route>
         <Route path="/productDetail/:id" element={<ProductDetail />} />
         <Route path="/brandStory" element={<BrandStory />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </BrowserRouter>

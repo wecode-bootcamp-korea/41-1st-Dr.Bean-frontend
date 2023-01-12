@@ -16,14 +16,14 @@ function ProductDetailMain() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://10.58.52.52:3000/items/detail/${productId}`)
+    fetch(`http://10.58.52.229:3000/items/detail/${productId}`)
       .then(response => response.json())
       .then(result => setProductDetail(result));
   }, []);
   const { item_img, name, description, price } = productDetail;
 
   const toBuyServer = () => {
-    fetch(`http://10.58.52.52:3000/items/${productId}`, {
+    fetch(`http://10.58.52.229:3000/items/${productId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
