@@ -3,7 +3,7 @@ import "./Nav.scss";
 import "./NavSide";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FiSearch } from "react-icons/fi";
-import { BsPersonPlus } from "react-icons/bs";
+import { HiOutlineUserAdd } from "react-icons/hi";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import NavSide from "./NavSide";
@@ -46,7 +46,12 @@ export default function Nav() {
         <div className="search-glass">
           <FiSearch />
         </div>
-        <div className="basket">
+        <div
+          className="basket"
+          onClick={e => {
+            navigate("/cart");
+          }}
+        >
           <MdOutlineShoppingBag />
         </div>
         <div
@@ -55,7 +60,7 @@ export default function Nav() {
             navigate("/login");
           }}
         >
-          <BsPersonPlus />
+          <HiOutlineUserAdd />
         </div>
         <div
           className="user"
