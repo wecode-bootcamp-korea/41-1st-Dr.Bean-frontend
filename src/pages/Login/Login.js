@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquare, faSquareCheck } from "@fortawesome/free-regular-svg-icons";
 import { useNavigate } from "react-router-dom";
@@ -26,14 +26,10 @@ const Login = () => {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.accessToken !== undefined) {
-          localStorage.setItem("token", data.accessToken);
-          navigate("/");
-        } else {
-          alert("존재하지 않는 회원입니다.");
-        }
+        localStorage.setItem("token", data.accessToken);
       });
   };
+
   const saveUserId = e => {
     const { value } = e.target;
     setInputValues({ ...inputValues, idValue: value });

@@ -14,7 +14,7 @@ const Payment = () => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    fetch("http://10.58.52.229:3000/carts", {
+    fetch("http://10.58.52.52:3000/carts", {
       method: "GET",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -71,7 +71,8 @@ const Payment = () => {
               </div>
             )}
           </button>
-          <Modal hidden={modal} productList={list} />
+
+          <Modal hidden={modal} />
 
           <div className="settleOrder">
             <div className="user">
@@ -117,7 +118,7 @@ const Payment = () => {
                 <input className="inputUser" />
               </div>
               <div>
-                <label className="userName">배송메세지 선택(선택)</label>
+                <label className="userName">배송메세지</label>
                 <input className="inputUser" />
               </div>
             </div>

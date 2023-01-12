@@ -94,7 +94,8 @@ export default function Signup() {
     }
   };
 
-  const phoneNumber = `${inputValues.phoneOne}${inputValues.phoneTwo}${inputValues.phoneThree}`;
+  const phoneNumber =
+    `${inputValues.phoneOne}${inputValues.phoneTwo}${inputValues.phoneThree}`.toString();
 
   const fetchHandler = e => {
     e.preventDefault();
@@ -261,7 +262,7 @@ export default function Signup() {
             name="points"
             className="inputbox"
             onChange={e => saveUserInfo(e)}
-            value={inputValues.points}
+            value="100000"
           />
           <button className="signup-btn">회원가입</button>
         </div>
