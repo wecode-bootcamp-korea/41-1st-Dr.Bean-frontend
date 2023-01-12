@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ProductCount from "./ProductCount/ProductCount";
 import "./ProductDetailMain.scss";
 import ProductSelect from "./ProductSelect/ProductSelect";
@@ -11,17 +11,15 @@ function ProductDetailMain() {
   const [size, setSize] = useState();
   const [grind, setGrind] = useState();
 
-  //백엔드 통신 로직
   const params = useParams();
-
   const productId = params.id;
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://10.58.52.52:3000/items/detail/${productId}`)
       .then(response => response.json())
       .then(result => setProductDetail(result));
   }, []);
-
   const { item_img, name, description, price } = productDetail;
 
   const toBuyServer = () => {
@@ -29,34 +27,45 @@ function ProductDetailMain() {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
+        Authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify({
+        itemId: productId,
+        quantity: count,
         size: size,
         grind: grind,
-        itemId: productId,
       }),
     })
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => {
+        console.log(data);
+      });
+    navigate("/payment");
   };
 
-  // const toCartServer = () => {
-  //   fetch(`http://10.58.52.52:3000/items/${productId}`, { //서버주소수정
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json; charset=utf-8",
-  //     },
-  //     body: JSON.stringify({
-  //       size: size,
-  //       grind: grind,
-  //       itemId: productId,
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => console.log(data));
-  // };
+  const toCartServer = () => {
+    fetch("http://10.58.52.229:3000/carts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        itemId: productId,
+        quantity: count,
+        size: size,
+        grind: grind,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        data.message === "CART_LIST_CREATED"
+          ? navigate("/cart")
+          : alert("로그인을 해주세요");
+      });
+  };
 
-  // console.log(size, grind, productId);
+  console.log(size, grind, productId);
 
   return (
     <div className="product-container inner">
@@ -74,9 +83,15 @@ function ProductDetailMain() {
               setCheckRdoId={setCheckRdoId}
             />
           </ul>
-
-          <ProductCount count={count} setCount={setCount} price={price} />
-          <button className="cart-btn">장바구니</button>
+          <ProductCount
+            count={count}
+            setCount={setCount}
+            price={price}
+            onClick={toCartServer}
+          />
+          <button className="cart-btn" onClick={toCartServer}>
+            장바구니
+          </button>
           <button className="buy-btn" onClick={toBuyServer}>
             구매하기
           </button>
