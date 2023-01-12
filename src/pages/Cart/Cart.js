@@ -3,13 +3,15 @@ import "./Cart.scss";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import { AiOutlineClose } from "react-icons/ai";
+import { Navigate, useNavigate } from "react-router-dom";
+
 const Cart = () => {
-  const [cartItem, setCartItem] = useState({ list: [] });
   const [list, setList] = useState([]);
-  const [modalPrice, setmodalPrice] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://10.58.52.52:3000/carts", {
+    fetch("http://10.58.52.229:3000/carts", {
       method: "GET",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -17,41 +19,33 @@ const Cart = () => {
       },
     })
       .then(response => response.json())
-
       .then(data => {
         setList(data);
       });
   }, []);
 
-  useEffect(() => {
-    fetch("http://10.58.52.52:3000/carts", {
+  const deletItem = id => {
+    const resultArray = [...list];
+    list.forEach(function (item, index) {
+      if (item.cart_id === id) {
+        resultArray.splice(index, 1);
+      }
+    });
+    setList([...resultArray]);
+
+    fetch(`http://10.58.52.229:3000/carts/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Authorization: localStorage.getItem("token"),
       },
-    })
-      .then(response => response.json())
-
-      .then(data => {
-        setList(data);
-      });
-  }, []);
-
-  const deleteItem = id => {
-    const resultArray = [...list];
-    list.forEach(function (item, index) {
-      if (item.id === id) {
-        resultArray.splice(index, 1);
-      }
-    });
-    setList([...resultArray]);
+    }).then(response => response.json());
   };
 
-  // const finalPrice = list.reduce((prev, cur) => {
-  //   prev += cur.price;
-  //   return prev;
-  // });
+  const finalPrice = list.reduce((prev, cur) => {
+    prev += Number(cur.price);
+    return prev;
+  }, 0);
 
   return (
     <div className="cart inner">
@@ -76,27 +70,28 @@ const Cart = () => {
                 <div className="cart-item" key={index}>
                   <img className="cart-item-img" src={item.item_img} />
                   <div className="item-info">
-                    <h2>
-                      {item.name}
-                      <button
-                        className="delete-box"
-                        onClick={() => deleteItem(item.id)}
-                      >
-                        <TiDeleteOutline />
-                      </button>
-                    </h2>
-                    <ui>
-                      <li>{item.id}</li>
-                      <li>{item.quantity}</li>
-                      <li>{item.name}</li>
+                    <h2>{item.name}</h2>
+                    <button
+                      className="delete-box"
+                      onClick={() => deletItem(item.cart_id)}
+                    >
+                      <TiDeleteOutline />
+                    </button>
+                    <ui className="option-list">
+                      <li>{item.grind}</li>
+                      <li>수량: {item.quantity}개 </li>
+                      <li>{item.grams}</li>
                       <li />
                     </ui>
                     <div className="info-price">
-                      <p className="price">₩{item.price}</p>
+                      <p className="price">
+                        ₩
+                        {parseInt(item.price)
+                          .toString()
+                          .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}
+                      </p>
                     </div>
-                    <p className="option">옵션/수량변경</p>
                   </div>
-                  {/* </img> */}
                 </div>
               ))}
             </div>
@@ -111,7 +106,7 @@ const Cart = () => {
             <div className="totalPrice">
               <div className="firstPrice">
                 <div>총 상품 금액</div>
-                <span>{}</span>
+                <span>{finalPrice}</span>
               </div>
               <div className="firstPrice">
                 <div>할인 금액</div>
@@ -119,11 +114,18 @@ const Cart = () => {
               </div>
               <div className="firstPrice-bottom">
                 <div>총 결제 예정 금액</div>
-                <span>₩{}</span>
+                <span>₩{finalPrice}</span>
               </div>
             </div>
           </article>
-          <button className="buy-button">구매하기</button>
+          <button
+            className="buy-button"
+            onClick={e => {
+              navigate("/Payment");
+            }}
+          >
+            구매하기
+          </button>
         </div>
       </div>
     </div>
