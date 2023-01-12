@@ -20,6 +20,7 @@ function ProductDetailMain() {
       .then(response => response.json())
       .then(result => setProductDetail(result));
   }, []);
+
   const { item_img, name, description, price } = productDetail;
 
   const toBuyServer = () => {
@@ -64,8 +65,6 @@ function ProductDetailMain() {
           : alert("로그인을 해주세요");
       });
   };
-
-  console.log(size, grind, productId);
 
   return (
     <div className="product-container inner">
