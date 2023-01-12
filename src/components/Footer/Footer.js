@@ -41,7 +41,7 @@ const Footer = () => {
             <div className="brand">Brand Story / Contact</div>
             <img
               src="/images/footerlog.jpg"
-              alt=""
+              alt="footerlog"
               onClick={e => {
                 navigate("/brandStroy");
               }}
