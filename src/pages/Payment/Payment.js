@@ -11,6 +11,17 @@ import { MdEditNote } from "react-icons/md";
 const Payment = () => {
   const [modal, setModal] = useState(true);
   const [list, setList] = useState([]);
+  const [addressinput, setAddressinput] = useState({
+    postcode: "",
+    mainaddress: "",
+    subaddress: "",
+    message: "",
+  });
+
+  const saveaddress = e => {
+    const { name, value } = e.target;
+    setAddressinput({ ...addressinput, [name]: value });
+  };
 
   // useEffect(() => {
   //   fetch("http://10.58.52.52:3000/carts", {
@@ -46,6 +57,8 @@ const Payment = () => {
         setList(data);
       });
   }, []);
+
+  console.log(addressinput);
 
   return (
     <div className="payment inner">
@@ -105,22 +118,41 @@ const Payment = () => {
               </div>
               <div>
                 <label className="userName">우편번호</label>
-
-                <input className="inputUser" />
+                <input
+                  className="inputUser"
+                  name="postcode"
+                  onChange={e => saveaddress(e)}
+                  value={addressinput.postcode}
+                />
               </div>
               <div>
                 <label className="userName" placeholder="주소">
                   주소
                 </label>
-                <input className="inputUser" />
+                <input
+                  className="inputUser"
+                  name="mainaddress"
+                  onChange={e => saveaddress(e)}
+                  value={addressinput.mainaddress}
+                />
               </div>
               <div>
                 <label className="userName">나머지주소</label>
-                <input className="inputUser" />
+                <input
+                  className="inputUser"
+                  name="subaddress"
+                  onChange={e => saveaddress(e)}
+                  value={addressinput.subaddress}
+                />
               </div>
               <div>
-                <label className="userName">배송메세지</label>
-                <input className="inputUser" />
+                <label className="userName">배송메세지 선택(선택)</label>
+                <input
+                  className="inputUser"
+                  name="message"
+                  onChange={e => saveaddress(e)}
+                  value={addressinput.message}
+                />
               </div>
             </div>
           </div>

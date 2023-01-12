@@ -28,7 +28,7 @@ function ProductDetailMain() {
       },
       body: JSON.stringify({
         quantity: 1,
-        itemOptionId: 106,
+        itemOptionId: 181,
         itemId: productId,
       }),
     })

@@ -6,13 +6,13 @@ import { AiOutlineClose } from "react-icons/ai";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const [cartItem, setCartItem] = useState({ list: [] });
+  // const [cartItem, setCartItem] = useState({ list: [] });
   const [list, setList] = useState([]);
-  const [test, setTest] = useState("");
+  // const [test, setTest] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://10.58.52.52:3000/carts", {
+    fetch("http://10.58.52.229:3000/carts", {
       method: "GET",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -20,24 +20,9 @@ const Cart = () => {
       },
     })
       .then(response => response.json())
-
       .then(data => {
         setList(data);
-      });
-  }, []);
-
-  useEffect(() => {
-    fetch("http://10.58.52.52:3000/carts", {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        Authorization: localStorage.getItem("token"),
-      },
-    })
-      .then(response => response.json())
-
-      .then(data => {
-        setList(data);
+        console.log(data);
       });
   }, []);
 
@@ -49,7 +34,24 @@ const Cart = () => {
       }
     });
     setList([...resultArray]);
+
+    fetch("http://10.58.52.52:3000/carts", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: localStorage.getItem("token"),
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        setList(data);
+      });
   };
+
+  const finalPrice = list.reduce((prev, cur) => {
+    prev += Number(cur.price);
+    return prev;
+  }, 0);
 
   return (
     <div className="cart inner">
@@ -88,7 +90,12 @@ const Cart = () => {
                       <li />
                     </ui>
                     <div className="info-price">
-                      <p className="price">₩{item.price}</p>
+                      <p className="price">
+                        ₩
+                        {parseInt(item.price)
+                          .toString()
+                          .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -105,7 +112,7 @@ const Cart = () => {
             <div className="totalPrice">
               <div className="firstPrice">
                 <div>총 상품 금액</div>
-                <span>{}</span>
+                <span>{finalPrice}</span>
               </div>
               <div className="firstPrice">
                 <div>할인 금액</div>
@@ -113,7 +120,7 @@ const Cart = () => {
               </div>
               <div className="firstPrice-bottom">
                 <div>총 결제 예정 금액</div>
-                <span>₩{}</span>
+                <span>₩{finalPrice}</span>
               </div>
             </div>
           </article>
