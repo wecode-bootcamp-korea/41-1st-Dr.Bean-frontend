@@ -10,7 +10,6 @@ import NavSide from "./NavSide";
 import { useNavigate } from "react-router-dom";
 
 export default function Nav() {
-  const [sideState, setSideState] = useState({ show: true });
   const [isOpen, setIsOpen] = useState(false);
   const handleNav = () => setIsOpen(prev => !prev);
 
