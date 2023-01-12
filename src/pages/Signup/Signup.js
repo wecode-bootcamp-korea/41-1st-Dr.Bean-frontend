@@ -99,7 +99,7 @@ export default function Signup() {
 
   const fetchHandler = e => {
     e.preventDefault();
-    fetch("http://10.58.52.52:3000/signup", {
+    fetch("http://10.58.52.229:3000/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
@@ -108,7 +108,7 @@ export default function Signup() {
         password: inputValues.userPw,
         email: emailAddress,
         phoneNumber: phoneNumber,
-        point: inputValues.points,
+        point: 100000,
       }),
     })
       .then(res => res.json())
