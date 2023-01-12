@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ProductCount from "./ProductCount/ProductCount";
 import "./ProductDetailMain.scss";
 import ProductSelect from "./ProductSelect/ProductSelect";
@@ -11,61 +11,50 @@ function ProductDetailMain() {
   const [size, setSize] = useState();
   const [grind, setGrind] = useState();
 
-  const params = useParams();
-  const productId = params.id;
-  const navigate = useNavigate();
+  //백엔드 통신 로직
+  // const params = useParams();
+
+  // const productId = params.id;
 
   useEffect(() => {
-    fetch(`http://10.58.52.229:3000/items/detail/${productId}`)
+    fetch("http://10.58.52.150:3000/items/detail/1")
       .then(response => response.json())
       .then(result => setProductDetail(result));
   }, []);
+
   const { item_img, name, description, price } = productDetail;
 
   const toBuyServer = () => {
-    fetch(`http://10.58.52.229:3000/items/${productId}`, {
+    fetch("http://10.58.52.150:3000/items/1", {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        Authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify({
-        itemId: productId,
-        quantity: count,
         size: size,
         grind: grind,
+        itemId: 1,
       }),
     })
       .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      });
-    navigate("/payment");
+      .then(data => console.log(data));
   };
 
   const toCartServer = () => {
-    fetch("http://10.58.52.229:3000/carts", {
+    fetch("http://10.58.52.150:3000/items/1", {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        Authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify({
-        itemId: productId,
-        quantity: count,
         size: size,
         grind: grind,
+        itemId: 1,
       }),
     })
       .then(res => res.json())
-      .then(data => {
-        data.message === "CART_LIST_CREATED"
-          ? navigate("/cart")
-          : alert("로그인을 해주세요");
-      });
+      .then(data => console.log(data));
   };
-
-  console.log(size, grind, productId);
 
   return (
     <div className="product-container inner">
@@ -76,19 +65,13 @@ function ProductDetailMain() {
           <p>{description}</p>
           <ul className="select-container">
             <ProductSelect
-              size={size}
-              grind={grind}
-              setGrind={setGrind}
+              name="size"
               setSize={setSize}
               setCheckRdoId={setCheckRdoId}
             />
           </ul>
-          <ProductCount
-            count={count}
-            setCount={setCount}
-            price={price}
-            onClick={toCartServer}
-          />
+
+          <ProductCount count={count} setCount={setCount} price={price} />
           <button className="cart-btn" onClick={toCartServer}>
             장바구니
           </button>

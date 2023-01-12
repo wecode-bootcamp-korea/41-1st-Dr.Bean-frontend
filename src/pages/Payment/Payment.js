@@ -11,6 +11,7 @@ import { MdEditNote } from "react-icons/md";
 const Payment = () => {
   const [modal, setModal] = useState(true);
   const [list, setList] = useState([]);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     fetch("http://10.58.52.52:3000/carts", {
@@ -38,9 +39,14 @@ const Payment = () => {
       .then(response => response.json())
 
       .then(data => {
-        setList(data);
+        setUser(data[0]);
       });
   }, []);
+
+  const finalPaymentPrice = list.reduce((prev, cur) => {
+    prev += Number(cur.price);
+    return prev;
+  }, 0);
 
   return (
     <div className="payment inner">
@@ -56,7 +62,7 @@ const Payment = () => {
             onClick={() => setModal(!modal)}
             className="settleProduct-list"
           >
-            <p>주문 예정 금액 (1item | {}₩ )</p>
+            <p>주문 예정 금액 {finalPaymentPrice} ₩ </p>
             {modal ? (
               <AiOutlinePlus className="plus-btn" />
             ) : (
@@ -66,7 +72,7 @@ const Payment = () => {
             )}
           </button>
 
-          <Modal hidden={modal} test={list} />
+          <Modal hidden={modal} />
 
           <div className="settleOrder">
             <div className="user">
@@ -75,7 +81,7 @@ const Payment = () => {
             </div>
             <div>
               <label className="userName">이름</label>
-              <input className="inputUser" />
+              <input className="inputUser" value={user.name} />
             </div>
             <label className="usePhone">전화번호</label>
             <div className="phone-number">
@@ -85,7 +91,7 @@ const Payment = () => {
             </div>
             <div>
               <label className="userEmail">이메일</label>
-              <input className="inputEmail" />
+              <input className="inputEmail" value={user.email} />
             </div>
             <div className="settle-deliver">
               <div className="deliver-headline">
@@ -112,7 +118,7 @@ const Payment = () => {
                 <input className="inputUser" />
               </div>
               <div>
-                <label className="userName">배송메세지 선택(선택)</label>
+                <label className="userName">배송메세지</label>
                 <input className="inputUser" />
               </div>
             </div>
@@ -126,19 +132,26 @@ const Payment = () => {
             <div className="totalPrice">
               <div className="firstPrice">
                 <div>총 상품 금액</div>
-                <div>₩233,333</div>
+                <div>
+                  ₩
+                  {finalPaymentPrice
+                    .toString()
+                    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}
+                </div>
               </div>
               <div className="firstPrice">
                 <div>보유 포인트</div>
-                <div>₩(+)0</div>
+                <div>₩{user.point}</div>
               </div>
-              <div className="firstPrice">
-                <div>결제 포인트</div>
-                <div>₩(+)0</div>
-              </div>
+
               <div className="firstPrice-bottom">
                 <div>총 결제 예정 금액</div>
-                <div>{}₩</div>
+                <div>
+                  ₩
+                  {(user.point - finalPaymentPrice)
+                    .toString()
+                    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}
+                </div>
               </div>
             </div>
           </article>
