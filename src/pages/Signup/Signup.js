@@ -262,7 +262,7 @@ export default function Signup() {
             name="points"
             className="inputbox"
             onChange={e => saveUserInfo(e)}
-            value="100000"
+            value="100,000"
           />
           <button className="signup-btn">회원가입</button>
         </div>

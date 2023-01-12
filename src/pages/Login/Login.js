@@ -16,7 +16,7 @@ const Login = () => {
   });
   const [isClicked, setIsClicked] = useState(false);
   const fetchHandler = () => {
-    fetch("http://10.58.52.52:3000/signin", {
+    fetch("http://10.58.52.229:3000/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
@@ -26,7 +26,8 @@ const Login = () => {
     })
       .then(res => res.json())
       .then(data => {
-        localStorage.setItem("token", data.accessToken);
+        localStorage.setItem("token", data.token);
+        navigate("/");
       });
   };
 
