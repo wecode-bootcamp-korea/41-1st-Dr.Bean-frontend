@@ -29,6 +29,7 @@ function ProductDetailMain() {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
+        Authorization: localStorage.getItem("accessToken"),
       },
       body: JSON.stringify({
         size: size,
