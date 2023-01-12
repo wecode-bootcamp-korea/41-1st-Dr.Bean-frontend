@@ -34,3 +34,14 @@
   padding-left: 15px;
   font-size: 20px;
 }
+
+@keyframes smoothSlide {
+  from {
+    transform: translateY(-5%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
