@@ -6,15 +6,26 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
 import { FiUser } from "react-icons/fi";
 import { CiDeliveryTruck } from "react-icons/ci";
-import { MdEditNote } from "react-icons/md";
+import { MdDirectionsBusFilled, MdDiscFull, MdEditNote } from "react-icons/md";
 
 const Payment = () => {
   const [modal, setModal] = useState(true);
   const [list, setList] = useState([]);
   const [user, setUser] = useState({});
+  const [addressinput, setAddressinput] = useState({
+    postcode: "",
+    mainaddress: "",
+    subaddress: "",
+    message: "",
+  });
+
+  const saveaddress = e => {
+    const { name, value } = e.target;
+    setAddressinput({ ...addressinput, [name]: value });
+  };
 
   useEffect(() => {
-    fetch("http://10.58.52.52:3000/carts", {
+    fetch("http://10.58.52.182:3000/carts", {
       method: "GET",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -28,8 +39,9 @@ const Payment = () => {
       });
   }, []);
 
+  console.log(list);
   useEffect(() => {
-    fetch("http://10.58.52.52:3000/order", {
+    fetch("http://10.58.52.182:3000/order", {
       method: "GET",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -42,6 +54,25 @@ const Payment = () => {
         setUser(data[0]);
       });
   }, []);
+
+  const payHandler = () => {
+    fetch("http://10.58.52.182:3000/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        zipCode: addressinput.postcode,
+        address: addressinput.mainaddress,
+        reAddress: addressinput.subaddress,
+        message: addressinput.message,
+        itemId: list[0].item_id,
+        itemOptionId: list[0].item_option_id,
+      }),
+    }).then(res => res.json());
+    alert("결제가 완료되었습니다");
+  };
 
   const finalPaymentPrice = list.reduce((prev, cur) => {
     prev += Number(cur.price);
@@ -62,7 +93,13 @@ const Payment = () => {
             onClick={() => setModal(!modal)}
             className="settleProduct-list"
           >
-            <p>주문 예정 금액 {finalPaymentPrice} ₩ </p>
+            <p>
+              주문 예정 금액{" "}
+              {finalPaymentPrice
+                .toString()
+                .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}{" "}
+              ₩{" "}
+            </p>
             {modal ? (
               <AiOutlinePlus className="plus-btn" />
             ) : (
@@ -85,9 +122,18 @@ const Payment = () => {
             </div>
             <label className="usePhone">전화번호</label>
             <div className="phone-number">
-              <input className="inputPhone" />
-              <input className="inputPhone" />
-              <input className="inputPhone" />
+              <input
+                className="inputPhone"
+                value={user.phone_num?.slice(0, 3)}
+              />
+              <input
+                className="inputPhone"
+                value={user.phone_num?.slice(3, 7)}
+              />
+              <input
+                className="inputPhone"
+                value={user.phone_num?.slice(7, 11)}
+              />
             </div>
             <div>
               <label className="userEmail">이메일</label>
@@ -104,22 +150,41 @@ const Payment = () => {
               </div>
               <div>
                 <label className="userName">우편번호</label>
-
-                <input className="inputUser" />
+                <input
+                  className="inputUser"
+                  name="postcode"
+                  onChange={e => saveaddress(e)}
+                  value={addressinput.postcode}
+                />
               </div>
               <div>
                 <label className="userName" placeholder="주소">
                   주소
                 </label>
-                <input className="inputUser" />
+                <input
+                  className="inputUser"
+                  name="mainaddress"
+                  onChange={e => saveaddress(e)}
+                  value={addressinput.mainaddress}
+                />
               </div>
               <div>
                 <label className="userName">나머지주소</label>
-                <input className="inputUser" />
+                <input
+                  className="inputUser"
+                  name="subaddress"
+                  onChange={e => saveaddress(e)}
+                  value={addressinput.subaddress}
+                />
               </div>
               <div>
-                <label className="userName">배송메세지</label>
-                <input className="inputUser" />
+                <label className="userName">배송메세지 선택(선택)</label>
+                <input
+                  className="inputUser"
+                  name="message"
+                  onChange={e => saveaddress(e)}
+                  value={addressinput.message}
+                />
               </div>
             </div>
           </div>
@@ -141,7 +206,12 @@ const Payment = () => {
               </div>
               <div className="firstPrice">
                 <div>보유 포인트</div>
-                <div>₩{user.point}</div>
+                <div>
+                  ₩
+                  {parseInt(user.point)
+                    .toString()
+                    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}
+                </div>
               </div>
 
               <div className="firstPrice-bottom">
@@ -161,7 +231,10 @@ const Payment = () => {
           </span>
           <button
             className="priceButton"
-            onClick={() => alert("결제가 완료되었습니다")}
+            onClick={
+              payHandler
+              // () => alert("결제가 완료되었습니다")
+            }
           >
             결제하기
           </button>
