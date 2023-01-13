@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./MainFilterItem.scss";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { BiWon } from "react-icons/bi";
 
 function MainFilterItem({ id, setId }) {
   const [item, setItem] = useState([]);
@@ -8,16 +9,10 @@ function MainFilterItem({ id, setId }) {
   const widthPx = 1140;
 
   useEffect(() => {
-    fetch(`http://10.58.52.150:3000/items/${id}`)
+    fetch(`http://10.58.52.108:3000/items/continent/${id}`)
       .then(res => res.json())
       .then(result => setItem(result));
   }, [id]);
-
-  // useEffect(() => {
-  //   fetch("/data/FilterData.json")
-  //     .then(res => res.json())
-  //     .then(data => setItem(data));
-  // }, []);
 
   const toPrev = () => {
     slidePx < 0 && setSlidePx(slidePx + widthPx);
@@ -43,7 +38,12 @@ function MainFilterItem({ id, setId }) {
                 <img className="item-img" src={str.item_img} />
                 <div className="item-sub-wrap">
                   <p class="fa-solid fa-won-sign">{str.name}</p>
-                  <p className="product-price">{str.price}</p>
+                  <p className="product-price">
+                    <BiWon />
+                    {parseInt(str.price)
+                      .toString()
+                      .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}
+                  </p>
                 </div>
               </li>
             );

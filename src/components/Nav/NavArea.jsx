@@ -3,7 +3,7 @@ export const sideArray = [
     id: 1,
     title: "아프리카",
     area: [
-      { name: "케냐", url: "/africa/kenya" },
+      { name: "케냐", url: "/productlist/africa/kenya" },
       { name: "에티오피아", url: "/africa/ethiopia" },
       { name: "르완다", url: "/africa/rwanda" },
       { name: "카메룬", url: "/africa/cameroon" },
