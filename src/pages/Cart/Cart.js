@@ -11,7 +11,7 @@ const Cart = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://10.58.52.52ç:3000/carts", {
+    fetch("http://10.58.52.108:3000/carts", {
       method: "GET",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -33,7 +33,7 @@ const Cart = () => {
     });
     setList([...resultArray]);
 
-    fetch(`http://10.58.52.229:3000/carts/${id}`, {
+    fetch(`http://10.58.52.108:3000/carts/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
