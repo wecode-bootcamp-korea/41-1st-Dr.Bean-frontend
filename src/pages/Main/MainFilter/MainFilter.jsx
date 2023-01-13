@@ -10,9 +10,6 @@ function MainFilter() {
   const changeId = id => {
     setId(id);
   };
-
-  console.log(id);
-
   useEffect(() => {
     fetch(`/data/Country.json`)
       .then(res => res.json())

@@ -10,6 +10,7 @@ import "./ProductListHeader.scss";
 export default function ProductListHeader({ category, country }) {
   const navigate = useNavigate();
   const [data, setData] = useState();
+  console.log(data);
 
   const findCountry = CONTINENT_DIVISION.find(
     e => e.titleEnglish === category.category
@@ -17,7 +18,7 @@ export default function ProductListHeader({ category, country }) {
   const findurl = COUNTRY_CODE.find(e => e.name === country.country);
 
   useEffect(() => {
-    fetch(`http://10.58.52.52:3000/items/country/${findurl.id}`)
+    fetch(`http://10.58.52.108:3000/items/country/${findurl.id}`)
       .then(response => response.json())
       .then(result => setData(result[0]));
   }, [findurl.id]);
