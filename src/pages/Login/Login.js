@@ -26,7 +26,12 @@ const Login = () => {
     })
       .then(res => res.json())
       .then(data => {
-        localStorage.setItem("token", data.accessToken);
+        if (data.accessToken !== undefined) {
+          localStorage.setItem("token", data.accessToken);
+          navigate("/");
+        } else {
+          alert("존재하지 않는 회원입니다.");
+        }
       });
   };
 
