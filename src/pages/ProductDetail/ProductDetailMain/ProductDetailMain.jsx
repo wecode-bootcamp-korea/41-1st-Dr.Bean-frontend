@@ -23,7 +23,7 @@ function ProductDetailMain() {
   const { item_img, name, description, price } = productDetail;
 
   const toBuyServer = () => {
-    fetch(`http://10.58.52.108:3000/items/${productId}`, {
+    fetch(`http://10.58.52.182:3000/items/${productId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
