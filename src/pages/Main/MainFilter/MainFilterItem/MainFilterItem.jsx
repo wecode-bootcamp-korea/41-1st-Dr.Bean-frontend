@@ -9,7 +9,7 @@ function MainFilterItem({ id, setId }) {
   const widthPx = 1140;
 
   useEffect(() => {
-    fetch(`http://10.58.52.52:3000/items/continent/${id}`)
+    fetch(`http://10.58.52.108:3000/items/continent/${id}`)
       .then(res => res.json())
       .then(result => setItem(result));
   }, [id]);
