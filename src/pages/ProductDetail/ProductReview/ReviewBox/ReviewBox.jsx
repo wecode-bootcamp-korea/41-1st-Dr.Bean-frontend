@@ -2,7 +2,8 @@ import "./ReviewBox.scss";
 import { IoMdClose } from "react-icons/io";
 import { BiWon } from "react-icons/bi";
 import { ImStarFull } from "react-icons/im";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { click } from "@testing-library/user-event/dist/click";
 
 function ReviewBox({
   className,
@@ -16,17 +17,25 @@ function ReviewBox({
     setClassName("");
   };
 
-  const [clicked, setClicked] = useState([false, false, false, false, false]);
+  // const [clicked, setClicked] = useState([false, false, false, false, false]);
+
+  // const handleStarClick = idx => {
+  //   let clickStates = [...clicked];
+  //   for (let i = 0; i < 5; i++) {
+  //     clickStates[i] = i <= idx ? true : false;
+  //   }
+  //   setClicked(clickStates);
+  // };
 
   const starArray = [1, 2, 3, 4, 5];
 
-  const handleStarClick = index => {
-    let clickStates = [...clicked];
-    for (let i = 0; i < 5; i++) {
-      clickStates[i] = i <= index ? true : false;
-    }
-    setClicked(clickStates);
-  };
+  // useEffect(() => {
+  //   sendReview();
+  // }, [clicked]);
+
+  // const sendReview = ()=>{
+  //   let score = click.filter(Boolean).length;
+  // }
 
   return (
     <div className={"form-bg" + className}>
@@ -55,13 +64,7 @@ function ReviewBox({
             <label>별점</label>
             <div className="like-wrap">
               {starArray.map(el => {
-                return (
-                  <ImStarFull
-                    key={el}
-                    className="like"
-                    onClick={handleStarClick}
-                  />
-                );
+                return <ImStarFull key={el} className="like" />;
               })}
             </div>
           </div>

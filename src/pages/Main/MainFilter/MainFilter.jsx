@@ -5,7 +5,6 @@ import MainFilterItem from "./MainFilterItem/MainFilterItem";
 function MainFilter() {
   const [country, setCountry] = useState([]);
   const [id, setId] = useState(1);
-  const [name, setName] = useState("");
 
   const changeId = id => {
     setId(id);
