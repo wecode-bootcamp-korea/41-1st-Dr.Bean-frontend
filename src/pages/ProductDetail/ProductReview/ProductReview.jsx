@@ -3,7 +3,6 @@ import "./ProductReview.scss";
 import { BsPencil } from "react-icons/bs";
 import ReviewItem from "./ReviewItem/ReviewItem";
 import ReviewBox from "./ReviewBox/ReviewBox";
-import useInput from "../../../useInput";
 
 function ProductReview() {
   const [view, setView] = useState(false);
@@ -11,17 +10,22 @@ function ProductReview() {
   const [review, setReview] = useState([]);
   const [limit, setLimit] = useState(3);
   const [offset, setOffset] = useState(0);
-  const [titleValue, handleChange] = useInput("hi");
-  const [contentValue, handleChange2] = useInput("내용");
 
   const openBtn = () => {
     setView(!view);
     view ? setClassName(" view") : setClassName("");
   };
+  const [state, setState] = useState({
+    review_title: "",
+    review_img: "",
+    review_content: "",
+  });
 
-  const updataOffset = () => {
-    setLimit(limit);
-    setOffset(limit + offset);
+  const handleChangeState = e => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
   };
 
   useEffect(() => {
@@ -32,16 +36,10 @@ function ProductReview() {
       .then(data => setReview(prev => [...prev, ...data]));
   }, [limit, offset]);
 
-  //배열 맨앞에 추가
-  // const addReview =()=>{
-  //   setReview(prev=> [...prev].unshift())
-  // }
-
-  //서버로 post 할 로직
-  // const handleClick = () =>{
-  //   title : titleValue,
-  //   content : contentValue,
-  // }
+  const updataOffset = () => {
+    setLimit(limit);
+    setOffset(limit + offset);
+  };
 
   return (
     <div className="review-container inner">
@@ -64,10 +62,11 @@ function ProductReview() {
       <ReviewBox
         className={className}
         setClassName={setClassName}
-        titleValue={titleValue}
-        handleChange={handleChange}
-        contentValue={contentValue}
-        handleChange2={handleChange2}
+        state={state}
+        setState={setState}
+        review={review}
+        setReview={setReview}
+        handleChangeState={handleChangeState}
       />
     </div>
   );
