@@ -6,19 +6,21 @@ import ReviewBox from "./ReviewBox/ReviewBox";
 
 function ProductReview() {
   const [view, setView] = useState(false);
-  const [className, setClassName] = useState("");
   const [review, setReview] = useState([]);
-  const [limit, setLimit] = useState(3);
   const [offset, setOffset] = useState(0);
+  const limit = 3;
 
-  const openBtn = () => {
-    setView(!view);
-    view ? setClassName(" view") : setClassName("");
+  const handleModal = () => {
+    setView(prev => !prev);
+  };
+
+  const closeBtn = () => {
+    setView(false);
   };
   const [state, setState] = useState({
-    review_title: "",
-    review_img: "",
-    review_content: "",
+    reviewTitle: "",
+    reviewImage: "",
+    reviewDetails: "",
   });
 
   const handleChangeState = e => {
@@ -30,44 +32,72 @@ function ProductReview() {
 
   useEffect(() => {
     fetch(
-      `http://10.58.52.229:3000/items/reviews/3?limit=${limit}&offset=${offset}`
+      `http://10.58.52.154:3000/items/reviews/1?limit=${limit}&offset=${offset}`
     )
       .then(res => res.json())
       .then(data => setReview(prev => [...prev, ...data]));
   }, [limit, offset]);
 
   const updataOffset = () => {
-    setLimit(limit);
-    setOffset(limit + offset);
+    setOffset(offset + limit);
+  };
+
+  const goToServer = () => {
+    fetch("http://10.58.52.154:3000/items/review", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        Authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        rates: 5,
+        itemId: 1,
+        reviewTitle: state.reviewTitle,
+        reviewDetails: state.reviewDetails,
+        reviewImage: state.reviewImage,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+      });
+  };
+
+  console.log(review);
+  const onDelete = targetId => {
+    const newReviewList = review.filter(it => it.id !== targetId);
+    setReview(newReviewList);
   };
 
   return (
     <div className="review-container inner">
       <div className="title-container">
         <span>상품후기</span>
-        <button onClick={openBtn}>
+        <button onClick={handleModal}>
           <BsPencil className="pencil-icon" />
           글쓰기
         </button>
       </div>
       <ul className="review-item-container">
         {review.map(info => {
-          return <ReviewItem key={info.id} info={info} />;
+          return <ReviewItem key={info.id} info={info} onDelete={onDelete} />;
         })}
         <button className="more-btn" onClick={updataOffset}>
           더 많은 후기 보기
         </button>
       </ul>
-
-      <ReviewBox
-        className={className}
-        setClassName={setClassName}
-        state={state}
-        setState={setState}
-        review={review}
-        setReview={setReview}
-        handleChangeState={handleChangeState}
-      />
+      {view && (
+        <ReviewBox
+          goToServer={goToServer}
+          handleModal={handleModal}
+          state={state}
+          setState={setState}
+          review={review}
+          setReview={setReview}
+          handleChangeState={handleChangeState}
+          closeBtn={closeBtn}
+        />
+      )}
     </div>
   );
 }

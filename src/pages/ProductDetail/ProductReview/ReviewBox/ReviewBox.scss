@@ -2,17 +2,12 @@
 @import "../../../../styles/variables";
 
 .form-bg {
-  display: none;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   background-color: rgba($color: $black, $alpha: 0.8);
-
-  &.view {
-    display: block;
-  }
 
   .form-container {
     position: fixed;
@@ -162,6 +157,7 @@
       height: 100%;
       font-size: 22px;
       font-weight: 700;
+      line-height: 60px;
     }
     .empty-btn {
       @include emptyBtn(22px);

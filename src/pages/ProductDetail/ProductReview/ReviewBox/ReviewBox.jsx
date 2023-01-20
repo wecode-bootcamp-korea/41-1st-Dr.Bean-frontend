@@ -5,50 +5,49 @@ import { ImStarFull } from "react-icons/im";
 import { useRef } from "react";
 
 function ReviewBox({
-  className,
-  setClassName,
   state,
   setState,
   review,
   setReview,
   handleChangeState,
+  handleModal,
+  goToServer,
+  closeBtn,
 }) {
-  const closeBtn = () => {
-    setClassName("");
-  };
-
   const titleInput = useRef();
   const contetnInput = useRef();
-  const currentId = useRef();
+  const currentId = useRef(0);
   const starArray = [1, 2, 3, 4, 5];
 
-  const onCreate = (review_title, review_content) => {
+  const onCreate = (reviewTitle, reviewDetails) => {
     const newItem = {
-      review_title,
-      review_content,
+      reviewTitle,
+      reviewDetails,
       id: currentId.current,
     };
+    currentId.current += 1;
     setReview([newItem, ...review]);
   };
 
   const handleSubmit = () => {
-    if (state.review_title.length < 1) {
+    if (state.reviewTitle.length < 1) {
       titleInput.current.focus();
       return;
     }
 
-    if (state.review_content.length < 5) {
+    if (state.reviewDetails.length < 5) {
       contetnInput.current.focus();
       return;
     }
 
-    onCreate(state.review_title, state.review_content);
+    onCreate(state.reviewTitle, state.review_details);
     setState({
-      review_title: "",
-      review_content: "",
+      reviewTitle: "",
+      reviewDetails: "",
     });
     alert("후기 등록이 완료됐습니다.");
     closeBtn();
+    goToServer();
   };
 
   // const [clicked, setClicked] = useState([false, false, false, false, false]);
@@ -62,11 +61,11 @@ function ReviewBox({
   // };
 
   return (
-    <div className={"form-bg" + className}>
+    <div className="form-bg">
       <form className="form-container">
         <div className="title-container">
           <span className="title">상품후기 작성</span>
-          <IoMdClose size={50} onClick={closeBtn} className="close-btn" />
+          <IoMdClose size={50} onClick={handleModal} className="close-btn" />
         </div>
         <div className="order-container">
           <img src="/images/coffee_icon.png" alt="상품사진" />
@@ -97,8 +96,8 @@ function ReviewBox({
             <input
               type="text"
               className="input-box"
-              name="review_title"
-              value={state.review_title}
+              name="reviewTitle"
+              value={state.reviewTitle}
               onChange={handleChangeState}
               ref={titleInput}
             />
@@ -118,8 +117,8 @@ function ReviewBox({
               <label>내용</label>
               <textarea
                 type="text"
-                name="review_content"
-                value={state.review_content}
+                name="reviewDetails"
+                value={state.reviewDetails}
                 onChange={handleChangeState}
                 ref={contetnInput}
               />
