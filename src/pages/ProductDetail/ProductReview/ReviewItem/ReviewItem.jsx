@@ -4,7 +4,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 
 function ReviewItem({ info, onDelete }) {
   const [view, setView] = useState(false);
-  const { id, review_img, reviewTitle, reviewDetails, user_name } = info;
+  const { id, review_img, review_title, review_details, user_name } = info;
 
   const name = view ? " view" : "";
   const open = view ? "접기" : "펼쳐보기";
@@ -17,7 +17,7 @@ function ReviewItem({ info, onDelete }) {
       <div className="user-info">
         <div className="user-id">{user_name}</div>
       </div>
-      <div className="review-title">{reviewTitle}</div>
+      <div className="review-title">{review_title}</div>
       <div className="review-wrap">
         {view && (
           <>
@@ -26,7 +26,7 @@ function ReviewItem({ info, onDelete }) {
               alt="review-img"
               className={"review-img" + name}
             />
-            <div className={"review-content" + name}>{reviewDetails}</div>
+            <div className={"review-content" + name}>{review_details}</div>
           </>
         )}
         <div className="more" onClick={clickHandler}>

@@ -50,16 +50,6 @@ function ReviewBox({
     goToServer();
   };
 
-  // const [clicked, setClicked] = useState([false, false, false, false, false]);
-
-  // const handleStarClick = idx => {
-  //   let clickStates = [...clicked];
-  //   for (let i = 0; i < 5; i++) {
-  //     clickStates[i] = i <= idx ? true : false;
-  //   }
-  //   setClicked(clickStates);
-  // };
-
   return (
     <div className="form-bg">
       <form className="form-container">

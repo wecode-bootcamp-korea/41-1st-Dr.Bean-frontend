@@ -3,12 +3,15 @@ import "./ProductReview.scss";
 import { BsPencil } from "react-icons/bs";
 import ReviewItem from "./ReviewItem/ReviewItem";
 import ReviewBox from "./ReviewBox/ReviewBox";
+import useFetch from "../../../hooks/useFetch";
 
 function ProductReview() {
   const [view, setView] = useState(false);
   const [review, setReview] = useState([]);
   const [offset, setOffset] = useState(0);
   const limit = 3;
+  //
+  // const [review] =useFetch( `http://10.58.52.154:3000/items/reviews/1?limit=${limit}&offset=${offset}`)
 
   const handleModal = () => {
     setView(prev => !prev);
@@ -17,6 +20,7 @@ function ProductReview() {
   const closeBtn = () => {
     setView(false);
   };
+
   const [state, setState] = useState({
     reviewTitle: "",
     reviewImage: "",
@@ -63,10 +67,19 @@ function ProductReview() {
       });
   };
 
-  console.log(review);
   const onDelete = targetId => {
-    const newReviewList = review.filter(it => it.id !== targetId);
-    setReview(newReviewList);
+    fetch(`http://10.58.52.154:3000/items/reviews/${targetId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    })
+      .then(res => res.text())
+      .then(res => {
+        if (res === "ok") {
+          setReview(review.filter(it => it.id !== targetId));
+        }
+      });
   };
 
   return (

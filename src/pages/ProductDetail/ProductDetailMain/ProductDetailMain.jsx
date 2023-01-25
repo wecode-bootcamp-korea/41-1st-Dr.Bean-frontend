@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import useFetch from "../../../hooks/useFetch";
 import ProductCount from "./ProductCount/ProductCount";
 import "./ProductDetailMain.scss";
 import ProductSelect from "./ProductSelect/ProductSelect";
 
 function ProductDetailMain() {
   const [checkRdoId, setCheckRdoId] = useState("");
-  const [productDetail, setProductDetail] = useState({});
   const [count, setCount] = useState(1);
   const [size, setSize] = useState();
   const [grind, setGrind] = useState();
@@ -14,12 +14,10 @@ function ProductDetailMain() {
   const params = useParams();
   const productId = params.id;
   const navigate = useNavigate();
+  const [productDetail] = useFetch(
+    `http://10.58.52.214:3000/items/${productId}`
+  );
 
-  useEffect(() => {
-    fetch(`http://10.58.52.108:3000/items/detail/${productId}`)
-      .then(response => response.json())
-      .then(result => setProductDetail(result));
-  }, []);
   const { item_img, name, description, price } = productDetail;
 
   const toBuyServer = () => {
@@ -64,8 +62,6 @@ function ProductDetailMain() {
           : alert("로그인을 해주세요");
       });
   };
-
-  console.log(size, grind, productId);
 
   return (
     <div className="product-container inner">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BiPlus, BiMinus, BiWon } from "react-icons/bi";
 import "./ProductCount.scss";
 
